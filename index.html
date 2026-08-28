@@ -129,6 +129,35 @@
             opacity: 0.12;
         }
 
+        .bed {
+            position: absolute;
+            width: 55%;
+            height: 20%;
+            left: 22%;
+            bottom: 22%;
+            background: #151413;
+            border: 1px solid #22201d;
+        }
+
+        .pillow {
+            position: absolute;
+            width: 22%;
+            height: 35%;
+            left: 5%;
+            top: 15%;
+            background: #1b1917;
+            border: 1px solid #27241f;
+        }
+
+        .blanket {
+            position: absolute;
+            width: 65%;
+            height: 70%;
+            right: 5%;
+            top: 15%;
+            background: #121110;
+        }
+
         .fade-out {
             animation: fadeOut 1s ease-in-out forwards;
         }
@@ -214,6 +243,11 @@
                                         <div class="room">
                                             <div class="light"></div>
                                             <div class="floor"></div>
+
+                                            <div class="bed">
+                                                <div class="pillow"></div>
+                                                <div class="blanket"></div>
+                                            </div>
                                         </div>
                                     `;
 
