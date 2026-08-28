@@ -59,15 +59,17 @@
             letter-spacing: 5px;
             color: #77736b;
         }
-.game-screen {
-    text-align: center;
-}
 
-.game-screen p {
-    font-size: 18px;
-    letter-spacing: 3px;
-    color: #aaa59a;
-}
+        .game-screen {
+            text-align: center;
+        }
+
+        .game-screen p {
+            font-size: 18px;
+            letter-spacing: 3px;
+            color: #aaa59a;
+        }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -99,20 +101,31 @@
     <script>
         function beginGame() {
 
-document.body.innerHTML = `
-    <div class="game-screen">
-        <p>You awaken.</p>
-    </div>
-`;
+            document.body.innerHTML = `
+                <div class="loading-screen">
+                    <p>LOADING...</p>
+                </div>
+            `;
 
-setTimeout(function() {
-    document.body.innerHTML = `
-        <div class="game-screen">
-            <p>It is still dark.</p>
-        </div>
-    `;
-}, 3000);
+            setTimeout(function() {
 
+                document.body.innerHTML = `
+                    <div class="game-screen">
+                        <p>You awaken.</p>
+                    </div>
+                `;
+
+                setTimeout(function() {
+
+                    document.body.innerHTML = `
+                        <div class="game-screen">
+                            <p>It is still dark.</p>
+                        </div>
+                    `;
+
+                }, 3000);
+
+            }, 5000);
         }
     </script>
 
