@@ -5,6 +5,11 @@
     <title>In His Name</title>
 
     <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             background: #0b0b0b;
@@ -14,14 +19,19 @@
             overflow: hidden;
         }
 
-        /* TITLE */
+
+        /* =========================
+           TITLE SCREEN
+        ========================= */
 
         .title-screen {
             width: 100vw;
             height: 100vh;
+
             display: flex;
             justify-content: center;
             align-items: center;
+
             text-align: center;
         }
 
@@ -40,19 +50,26 @@
 
         .subtitle {
             margin-top: 20px;
+
             font-size: 14px;
             letter-spacing: 4px;
+
             color: #77736b;
         }
 
         .start {
             margin-top: 80px;
+
             font-size: 16px;
             letter-spacing: 3px;
+
             color: #aaa59a;
+
             background: none;
             border: none;
+
             font-family: Georgia, serif;
+
             cursor: pointer;
         }
 
@@ -60,11 +77,15 @@
             color: #ffffff;
         }
 
-        /* LOADING */
+
+        /* =========================
+           LOADING
+        ========================= */
 
         .loading-screen {
             width: 100vw;
             height: 100vh;
+
             display: flex;
             justify-content: center;
             align-items: center;
@@ -73,111 +94,171 @@
         .loading-screen p {
             font-size: 14px;
             letter-spacing: 5px;
+
             color: #77736b;
         }
 
-        /* STORY */
+
+        /* =========================
+           STORY
+        ========================= */
 
         .game-screen {
             width: 100vw;
             height: 100vh;
+
             display: flex;
             justify-content: center;
             align-items: center;
+
             text-align: center;
         }
 
         .game-screen p {
             font-size: 18px;
             letter-spacing: 3px;
+
             color: #aaa59a;
+
             line-height: 2;
         }
 
         .black-screen {
             width: 100vw;
             height: 100vh;
+
             background: #000000;
         }
 
-        /* ROOM */
+
+        /* =========================
+           CAMERA
+        ========================= */
 
         .room-window {
             width: 100vw;
             height: 100vh;
-            overflow: hidden;
+
             position: relative;
+
+            overflow: hidden;
         }
 
         .room {
             width: 180vw;
             height: 100vh;
-            background: #090909;
+
             position: absolute;
+
             top: 0;
             left: -40vw;
-            overflow: hidden;
+
+            background: #090909;
+
             transition: left 0.7s ease;
         }
 
+
+        /* =========================
+           WALL
+        ========================= */
+
         .back-wall {
             position: absolute;
+
             top: 0;
             left: 0;
-            width: 100%;
-            height: 68%;
+
+            width: 180vw;
+            height: 68vh;
+
             background: #090909;
+
             border-bottom: 1px solid #1c1b19;
         }
 
+
+        /* =========================
+           LIGHT
+        ========================= */
+
         .wall-light {
             position: absolute;
+
             width: 500px;
             height: 300px;
-            top: 25%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #8f8979;
-            filter: blur(80px);
-            opacity: 0.035;
-        }
 
-        .floor {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 32%;
-            background: #11100f;
-            border-top: 1px solid #1c1b19;
+            top: 25vh;
+            left: 90vw;
+
+            transform: translateX(-50%);
+
+            background: #8f8979;
+
+            filter: blur(80px);
+
+            opacity: 0.035;
         }
 
         .light {
             position: absolute;
+
             width: 220px;
             height: 220px;
-            background: #b8b29f;
-            border-radius: 50%;
-            top: 45%;
-            left: 50%;
+
+            top: 45vh;
+            left: 90vw;
+
             transform: translate(-50%, -50%);
+
+            background: #b8b29f;
+
+            border-radius: 50%;
+
             filter: blur(45px);
+
             opacity: 0.12;
         }
 
-        /* DOOR */
+
+        /* =========================
+           FLOOR
+        ========================= */
+
+        .floor {
+            position: absolute;
+
+            bottom: 0;
+            left: 0;
+
+            width: 180vw;
+            height: 32vh;
+
+            background: #11100f;
+
+            border-top: 1px solid #1c1b19;
+        }
+
+
+        /* =========================
+           DOOR
+        ========================= */
 
         .door {
-    position: absolute;
-    width: 16vw;
-    height: 45vh;
-    left: 76vw;
-    bottom: 32vh;
-    background: #11100f;
-    border: 1px solid #24211d;
-    box-sizing: border-box;
-    cursor: pointer;
-}
+            position: absolute;
+
+            width: 16vw;
+            height: 45vh;
+
+            left: 136vw;
+            bottom: 32vh;
+
+            background: #11100f;
+
+            border: 1px solid #24211d;
+
+            cursor: pointer;
+        }
 
         .door:hover {
             border-color: #3a352d;
@@ -185,65 +266,104 @@
 
         .door-knob {
             position: absolute;
+
             width: 8px;
             height: 8px;
-            border-radius: 50%;
+
             right: 12%;
             top: 52%;
+
+            border-radius: 50%;
+
             background: #4a463d;
         }
 
-        /* BED */
 
-       .bed {
-    position: absolute;
-    width: 55vw;
-    height: 20vh;
-    left: 22vw;
-    bottom: 22vh;
-    background: #191816;
-    border: 1px solid #2b2823;
-    box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.4);
-    cursor: pointer;
-}
+        /* =========================
+           BED
+        ========================= */
+
+        .bed {
+            position: absolute;
+
+            width: 55vw;
+            height: 20vh;
+
+            left: 40vw;
+            bottom: 22vh;
+
+            background: #191816;
+
+            border: 1px solid #2b2823;
+
+            box-shadow:
+                0 -8px 25px rgba(0, 0, 0, 0.4);
+
+            cursor: pointer;
+        }
+
         .bed:hover {
             border-color: #3a352d;
         }
 
+
+        /* =========================
+           PILLOW
+        ========================= */
+
         .pillow {
             position: absolute;
+
             width: 22%;
             height: 35%;
+
             left: 5%;
             top: 15%;
+
             background: #211f1c;
+
             border: 1px solid #302c26;
-            box-sizing: border-box;
         }
+
+
+        /* =========================
+           BLANKET
+        ========================= */
 
         .blanket {
             position: absolute;
+
             width: 65%;
             height: 70%;
+
             right: 5%;
             top: 15%;
+
             background: #171513;
+
             border: 1px solid #211e1a;
-            box-sizing: border-box;
         }
 
-        /* NIGHTSTAND */
+
+        /* =========================
+           NIGHTSTAND
+        ========================= */
 
         .nightstand {
-    position: absolute;
-    width: 10vw;
-    height: 15vh;
-    left: 8vw;
-    bottom: 32vh;
-    background: #121110;
-    border: 1px solid #211f1c;
-    cursor: pointer;
-}
+            position: absolute;
+
+            width: 10vw;
+            height: 15vh;
+
+            left: 16vw;
+            bottom: 32vh;
+
+            background: #121110;
+
+            border: 1px solid #211f1c;
+
+            cursor: pointer;
+        }
 
         .nightstand:hover {
             border-color: #3a352d;
@@ -251,87 +371,129 @@
 
         .drawer {
             position: absolute;
+
             width: 70%;
             height: 25%;
+
             left: 15%;
             top: 20%;
+
             border: 1px solid #27241f;
         }
 
-        /* CROSS */
+
+        /* =========================
+           CRUCIFIX
+        ========================= */
 
         .cross {
             position: absolute;
-            width: 4px;
-            height: 70px;
-            left: 35%;
-            top: 18%;
-            background: #25221e;
+
+            width: 50px;
+            height: 90px;
+
+            left: 62vw;
+            top: 18vh;
+
             cursor: pointer;
         }
 
-      .cross {
-    position: absolute;
-    width: 4px;
-    height: 70px;
-    left: 35vw;
-    top: 18vh;
-    background: #25221e;
-    cursor: pointer;
-}
-        /* PICTURE */
+        .cross::before {
+            content: "";
 
-       .picture {
-    position: absolute;
-    width: 12vw;
-    height: 16vh;
-    left: 8vw;
-    top: 14vh;
-    border: 3px solid #25221e;
-    box-sizing: border-box;
-    background: #11100f;
-    cursor: pointer;
-}
+            position: absolute;
+
+            width: 8px;
+            height: 90px;
+
+            left: 21px;
+            top: 0;
+
+            background: #25221e;
+        }
+
+        .cross::after {
+            content: "";
+
+            position: absolute;
+
+            width: 50px;
+            height: 8px;
+
+            left: 0;
+            top: 28px;
+
+            background: #25221e;
+        }
+
+        .cross:hover::before,
+        .cross:hover::after {
+            background: #3a352d;
+        }
+
+
+        /* =========================
+           PICTURE
+        ========================= */
+
+        .picture {
+            position: absolute;
+
+            width: 12vw;
+            height: 16vh;
+
+            left: 16vw;
+            top: 14vh;
+
+            border: 3px solid #25221e;
+
+            background: #11100f;
+
+            cursor: pointer;
+        }
+
         .picture:hover {
             border-color: #3a352d;
         }
 
         .picture-inner {
             position: absolute;
+
             width: 70%;
             height: 70%;
+
             left: 15%;
             top: 15%;
+
             background: #171614;
         }
 
-        /* MOVEMENT HINT */
 
-        .movement-hint {
-            position: absolute;
-            bottom: 4%;
-            left: 50%;
-            transform: translateX(-50%);
-            color: #5f5b53;
-            font-size: 12px;
-            letter-spacing: 2px;
-            pointer-events: none;
-        }
-
-        /* MESSAGE */
+        /* =========================
+           MESSAGE
+        ========================= */
 
         .interaction-message {
             position: fixed;
+
             bottom: 10%;
             left: 50%;
+
             transform: translateX(-50%);
+
             color: #aaa59a;
+
             font-size: 16px;
             letter-spacing: 2px;
+
             opacity: 0;
+
             transition: opacity 0.5s ease;
+
             pointer-events: none;
+
             white-space: nowrap;
+
             z-index: 10;
         }
 
@@ -339,13 +501,40 @@
             opacity: 1;
         }
 
-        /* ANIMATIONS */
+
+        /* =========================
+           MOVEMENT HINT
+        ========================= */
+
+        .movement-hint {
+            position: fixed;
+
+            bottom: 4%;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            color: #5f5b53;
+
+            font-size: 12px;
+            letter-spacing: 2px;
+
+            pointer-events: none;
+
+            z-index: 10;
+        }
+
+
+        /* =========================
+           FADE
+        ========================= */
 
         .fade-out {
             animation: fadeOut 1s ease-in-out forwards;
         }
 
         @keyframes fadeOut {
+
             from {
                 opacity: 1;
             }
@@ -353,12 +542,19 @@
             to {
                 opacity: 0;
             }
+
         }
+
     </style>
 </head>
 
 
 <body>
+
+
+    <!-- =========================
+         TITLE
+    ========================= -->
 
     <div class="title-screen">
 
@@ -370,8 +566,12 @@
                 A STORY OF FAITH
             </div>
 
-            <button class="start" onclick="beginGame()">
+            <button
+                class="start"
+                onclick="beginGame()">
+
                 [ CLICK TO BEGIN ]
+
             </button>
 
         </div>
@@ -381,19 +581,28 @@
 
     <script>
 
+
         /* =========================
            GAME STATE
         ========================= */
 
         let inspectedObjects = {
+
             bed: false,
+
             nightstand: false,
+
             cross: false,
+
             picture: false,
+
             door: false
+
         };
 
+
         let firstEventTriggered = false;
+
 
         let roomPosition = -40;
 
@@ -405,34 +614,49 @@
         function beginGame() {
 
             document.body.innerHTML = `
+
                 <div class="loading-screen">
+
                     <p>LOADING...</p>
+
                 </div>
+
             `;
+
 
             setTimeout(function() {
 
-                showStory("You awaken.", function() {
-
-                    showStory("It is still dark.", function() {
+                showStory(
+                    "You awaken.",
+                    function() {
 
                         showStory(
-                            "You cannot remember falling asleep.",
+                            "It is still dark.",
                             function() {
 
                                 showStory(
-                                    "Something is breathing nearby.",
+                                    "You cannot remember falling asleep.",
                                     function() {
 
-                                        document.body.innerHTML = `
-                                            <div class="black-screen"></div>
-                                        `;
+                                        showStory(
+                                            "Something is breathing nearby.",
+                                            function() {
 
-                                        setTimeout(function() {
+                                                document.body.innerHTML = `
 
-                                            showRoom();
+                                                    <div class="black-screen"></div>
 
-                                        }, 2000);
+                                                `;
+
+
+                                                setTimeout(function() {
+
+                                                    showRoom();
+
+                                                }, 2000);
+
+                                            }
+                                        );
 
                                     }
                                 );
@@ -440,11 +664,11 @@
                             }
                         );
 
-                    });
-
-                });
+                    }
+                );
 
             }, 5000);
+
         }
 
 
@@ -455,27 +679,40 @@
         function showStory(text, next) {
 
             document.body.innerHTML = `
-                <div class="game-screen" id="story">
+
+                <div
+                    class="game-screen"
+                    id="story">
+
                     <p>${text}</p>
+
                 </div>
+
             `;
+
 
             setTimeout(function() {
 
                 const story =
                     document.getElementById("story");
 
+
                 story.classList.add("fade-out");
+
 
                 setTimeout(function() {
 
                     if (next) {
+
                         next();
+
                     }
 
                 }, 1000);
 
+
             }, 3000);
+
         }
 
 
@@ -486,50 +723,63 @@
         function showRoom() {
 
             document.body.innerHTML = `
+
                 <div class="room-window">
 
-                    <div class="room" id="room">
+
+                    <div
+                        class="room"
+                        id="room">
+
 
                         <div class="back-wall"></div>
 
+
                         <div class="wall-light"></div>
 
+
                         <div class="light"></div>
+
 
                         <div class="floor"></div>
 
 
-                        <div class="picture"
-                             onclick="inspectPicture()">
+                        <div
+                            class="picture"
+                            onclick="inspectPicture()">
 
                             <div class="picture-inner"></div>
 
                         </div>
 
 
-                        <div class="cross"
-                             onclick="inspectCross()">
+                        <div
+                            class="cross"
+                            onclick="inspectCross()">
                         </div>
 
 
-                        <div class="nightstand"
-                             onclick="inspectNightstand()">
+                        <div
+                            class="nightstand"
+                            onclick="inspectNightstand()">
 
                             <div class="drawer"></div>
 
                         </div>
 
 
-                        <div class="door"
-                             onclick="inspectDoor()">
+                        <div
+                            class="door"
+                            onclick="inspectDoor()">
 
                             <div class="door-knob"></div>
 
                         </div>
 
 
-                        <div class="bed"
-                             onclick="inspectBed()">
+                        <div
+                            class="bed"
+                            onclick="inspectBed()">
 
                             <div class="pillow"></div>
 
@@ -537,59 +787,87 @@
 
                         </div>
 
+
                     </div>
 
 
-                    <div class="interaction-message"
-                         id="interactionMessage">
+                    <div
+                        class="interaction-message"
+                        id="interactionMessage">
                     </div>
 
 
                     <div class="movement-hint">
+
                         [ ← → ] LOOK AROUND
+
                     </div>
 
+
                 </div>
+
             `;
+
         }
 
 
         /* =========================
-           MOVEMENT
+           CAMERA MOVEMENT
         ========================= */
 
-        document.addEventListener("keydown", function(event) {
+        document.addEventListener(
+            "keydown",
+            function(event) {
 
-            const room = document.getElementById("room");
 
-            if (!room) {
-                return;
-            }
+                const room =
+                    document.getElementById("room");
 
-            if (event.key === "ArrowLeft") {
 
-                roomPosition += 15;
+                if (!room) {
 
-                if (roomPosition > 0) {
-                    roomPosition = 0;
+                    return;
+
                 }
 
-                room.style.left = roomPosition + "vw";
-            }
+
+                if (event.key === "ArrowLeft") {
+
+                    roomPosition += 15;
 
 
-            if (event.key === "ArrowRight") {
+                    if (roomPosition > 0) {
 
-                roomPosition -= 15;
+                        roomPosition = 0;
 
-                if (roomPosition < -80) {
-                    roomPosition = -80;
+                    }
+
+
+                    room.style.left =
+                        roomPosition + "vw";
+
                 }
 
-                room.style.left = roomPosition + "vw";
-            }
 
-        });
+                if (event.key === "ArrowRight") {
+
+                    roomPosition -= 15;
+
+
+                    if (roomPosition < -80) {
+
+                        roomPosition = -80;
+
+                    }
+
+
+                    room.style.left =
+                        roomPosition + "vw";
+
+                }
+
+            }
+        );
 
 
         /* =========================
@@ -599,39 +877,61 @@
         function showMessage(text) {
 
             const message =
-                document.getElementById("interactionMessage");
+                document.getElementById(
+                    "interactionMessage"
+                );
+
 
             message.textContent = text;
 
-            message.classList.add("visible");
+
+            message.classList.add(
+                "visible"
+            );
+
 
             setTimeout(function() {
 
-                message.classList.remove("visible");
+                message.classList.remove(
+                    "visible"
+                );
 
             }, 3000);
+
         }
 
 
         /* =========================
-           PROGRESS
+           INSPECTION PROGRESS
         ========================= */
 
         function checkInspections() {
 
             let count = 0;
 
-            for (let object in inspectedObjects) {
 
-                if (inspectedObjects[object]) {
+            for (
+                let object in inspectedObjects
+            ) {
+
+                if (
+                    inspectedObjects[object]
+                ) {
+
                     count++;
+
                 }
 
             }
 
-            if (count === 5 && !firstEventTriggered) {
+
+            if (
+                count === 5 &&
+                !firstEventTriggered
+            ) {
 
                 firstEventTriggered = true;
+
 
                 setTimeout(function() {
 
@@ -640,41 +940,65 @@
                     );
 
                 }, 1000);
+
             }
+
         }
 
 
         /* =========================
-           OBJECTS
+           DOOR
         ========================= */
 
         function inspectDoor() {
 
-            if (!inspectedObjects.door) {
+            if (
+                !inspectedObjects.door
+            ) {
 
-                showMessage("The door is closed.");
+                showMessage(
+                    "The door is closed."
+                );
+
 
                 inspectedObjects.door = true;
 
-            } else {
+            }
 
-                showMessage("You try the handle again.");
+            else {
+
+                showMessage(
+                    "You try the handle again."
+                );
 
             }
 
+
             checkInspections();
+
         }
 
 
+        /* =========================
+           BED
+        ========================= */
+
         function inspectBed() {
 
-            if (!inspectedObjects.bed) {
+            if (
+                !inspectedObjects.bed
+            ) {
 
-                showMessage("The sheets are cold.");
+                showMessage(
+                    "The sheets are cold."
+                );
+
 
                 inspectedObjects.bed = true;
 
-            } else {
+            }
+
+            else {
 
                 showMessage(
                     "The warmth has already left them."
@@ -682,39 +1006,65 @@
 
             }
 
+
             checkInspections();
+
         }
 
+
+        /* =========================
+           NIGHTSTAND
+        ========================= */
 
         function inspectNightstand() {
 
-            if (!inspectedObjects.nightstand) {
+            if (
+                !inspectedObjects.nightstand
+            ) {
 
-                showMessage("There is nothing on it.");
+                showMessage(
+                    "There is nothing on it."
+                );
+
 
                 inspectedObjects.nightstand = true;
 
-            } else {
+            }
 
-                showMessage("You find nothing new.");
+            else {
+
+                showMessage(
+                    "You find nothing new."
+                );
 
             }
 
+
             checkInspections();
+
         }
 
 
+        /* =========================
+           CROSS
+        ========================= */
+
         function inspectCross() {
 
-            if (!inspectedObjects.cross) {
+            if (
+                !inspectedObjects.cross
+            ) {
 
                 showMessage(
                     "A wooden cross hangs above the bed."
                 );
 
+
                 inspectedObjects.cross = true;
 
-            } else {
+            }
+
+            else {
 
                 showMessage(
                     "You have always found comfort in it."
@@ -722,21 +1072,32 @@
 
             }
 
+
             checkInspections();
+
         }
 
 
+        /* =========================
+           PICTURE
+        ========================= */
+
         function inspectPicture() {
 
-            if (!inspectedObjects.picture) {
+            if (
+                !inspectedObjects.picture
+            ) {
 
                 showMessage(
                     "The picture is too dark to make out."
                 );
 
+
                 inspectedObjects.picture = true;
 
-            } else {
+            }
+
+            else {
 
                 showMessage(
                     "You think you recognize the faces."
@@ -744,8 +1105,11 @@
 
             }
 
+
             checkInspections();
+
         }
+
 
     </script>
 
