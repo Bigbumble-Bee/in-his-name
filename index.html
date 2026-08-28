@@ -14,8 +14,6 @@
             overflow: hidden;
         }
 
-        /* TITLE SCREEN */
-
         .title-screen {
             width: 100vw;
             height: 100vh;
@@ -60,8 +58,6 @@
             color: #ffffff;
         }
 
-        /* LOADING */
-
         .loading-screen {
             width: 100vw;
             height: 100vh;
@@ -69,7 +65,6 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            animation: fadeIn 2s ease-in-out;
         }
 
         .loading-screen p {
@@ -78,8 +73,6 @@
             color: #77736b;
         }
 
-        /* STORY */
-
         .game-screen {
             width: 100vw;
             height: 100vh;
@@ -87,7 +80,6 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            animation: fadeIn 2s ease-in-out;
         }
 
         .game-screen p {
@@ -111,7 +103,6 @@
             background: #090909;
             position: relative;
             overflow: hidden;
-            animation: roomReveal 5s ease-in-out;
         }
 
         .back-wall {
@@ -303,7 +294,7 @@
             background: #171614;
         }
 
-        /* INTERACTION MESSAGE */
+        /* MESSAGE */
 
         .interaction-message {
             position: absolute;
@@ -323,20 +314,10 @@
             opacity: 1;
         }
 
-        /* ANIMATIONS */
+        /* FADE */
 
         .fade-out {
             animation: fadeOut 1s ease-in-out forwards;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
         }
 
         @keyframes fadeOut {
@@ -346,16 +327,6 @@
 
             to {
                 opacity: 0;
-            }
-        }
-
-        @keyframes roomReveal {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
             }
         }
     </style>
@@ -385,7 +356,9 @@
 
     <script>
 
-        /* OBJECT MEMORY */
+        /* =========================
+           GAME STATE
+        ========================= */
 
         let inspectedObjects = {
             bed: false,
@@ -395,6 +368,12 @@
             door: false
         };
 
+        let firstEventTriggered = false;
+
+
+        /* =========================
+           BEGIN GAME
+        ========================= */
 
         function beginGame() {
 
@@ -436,6 +415,10 @@
         }
 
 
+        /* =========================
+           STORY TEXT
+        ========================= */
+
         function showStory(text, next) {
 
             document.body.innerHTML = `
@@ -446,7 +429,8 @@
 
             setTimeout(function() {
 
-                const story = document.getElementById("story");
+                const story =
+                    document.getElementById("story");
 
                 story.classList.add("fade-out");
 
@@ -461,6 +445,10 @@
             }, 3000);
         }
 
+
+        /* =========================
+           ROOM
+        ========================= */
 
         function showRoom() {
 
@@ -524,6 +512,10 @@
         }
 
 
+        /* =========================
+           MESSAGE
+        ========================= */
+
         function showMessage(text) {
 
             const message =
@@ -541,6 +533,42 @@
         }
 
 
+        /* =========================
+           CHECK PROGRESS
+        ========================= */
+
+        function checkInspections() {
+
+            let count = 0;
+
+            for (let object in inspectedObjects) {
+
+                if (inspectedObjects[object]) {
+                    count++;
+                }
+
+            }
+
+            if (count === 5 && !firstEventTriggered) {
+
+                firstEventTriggered = true;
+
+                setTimeout(function() {
+
+                    showMessage(
+                        "You feel as though you are being watched."
+                    );
+
+                }, 1000);
+
+            }
+        }
+
+
+        /* =========================
+           OBJECT INTERACTIONS
+        ========================= */
+
         function inspectDoor() {
 
             if (!inspectedObjects.door) {
@@ -554,6 +582,8 @@
                 showMessage("You try the handle again.");
 
             }
+
+            checkInspections();
         }
 
 
@@ -567,9 +597,13 @@
 
             } else {
 
-                showMessage("The warmth has already left them.");
+                showMessage(
+                    "The warmth has already left them."
+                );
 
             }
+
+            checkInspections();
         }
 
 
@@ -586,6 +620,8 @@
                 showMessage("You find nothing new.");
 
             }
+
+            checkInspections();
         }
 
 
@@ -593,15 +629,21 @@
 
             if (!inspectedObjects.cross) {
 
-                showMessage("A wooden cross hangs above the bed.");
+                showMessage(
+                    "A wooden cross hangs above the bed."
+                );
 
                 inspectedObjects.cross = true;
 
             } else {
 
-                showMessage("You have always found comfort in it.");
+                showMessage(
+                    "You have always found comfort in it."
+                );
 
             }
+
+            checkInspections();
         }
 
 
@@ -609,15 +651,21 @@
 
             if (!inspectedObjects.picture) {
 
-                showMessage("The picture is too dark to make out.");
+                showMessage(
+                    "The picture is too dark to make out."
+                );
 
                 inspectedObjects.picture = true;
 
             } else {
 
-                showMessage("You think you recognize the faces.");
+                showMessage(
+                    "You think you recognize the faces."
+                );
 
             }
+
+            checkInspections();
         }
 
     </script>
