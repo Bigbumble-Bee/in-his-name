@@ -385,6 +385,17 @@
 
     <script>
 
+        /* OBJECT MEMORY */
+
+        let inspectedObjects = {
+            bed: false,
+            nightstand: false,
+            cross: false,
+            picture: false,
+            door: false
+        };
+
+
         function beginGame() {
 
             document.body.innerHTML = `
@@ -532,36 +543,81 @@
 
         function inspectDoor() {
 
-            showMessage("The door is closed.");
+            if (!inspectedObjects.door) {
 
+                showMessage("The door is closed.");
+
+                inspectedObjects.door = true;
+
+            } else {
+
+                showMessage("You try the handle again.");
+
+            }
         }
 
 
         function inspectBed() {
 
-            showMessage("The sheets are cold.");
+            if (!inspectedObjects.bed) {
 
+                showMessage("The sheets are cold.");
+
+                inspectedObjects.bed = true;
+
+            } else {
+
+                showMessage("The warmth has already left them.");
+
+            }
         }
 
 
         function inspectNightstand() {
 
-            showMessage("There is nothing on it.");
+            if (!inspectedObjects.nightstand) {
 
+                showMessage("There is nothing on it.");
+
+                inspectedObjects.nightstand = true;
+
+            } else {
+
+                showMessage("You find nothing new.");
+
+            }
         }
 
 
         function inspectCross() {
 
-            showMessage("A wooden cross hangs above the bed.");
+            if (!inspectedObjects.cross) {
 
+                showMessage("A wooden cross hangs above the bed.");
+
+                inspectedObjects.cross = true;
+
+            } else {
+
+                showMessage("You have always found comfort in it.");
+
+            }
         }
 
 
         function inspectPicture() {
 
-            showMessage("The picture is too dark to make out.");
+            if (!inspectedObjects.picture) {
 
+                showMessage("The picture is too dark to make out.");
+
+                inspectedObjects.picture = true;
+
+            } else {
+
+                showMessage("You think you recognize the faces.");
+
+            }
         }
 
     </script>
