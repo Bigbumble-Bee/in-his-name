@@ -62,8 +62,8 @@
 
         .game-screen {
             text-align: center;
-            animation: fadeIn 2s ease-in-out;
             width: 80%;
+            animation: fadeIn 2s ease-in-out;
         }
 
         .game-screen p {
@@ -73,6 +73,10 @@
             line-height: 2;
         }
 
+        .fade-out {
+            animation: fadeOut 1s ease-in-out forwards;
+        }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -80,6 +84,16 @@
 
             to {
                 opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
             }
         }
     </style>
@@ -112,33 +126,45 @@
 
             setTimeout(function() {
 
-                document.body.innerHTML = `
-                    <div class="game-screen">
-                        <p>You awaken.</p>
-                    </div>
-                `;
+                showStory("You awaken.", function() {
+
+                    showStory("It is still dark.", function() {
+
+                        showStory("You cannot remember falling asleep.", function() {
+
+                        });
+
+                    });
+
+                });
+
+            }, 5000);
+        }
+
+
+        function showStory(text, next) {
+
+            document.body.innerHTML = `
+                <div class="game-screen" id="story">
+                    <p>${text}</p>
+                </div>
+            `;
+
+            setTimeout(function() {
+
+                const story = document.getElementById("story");
+
+                story.classList.add("fade-out");
 
                 setTimeout(function() {
 
-                    document.body.innerHTML = `
-                        <div class="game-screen">
-                            <p>It is still dark.</p>
-                        </div>
-                    `;
+                    if (next) {
+                        next();
+                    }
 
-                    setTimeout(function() {
+                }, 1000);
 
-                        document.body.innerHTML = `
-                            <div class="game-screen">
-                                <p>You cannot remember falling asleep.</p>
-                            </div>
-                        `;
-
-                    }, 3000);
-
-                }, 3000);
-
-            }, 5000);
+            }, 3000);
         }
     </script>
 
