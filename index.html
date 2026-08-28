@@ -198,6 +198,11 @@
             background: #191816;
             border: 1px solid #2b2823;
             box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.4);
+            cursor: pointer;
+        }
+
+        .bed:hover {
+            border-color: #3a352d;
         }
 
         .pillow {
@@ -208,6 +213,7 @@
             top: 15%;
             background: #211f1c;
             border: 1px solid #302c26;
+            box-sizing: border-box;
         }
 
         .blanket {
@@ -218,6 +224,7 @@
             top: 15%;
             background: #171513;
             border: 1px solid #211e1a;
+            box-sizing: border-box;
         }
 
         /* NIGHTSTAND */
@@ -230,6 +237,11 @@
             bottom: 32%;
             background: #121110;
             border: 1px solid #211f1c;
+            cursor: pointer;
+        }
+
+        .nightstand:hover {
+            border-color: #3a352d;
         }
 
         .drawer {
@@ -250,6 +262,7 @@
             left: 35%;
             top: 18%;
             background: #25221e;
+            cursor: pointer;
         }
 
         .cross::after {
@@ -274,6 +287,11 @@
             border: 3px solid #25221e;
             box-sizing: border-box;
             background: #11100f;
+            cursor: pointer;
+        }
+
+        .picture:hover {
+            border-color: #3a352d;
         }
 
         .picture-inner {
@@ -446,26 +464,48 @@
 
                     <div class="floor"></div>
 
-                    <div class="picture">
+
+                    <div class="picture"
+                         onclick="inspectPicture()">
+
                         <div class="picture-inner"></div>
+
                     </div>
 
-                    <div class="cross"></div>
 
-                    <div class="nightstand">
+                    <div class="cross"
+                         onclick="inspectCross()">
+                    </div>
+
+
+                    <div class="nightstand"
+                         onclick="inspectNightstand()">
+
                         <div class="drawer"></div>
+
                     </div>
 
-                    <div class="door" onclick="inspectDoor()">
+
+                    <div class="door"
+                         onclick="inspectDoor()">
+
                         <div class="door-knob"></div>
+
                     </div>
 
-                    <div class="bed">
+
+                    <div class="bed"
+                         onclick="inspectBed()">
+
                         <div class="pillow"></div>
+
                         <div class="blanket"></div>
+
                     </div>
 
-                    <div class="interaction-message" id="interactionMessage">
+
+                    <div class="interaction-message"
+                         id="interactionMessage">
                     </div>
 
                 </div>
@@ -473,11 +513,12 @@
         }
 
 
-        function inspectDoor() {
+        function showMessage(text) {
 
-            const message = document.getElementById("interactionMessage");
+            const message =
+                document.getElementById("interactionMessage");
 
-            message.textContent = "The door is closed.";
+            message.textContent = text;
 
             message.classList.add("visible");
 
@@ -485,7 +526,42 @@
 
                 message.classList.remove("visible");
 
-            }, 2500);
+            }, 3000);
+        }
+
+
+        function inspectDoor() {
+
+            showMessage("The door is closed.");
+
+        }
+
+
+        function inspectBed() {
+
+            showMessage("The sheets are cold.");
+
+        }
+
+
+        function inspectNightstand() {
+
+            showMessage("There is nothing on it.");
+
+        }
+
+
+        function inspectCross() {
+
+            showMessage("A wooden cross hangs above the bed.");
+
+        }
+
+
+        function inspectPicture() {
+
+            showMessage("The picture is too dark to make out.");
+
         }
 
     </script>
