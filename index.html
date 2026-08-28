@@ -949,34 +949,53 @@
         /* =========================
            DOOR
         ========================= */
+function inspectDoor() {
 
-        function inspectDoor() {
+    if (!inspectedObjects.door) {
 
-            if (
-                !inspectedObjects.door
-            ) {
+        showMessage(
+            "The door is locked."
+        );
 
-                showMessage(
-                    "The door is closed."
-                );
+        inspectedObjects.door = true;
 
+    }
 
-                inspectedObjects.door = true;
+    else {
 
+        let examinedCount = 0;
+
+        for (let object in inspectedObjects) {
+
+            if (inspectedObjects[object]) {
+                examinedCount++;
             }
-
-            else {
-
-                showMessage(
-                    "You try the handle again."
-                );
-
-            }
-
-
-            checkInspections();
 
         }
+
+
+        if (examinedCount < 5) {
+
+            showMessage(
+                "The handle refuses to turn."
+            );
+
+        }
+
+        else {
+
+            showMessage(
+                "The handle moves beneath your hand."
+            );
+
+        }
+
+    }
+
+
+    checkInspections();
+
+}
 
 
         /* =========================
