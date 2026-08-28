@@ -77,6 +77,12 @@
             animation: fadeOut 1s ease-in-out forwards;
         }
 
+        .black-screen {
+            background: #000000;
+            width: 100vw;
+            height: 100vh;
+        }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -133,6 +139,10 @@
                         showStory("You cannot remember falling asleep.", function() {
 
                             showStory("Something is breathing nearby.", function() {
+
+                                document.body.innerHTML = `
+                                    <div class="black-screen"></div>
+                                `;
 
                             });
 
