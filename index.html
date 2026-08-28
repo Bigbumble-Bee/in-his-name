@@ -14,6 +14,8 @@
             overflow: hidden;
         }
 
+        /* TITLE */
+
         .title-screen {
             width: 100vw;
             height: 100vh;
@@ -58,13 +60,14 @@
             color: #ffffff;
         }
 
+        /* LOADING */
+
         .loading-screen {
             width: 100vw;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            text-align: center;
         }
 
         .loading-screen p {
@@ -72,6 +75,8 @@
             letter-spacing: 5px;
             color: #77736b;
         }
+
+        /* STORY */
 
         .game-screen {
             width: 100vw;
@@ -97,12 +102,22 @@
 
         /* ROOM */
 
-        .room {
+        .room-window {
             width: 100vw;
             height: 100vh;
-            background: #090909;
-            position: relative;
             overflow: hidden;
+            position: relative;
+        }
+
+        .room {
+            width: 180vw;
+            height: 100vh;
+            background: #090909;
+            position: absolute;
+            top: 0;
+            left: -40vw;
+            overflow: hidden;
+            transition: left 0.7s ease;
         }
 
         .back-wall {
@@ -117,8 +132,8 @@
 
         .wall-light {
             position: absolute;
-            width: 320px;
-            height: 240px;
+            width: 500px;
+            height: 300px;
             top: 25%;
             left: 50%;
             transform: translateX(-50%);
@@ -139,8 +154,8 @@
 
         .light {
             position: absolute;
-            width: 180px;
-            height: 180px;
+            width: 220px;
+            height: 220px;
             background: #b8b29f;
             border-radius: 50%;
             top: 45%;
@@ -156,7 +171,7 @@
             position: absolute;
             width: 16%;
             height: 45%;
-            right: 8%;
+            left: 76%;
             bottom: 32%;
             background: #11100f;
             border: 1px solid #24211d;
@@ -244,7 +259,7 @@
             border: 1px solid #27241f;
         }
 
-        /* CRUCIFIX */
+        /* CROSS */
 
         .cross {
             position: absolute;
@@ -294,11 +309,24 @@
             background: #171614;
         }
 
+        /* MOVEMENT HINT */
+
+        .movement-hint {
+            position: absolute;
+            bottom: 4%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #5f5b53;
+            font-size: 12px;
+            letter-spacing: 2px;
+            pointer-events: none;
+        }
+
         /* MESSAGE */
 
         .interaction-message {
-            position: absolute;
-            bottom: 8%;
+            position: fixed;
+            bottom: 10%;
             left: 50%;
             transform: translateX(-50%);
             color: #aaa59a;
@@ -308,13 +336,14 @@
             transition: opacity 0.5s ease;
             pointer-events: none;
             white-space: nowrap;
+            z-index: 10;
         }
 
         .interaction-message.visible {
             opacity: 1;
         }
 
-        /* FADE */
+        /* ANIMATIONS */
 
         .fade-out {
             animation: fadeOut 1s ease-in-out forwards;
@@ -370,6 +399,8 @@
 
         let firstEventTriggered = false;
 
+        let roomPosition = -40;
+
 
         /* =========================
            BEGIN GAME
@@ -389,23 +420,29 @@
 
                     showStory("It is still dark.", function() {
 
-                        showStory("You cannot remember falling asleep.", function() {
+                        showStory(
+                            "You cannot remember falling asleep.",
+                            function() {
 
-                            showStory("Something is breathing nearby.", function() {
+                                showStory(
+                                    "Something is breathing nearby.",
+                                    function() {
 
-                                document.body.innerHTML = `
-                                    <div class="black-screen"></div>
-                                `;
+                                        document.body.innerHTML = `
+                                            <div class="black-screen"></div>
+                                        `;
 
-                                setTimeout(function() {
+                                        setTimeout(function() {
 
-                                    showRoom();
+                                            showRoom();
 
-                                }, 2000);
+                                        }, 2000);
 
-                            });
+                                    }
+                                );
 
-                        });
+                            }
+                        );
 
                     });
 
@@ -416,7 +453,7 @@
 
 
         /* =========================
-           STORY TEXT
+           STORY
         ========================= */
 
         function showStory(text, next) {
@@ -453,52 +490,56 @@
         function showRoom() {
 
             document.body.innerHTML = `
-                <div class="room">
+                <div class="room-window">
 
-                    <div class="back-wall"></div>
+                    <div class="room" id="room">
 
-                    <div class="wall-light"></div>
+                        <div class="back-wall"></div>
 
-                    <div class="light"></div>
+                        <div class="wall-light"></div>
 
-                    <div class="floor"></div>
+                        <div class="light"></div>
 
-
-                    <div class="picture"
-                         onclick="inspectPicture()">
-
-                        <div class="picture-inner"></div>
-
-                    </div>
+                        <div class="floor"></div>
 
 
-                    <div class="cross"
-                         onclick="inspectCross()">
-                    </div>
+                        <div class="picture"
+                             onclick="inspectPicture()">
+
+                            <div class="picture-inner"></div>
+
+                        </div>
 
 
-                    <div class="nightstand"
-                         onclick="inspectNightstand()">
-
-                        <div class="drawer"></div>
-
-                    </div>
+                        <div class="cross"
+                             onclick="inspectCross()">
+                        </div>
 
 
-                    <div class="door"
-                         onclick="inspectDoor()">
+                        <div class="nightstand"
+                             onclick="inspectNightstand()">
 
-                        <div class="door-knob"></div>
+                            <div class="drawer"></div>
 
-                    </div>
+                        </div>
 
 
-                    <div class="bed"
-                         onclick="inspectBed()">
+                        <div class="door"
+                             onclick="inspectDoor()">
 
-                        <div class="pillow"></div>
+                            <div class="door-knob"></div>
 
-                        <div class="blanket"></div>
+                        </div>
+
+
+                        <div class="bed"
+                             onclick="inspectBed()">
+
+                            <div class="pillow"></div>
+
+                            <div class="blanket"></div>
+
+                        </div>
 
                     </div>
 
@@ -507,9 +548,52 @@
                          id="interactionMessage">
                     </div>
 
+
+                    <div class="movement-hint">
+                        [ ← → ] LOOK AROUND
+                    </div>
+
                 </div>
             `;
         }
+
+
+        /* =========================
+           MOVEMENT
+        ========================= */
+
+        document.addEventListener("keydown", function(event) {
+
+            const room = document.getElementById("room");
+
+            if (!room) {
+                return;
+            }
+
+            if (event.key === "ArrowLeft") {
+
+                roomPosition += 15;
+
+                if (roomPosition > 0) {
+                    roomPosition = 0;
+                }
+
+                room.style.left = roomPosition + "vw";
+            }
+
+
+            if (event.key === "ArrowRight") {
+
+                roomPosition -= 15;
+
+                if (roomPosition < -80) {
+                    roomPosition = -80;
+                }
+
+                room.style.left = roomPosition + "vw";
+            }
+
+        });
 
 
         /* =========================
@@ -534,7 +618,7 @@
 
 
         /* =========================
-           CHECK PROGRESS
+           PROGRESS
         ========================= */
 
         function checkInspections() {
@@ -560,13 +644,12 @@
                     );
 
                 }, 1000);
-
             }
         }
 
 
         /* =========================
-           OBJECT INTERACTIONS
+           OBJECTS
         ========================= */
 
         function inspectDoor() {
