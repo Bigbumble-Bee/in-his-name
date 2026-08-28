@@ -82,12 +82,21 @@
 
     </div>
 <script>
+    <script>
     function beginGame() {
         document.body.innerHTML = `
             <div class="loading-screen">
                 <p>LOADING...</p>
             </div>
         `;
+
+        setTimeout(() => {
+            document.body.innerHTML = `
+                <div class="loading-screen">
+                    <p>THE STORY BEGINS</p>
+                </div>
+            `;
+        }, 3000);
     }
 </script>
 </body>
