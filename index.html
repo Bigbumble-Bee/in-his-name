@@ -162,6 +162,11 @@
             background: #11100f;
             border: 1px solid #24211d;
             box-sizing: border-box;
+            cursor: pointer;
+        }
+
+        .door:hover {
+            border-color: #3a352d;
         }
 
         .door-knob {
@@ -172,37 +177,6 @@
             right: 12%;
             top: 52%;
             background: #4a463d;
-        }
-
-        /* BED */
-
-        .bed {
-            position: absolute;
-            width: 55%;
-            height: 20%;
-            left: 22%;
-            bottom: 22%;
-            background: #151413;
-            border: 1px solid #22201d;
-        }
-
-        .pillow {
-            position: absolute;
-            width: 22%;
-            height: 35%;
-            left: 5%;
-            top: 15%;
-            background: #1b1917;
-            border: 1px solid #27241f;
-        }
-
-        .blanket {
-            position: absolute;
-            width: 65%;
-            height: 70%;
-            right: 5%;
-            top: 15%;
-            background: #121110;
         }
 
         /* NIGHTSTAND */
@@ -248,7 +222,7 @@
             background: #25221e;
         }
 
-        /* FRAMED PICTURE */
+        /* PICTURE */
 
         .picture {
             position: absolute;
@@ -268,6 +242,25 @@
             left: 15%;
             top: 15%;
             background: #171614;
+        }
+
+        /* INTERACTION MESSAGE */
+
+        .interaction-message {
+            position: absolute;
+            bottom: 8%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #aaa59a;
+            font-size: 16px;
+            letter-spacing: 2px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
+
+        .interaction-message.visible {
+            opacity: 1;
         }
 
         .fade-out {
@@ -326,7 +319,9 @@
 
     </div>
 
+
     <script>
+
         function beginGame() {
 
             document.body.innerHTML = `
@@ -351,37 +346,7 @@
 
                                 setTimeout(function() {
 
-                                    document.body.innerHTML = `
-                                        <div class="room">
-
-                                            <div class="back-wall"></div>
-                                            <div class="wall-light"></div>
-
-                                            <div class="light"></div>
-
-                                            <div class="floor"></div>
-
-                                            <div class="picture">
-                                                <div class="picture-inner"></div>
-                                            </div>
-
-                                            <div class="cross"></div>
-
-                                            <div class="nightstand">
-                                                <div class="drawer"></div>
-                                            </div>
-
-                                            <div class="door">
-                                                <div class="door-knob"></div>
-                                            </div>
-
-                                            <div class="bed">
-                                                <div class="pillow"></div>
-                                                <div class="blanket"></div>
-                                            </div>
-
-                                        </div>
-                                    `;
+                                    showRoom();
 
                                 }, 2000);
 
@@ -421,6 +386,62 @@
 
             }, 3000);
         }
+
+
+        function showRoom() {
+
+            document.body.innerHTML = `
+                <div class="room">
+
+                    <div class="back-wall"></div>
+                    <div class="wall-light"></div>
+
+                    <div class="light"></div>
+
+                    <div class="floor"></div>
+
+                    <div class="picture">
+                        <div class="picture-inner"></div>
+                    </div>
+
+                    <div class="cross"></div>
+
+                    <div class="nightstand">
+                        <div class="drawer"></div>
+                    </div>
+
+                    <div class="door" onclick="inspectDoor()">
+                        <div class="door-knob"></div>
+                    </div>
+
+                    <div class="bed">
+                        <div class="pillow"></div>
+                        <div class="blanket"></div>
+                    </div>
+
+                    <div class="interaction-message" id="interactionMessage">
+                    </div>
+
+                </div>
+            `;
+        }
+
+
+        function inspectDoor() {
+
+            const message = document.getElementById("interactionMessage");
+
+            message.textContent = "The door is closed.";
+
+            message.classList.add("visible");
+
+            setTimeout(function() {
+
+                message.classList.remove("visible");
+
+            }, 2500);
+        }
+
     </script>
 
 </body>
