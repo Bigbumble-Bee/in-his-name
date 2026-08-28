@@ -15,11 +15,18 @@
         }
 
         .title-screen {
+            width: 100vw;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
+        }
+
+        .title-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         h1 {
@@ -52,6 +59,7 @@
         }
 
         .loading-screen {
+            width: 100vw;
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -67,6 +75,7 @@
         }
 
         .game-screen {
+            width: 100vw;
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -139,15 +148,19 @@
 
     <div class="title-screen">
 
-        <h1>IN HIS NAME</h1>
+        <div class="title-content">
 
-        <div class="subtitle">
-            A STORY OF FAITH
+            <h1>IN HIS NAME</h1>
+
+            <div class="subtitle">
+                A STORY OF FAITH
+            </div>
+
+            <button class="start" onclick="beginGame()">
+                [ CLICK TO BEGIN ]
+            </button>
+
         </div>
-
-        <button class="start" onclick="beginGame()">
-            [ CLICK TO BEGIN ]
-        </button>
 
     </div>
 
