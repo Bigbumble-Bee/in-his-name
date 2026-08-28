@@ -59,7 +59,15 @@
             letter-spacing: 5px;
             color: #77736b;
         }
+.game-screen {
+    text-align: center;
+}
 
+.game-screen p {
+    font-size: 18px;
+    letter-spacing: 3px;
+    color: #aaa59a;
+}
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -91,11 +99,11 @@
     <script>
         function beginGame() {
 
-            document.body.innerHTML = `
-                <div class="loading-screen">
-                    <p>LOADING...</p>
-                </div>
-            `;
+document.body.innerHTML = `
+    <div class="game-screen">
+        <p>You awaken.</p>
+    </div>
+`;
 
             setTimeout(function() {
 
