@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>In His Name</title>
 
@@ -14,26 +15,7 @@
             justify-content: center;
             align-items: center;
         }
-.loading-screen {
-    text-align: center;
-    animation: fadeIn 2s ease-in-out;
-}
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-.loading-screen p {
-    font-size: 14px;
-    letter-spacing: 5px;
-    color: #77736b;
-}
         .title-screen {
             text-align: center;
         }
@@ -53,15 +35,39 @@
         }
 
         .start {
-    margin-top: 80px;
-    font-size: 16px;
-    letter-spacing: 3px;
-    color: #aaa59a;
-    background: none;
-    border: none;
-    font-family: Georgia, serif;
-    cursor: pointer;
-}
+            margin-top: 80px;
+            font-size: 16px;
+            letter-spacing: 3px;
+            color: #aaa59a;
+            background: none;
+            border: none;
+            font-family: Georgia, serif;
+            cursor: pointer;
+        }
+
+        .start:hover {
+            color: #ffffff;
+        }
+
+        .loading-screen {
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .loading-screen p {
+            font-size: 14px;
+            letter-spacing: 5px;
+            color: #77736b;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
     </style>
 </head>
@@ -76,28 +82,33 @@
             A STORY OF FAITH
         </div>
 
-      <button class="start" onclick="beginGame()">
-    [ CLICK TO BEGIN ]
-</button>
+        <button class="start" onclick="beginGame()">
+            [ CLICK TO BEGIN ]
+        </button>
 
     </div>
-<script>
-    <script>
-    function beginGame() {
-        document.body.innerHTML = `
-            <div class="loading-screen">
-                <p>LOADING...</p>
-            </div>
-        `;
 
-        setTimeout(() => {
+    <script>
+        function beginGame() {
+
             document.body.innerHTML = `
                 <div class="loading-screen">
-                    <p>THE STORY BEGINS</p>
+                    <p>LOADING...</p>
                 </div>
             `;
-        }, 3000);
-    }
-</script>
+
+            setTimeout(function() {
+
+                document.body.innerHTML = `
+                    <div class="loading-screen">
+                        <p>THE STORY BEGINS</p>
+                    </div>
+                `;
+
+            }, 3000);
+        }
+    </script>
+
 </body>
+
 </html>
