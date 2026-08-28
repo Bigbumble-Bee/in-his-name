@@ -984,9 +984,7 @@ function inspectDoor() {
 
         else {
 
-            showMessage(
-                "The handle moves beneath your hand."
-            );
+            openDoor();
 
         }
 
@@ -996,7 +994,38 @@ function inspectDoor() {
     checkInspections();
 
 }
+function openDoor() {
 
+    document.body.innerHTML = `
+
+        <div class="game-screen" id="hallway">
+
+            <p>
+                The door opens.
+            </p>
+
+        </div>
+
+    `;
+
+
+    setTimeout(function() {
+
+        document.body.innerHTML = `
+
+            <div class="game-screen">
+
+                <p>
+                    The hallway is empty.
+                </p>
+
+            </div>
+
+        `;
+
+    }, 3000);
+
+}
 
         /* =========================
            BED
