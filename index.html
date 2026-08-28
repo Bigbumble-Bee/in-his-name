@@ -151,6 +151,8 @@
             opacity: 0.12;
         }
 
+        /* DOOR */
+
         .door {
             position: absolute;
             width: 16%;
@@ -171,6 +173,8 @@
             top: 52%;
             background: #4a463d;
         }
+
+        /* BED */
 
         .bed {
             position: absolute;
@@ -199,6 +203,71 @@
             right: 5%;
             top: 15%;
             background: #121110;
+        }
+
+        /* NIGHTSTAND */
+
+        .nightstand {
+            position: absolute;
+            width: 10%;
+            height: 15%;
+            left: 8%;
+            bottom: 32%;
+            background: #121110;
+            border: 1px solid #211f1c;
+        }
+
+        .drawer {
+            position: absolute;
+            width: 70%;
+            height: 25%;
+            left: 15%;
+            top: 20%;
+            border: 1px solid #27241f;
+        }
+
+        /* CRUCIFIX */
+
+        .cross {
+            position: absolute;
+            width: 4px;
+            height: 70px;
+            left: 35%;
+            top: 18%;
+            background: #25221e;
+        }
+
+        .cross::after {
+            content: "";
+            position: absolute;
+            width: 45px;
+            height: 4px;
+            left: 50%;
+            top: 25px;
+            transform: translateX(-50%);
+            background: #25221e;
+        }
+
+        /* FRAMED PICTURE */
+
+        .picture {
+            position: absolute;
+            width: 12%;
+            height: 16%;
+            left: 8%;
+            top: 14%;
+            border: 3px solid #25221e;
+            box-sizing: border-box;
+            background: #11100f;
+        }
+
+        .picture-inner {
+            position: absolute;
+            width: 70%;
+            height: 70%;
+            left: 15%;
+            top: 15%;
+            background: #171614;
         }
 
         .fade-out {
@@ -291,6 +360,16 @@
                                             <div class="light"></div>
 
                                             <div class="floor"></div>
+
+                                            <div class="picture">
+                                                <div class="picture-inner"></div>
+                                            </div>
+
+                                            <div class="cross"></div>
+
+                                            <div class="nightstand">
+                                                <div class="drawer"></div>
+                                            </div>
 
                                             <div class="door">
                                                 <div class="door-knob"></div>
