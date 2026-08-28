@@ -14,6 +14,8 @@
             overflow: hidden;
         }
 
+        /* TITLE SCREEN */
+
         .title-screen {
             width: 100vw;
             height: 100vh;
@@ -58,6 +60,8 @@
             color: #ffffff;
         }
 
+        /* LOADING */
+
         .loading-screen {
             width: 100vw;
             height: 100vh;
@@ -73,6 +77,8 @@
             letter-spacing: 5px;
             color: #77736b;
         }
+
+        /* STORY */
 
         .game-screen {
             width: 100vw;
@@ -96,6 +102,8 @@
             height: 100vh;
             background: #000000;
         }
+
+        /* ROOM */
 
         .room {
             width: 100vw;
@@ -179,6 +187,39 @@
             background: #4a463d;
         }
 
+        /* BED */
+
+        .bed {
+            position: absolute;
+            width: 55%;
+            height: 20%;
+            left: 22%;
+            bottom: 22%;
+            background: #191816;
+            border: 1px solid #2b2823;
+            box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .pillow {
+            position: absolute;
+            width: 22%;
+            height: 35%;
+            left: 5%;
+            top: 15%;
+            background: #211f1c;
+            border: 1px solid #302c26;
+        }
+
+        .blanket {
+            position: absolute;
+            width: 65%;
+            height: 70%;
+            right: 5%;
+            top: 15%;
+            background: #171513;
+            border: 1px solid #211e1a;
+        }
+
         /* NIGHTSTAND */
 
         .nightstand {
@@ -257,11 +298,14 @@
             opacity: 0;
             transition: opacity 0.5s ease;
             pointer-events: none;
+            white-space: nowrap;
         }
 
         .interaction-message.visible {
             opacity: 1;
         }
+
+        /* ANIMATIONS */
 
         .fade-out {
             animation: fadeOut 1s ease-in-out forwards;
@@ -298,6 +342,7 @@
         }
     </style>
 </head>
+
 
 <body>
 
@@ -394,6 +439,7 @@
                 <div class="room">
 
                     <div class="back-wall"></div>
+
                     <div class="wall-light"></div>
 
                     <div class="light"></div>
