@@ -606,21 +606,44 @@
            HALLWAY DOORS
         ========================= */
 
-        .hallway-door {
+       .hallway-door {
+    position: absolute;
 
-            position: absolute;
+    width: 13vw;
+    height: 42vh;
 
-            width: 13vw;
-            height: 42vh;
+    bottom: 32vh;
 
-            bottom: 32vh;
+    background: #11100f;
 
-            background: #11100f;
+    border: 1px solid #24211d;
 
-            border: 1px solid #24211d;
+    cursor: pointer;
+}
 
-            cursor: pointer;
-        }
+
+.hallway-door:hover {
+    border-color: #3a352d;
+}
+
+
+/* Door 2 is slightly open */
+
+.door-two {
+    left: 85vw;
+
+    transform: perspective(500px)
+               rotateY(-8deg);
+
+    transform-origin: left center;
+}
+
+
+/* Door 3 has no visible handle */
+
+.door-three {
+    left: 145vw;
+}
 
 
         .hallway-door:hover {
@@ -629,22 +652,19 @@
         }
 
 
-        .door-one {
-
-            left: 25vw;
-        }
-
-
-        .door-two {
-
-            left: 85vw;
-        }
+       .door-one {
+    left: 25vw;
+}
 
 
-        .door-three {
+.door-two {
+    left: 85vw;
+}
 
-            left: 145vw;
-        }
+
+.door-three {
+    left: 145vw;
+}
 
 
         /* =========================
@@ -1487,11 +1507,35 @@
 
         function inspectHallDoor() {
 
-            showMessage(
-                "There is no sound on the other side."
-            );
+    const doors =
+        document.querySelectorAll(".hallway-door");
 
-        }
+
+    if (doors[0] === event.currentTarget) {
+
+        showMessage(
+            "Locked."
+        );
+
+    }
+
+    else if (doors[1] === event.currentTarget) {
+
+        showMessage(
+            "The door is already open."
+        );
+
+    }
+
+    else {
+
+        showMessage(
+            "There is no handle."
+        );
+
+    }
+
+}
 
 
         /* =========================
