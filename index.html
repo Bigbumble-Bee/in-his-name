@@ -1498,13 +1498,30 @@
            HALLWAY PICTURE
         ========================= */
 
-        function inspectHallPicture() {
+       let hallPictureLookedAt = false;
 
-            showMessage(
-                "The face in the painting is difficult to see."
-            );
 
-        }
+function inspectHallPicture() {
+
+    if (!hallPictureLookedAt) {
+
+        showMessage(
+            "The face in the painting is difficult to see."
+        );
+
+        hallPictureLookedAt = true;
+
+    }
+
+    else {
+
+        showMessage(
+            "You could swear the eyes were looking at you."
+        );
+
+    }
+
+}
 
 
     </script>
