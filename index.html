@@ -2,6 +2,7 @@
 <html>
 
 <head>
+
     <title>In His Name</title>
 
     <style>
@@ -10,12 +11,19 @@
             box-sizing: border-box;
         }
 
+
         body {
             margin: 0;
+
             background: #0b0b0b;
+
             color: #c9c4b8;
+
             font-family: Georgia, serif;
+
+            width: 100vw;
             height: 100vh;
+
             overflow: hidden;
         }
 
@@ -25,47 +33,65 @@
         ========================= */
 
         .title-screen {
+
             width: 100vw;
             height: 100vh;
 
             display: flex;
+
             justify-content: center;
             align-items: center;
 
             text-align: center;
         }
 
+
         .title-content {
+
             display: flex;
+
             flex-direction: column;
+
             align-items: center;
         }
 
+
         h1 {
+
             font-size: 48px;
+
             font-weight: normal;
+
             letter-spacing: 10px;
+
             margin: 0;
         }
 
+
         .subtitle {
+
             margin-top: 20px;
 
             font-size: 14px;
+
             letter-spacing: 4px;
 
             color: #77736b;
         }
 
+
         .start {
+
             margin-top: 80px;
 
             font-size: 16px;
+
             letter-spacing: 3px;
 
             color: #aaa59a;
 
             background: none;
+
             border: none;
 
             font-family: Georgia, serif;
@@ -73,7 +99,9 @@
             cursor: pointer;
         }
 
+
         .start:hover {
+
             color: #ffffff;
         }
 
@@ -83,16 +111,23 @@
         ========================= */
 
         .loading-screen {
+
             width: 100vw;
             height: 100vh;
 
             display: flex;
+
             justify-content: center;
             align-items: center;
+
+            text-align: center;
         }
 
+
         .loading-screen p {
+
             font-size: 14px;
+
             letter-spacing: 5px;
 
             color: #77736b;
@@ -104,18 +139,23 @@
         ========================= */
 
         .game-screen {
+
             width: 100vw;
             height: 100vh;
 
             display: flex;
+
             justify-content: center;
             align-items: center;
 
             text-align: center;
         }
 
+
         .game-screen p {
+
             font-size: 18px;
+
             letter-spacing: 3px;
 
             color: #aaa59a;
@@ -123,7 +163,9 @@
             line-height: 2;
         }
 
+
         .black-screen {
+
             width: 100vw;
             height: 100vh;
 
@@ -132,10 +174,11 @@
 
 
         /* =========================
-           CAMERA
+           ROOM WINDOW
         ========================= */
 
         .room-window {
+
             width: 100vw;
             height: 100vh;
 
@@ -144,13 +187,20 @@
             overflow: hidden;
         }
 
+
+        /* =========================
+           BEDROOM
+        ========================= */
+
         .room {
+
             width: 180vw;
             height: 100vh;
 
             position: absolute;
 
             top: 0;
+
             left: -40vw;
 
             background: #090909;
@@ -159,11 +209,8 @@
         }
 
 
-        /* =========================
-           WALL
-        ========================= */
-
         .back-wall {
+
             position: absolute;
 
             top: 0;
@@ -178,11 +225,8 @@
         }
 
 
-        /* =========================
-           LIGHT
-        ========================= */
-
         .wall-light {
+
             position: absolute;
 
             width: 500px;
@@ -200,7 +244,25 @@
             opacity: 0.035;
         }
 
+
+        .floor {
+
+            position: absolute;
+
+            bottom: 0;
+            left: 0;
+
+            width: 180vw;
+            height: 32vh;
+
+            background: #11100f;
+
+            border-top: 1px solid #1c1b19;
+        }
+
+
         .light {
+
             position: absolute;
 
             width: 220px;
@@ -222,29 +284,11 @@
 
 
         /* =========================
-           FLOOR
-        ========================= */
-
-        .floor {
-            position: absolute;
-
-            bottom: 0;
-            left: 0;
-
-            width: 180vw;
-            height: 32vh;
-
-            background: #11100f;
-
-            border-top: 1px solid #1c1b19;
-        }
-
-
-        /* =========================
-           DOOR
+           BEDROOM DOOR
         ========================= */
 
         .door {
+
             position: absolute;
 
             width: 16vw;
@@ -260,11 +304,15 @@
             cursor: pointer;
         }
 
+
         .door:hover {
+
             border-color: #3a352d;
         }
 
+
         .door-knob {
+
             position: absolute;
 
             width: 8px;
@@ -284,6 +332,7 @@
         ========================= */
 
         .bed {
+
             position: absolute;
 
             width: 55vw;
@@ -302,16 +351,15 @@
             cursor: pointer;
         }
 
+
         .bed:hover {
+
             border-color: #3a352d;
         }
 
 
-        /* =========================
-           PILLOW
-        ========================= */
-
         .pillow {
+
             position: absolute;
 
             width: 22%;
@@ -326,11 +374,8 @@
         }
 
 
-        /* =========================
-           BLANKET
-        ========================= */
-
         .blanket {
+
             position: absolute;
 
             width: 65%;
@@ -350,6 +395,7 @@
         ========================= */
 
         .nightstand {
+
             position: absolute;
 
             width: 10vw;
@@ -365,11 +411,15 @@
             cursor: pointer;
         }
 
+
         .nightstand:hover {
+
             border-color: #3a352d;
         }
 
+
         .drawer {
+
             position: absolute;
 
             width: 70%;
@@ -387,6 +437,7 @@
         ========================= */
 
         .cross {
+
             position: absolute;
 
             width: 50px;
@@ -398,7 +449,9 @@
             cursor: pointer;
         }
 
+
         .cross::before {
+
             content: "";
 
             position: absolute;
@@ -412,7 +465,9 @@
             background: #25221e;
         }
 
+
         .cross::after {
+
             content: "";
 
             position: absolute;
@@ -426,17 +481,20 @@
             background: #25221e;
         }
 
+
         .cross:hover::before,
         .cross:hover::after {
+
             background: #3a352d;
         }
 
 
         /* =========================
-           PICTURE
+           BEDROOM PICTURE
         ========================= */
 
         .picture {
+
             position: absolute;
 
             width: 12vw;
@@ -452,11 +510,15 @@
             cursor: pointer;
         }
 
+
         .picture:hover {
+
             border-color: #3a352d;
         }
 
+
         .picture-inner {
+
             position: absolute;
 
             width: 70%;
@@ -470,10 +532,155 @@
 
 
         /* =========================
-           MESSAGE
+           HALLWAY
+        ========================= */
+
+        .hallway {
+
+            width: 180vw;
+            height: 100vh;
+
+            position: absolute;
+
+            top: 0;
+
+            left: -40vw;
+
+            background: #080808;
+
+            transition: left 0.7s ease;
+        }
+
+
+        .hallway-wall {
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 180vw;
+            height: 68vh;
+
+            background: #0a0909;
+
+            border-bottom: 1px solid #1c1b19;
+        }
+
+
+        .hallway-floor {
+
+            position: absolute;
+
+            bottom: 0;
+            left: 0;
+
+            width: 180vw;
+            height: 32vh;
+
+            background: #100f0e;
+
+            border-top: 1px solid #1c1b19;
+        }
+
+
+        .hallway-light {
+
+            position: absolute;
+
+            width: 250px;
+            height: 400px;
+
+            top: 15vh;
+            left: 90vw;
+
+            background: #aaa393;
+
+            filter: blur(90px);
+
+            opacity: 0.035;
+        }
+
+
+        /* =========================
+           HALLWAY DOORS
+        ========================= */
+
+        .hallway-door {
+
+            position: absolute;
+
+            width: 13vw;
+            height: 42vh;
+
+            bottom: 32vh;
+
+            background: #11100f;
+
+            border: 1px solid #24211d;
+
+            cursor: pointer;
+        }
+
+
+        .hallway-door:hover {
+
+            border-color: #3a352d;
+        }
+
+
+        .door-one {
+
+            left: 25vw;
+        }
+
+
+        .door-two {
+
+            left: 85vw;
+        }
+
+
+        .door-three {
+
+            left: 145vw;
+        }
+
+
+        /* =========================
+           HALLWAY PICTURE
+        ========================= */
+
+        .hallway-picture {
+
+            position: absolute;
+
+            width: 11vw;
+            height: 15vh;
+
+            left: 55vw;
+            top: 15vh;
+
+            background: #11100f;
+
+            border: 3px solid #25221e;
+
+            cursor: pointer;
+        }
+
+
+        .hallway-picture:hover {
+
+            border-color: #3a352d;
+        }
+
+
+        /* =========================
+           INTERACTION MESSAGE
         ========================= */
 
         .interaction-message {
+
             position: fixed;
 
             bottom: 10%;
@@ -484,6 +691,7 @@
             color: #aaa59a;
 
             font-size: 16px;
+
             letter-spacing: 2px;
 
             opacity: 0;
@@ -497,7 +705,9 @@
             z-index: 10;
         }
 
+
         .interaction-message.visible {
+
             opacity: 1;
         }
 
@@ -507,6 +717,7 @@
         ========================= */
 
         .movement-hint {
+
             position: fixed;
 
             bottom: 4%;
@@ -517,6 +728,7 @@
             color: #5f5b53;
 
             font-size: 12px;
+
             letter-spacing: 2px;
 
             pointer-events: none;
@@ -530,8 +742,10 @@
         ========================= */
 
         .fade-out {
+
             animation: fadeOut 1s ease-in-out forwards;
         }
+
 
         @keyframes fadeOut {
 
@@ -546,15 +760,14 @@
         }
 
     </style>
+
 </head>
 
 
 <body>
 
 
-    <!-- =========================
-         TITLE
-    ========================= -->
+    <!-- TITLE -->
 
     <div class="title-screen">
 
@@ -605,6 +818,9 @@
 
 
         let roomPosition = -40;
+
+
+        let currentArea = "bedroom";
 
 
         /* =========================
@@ -673,7 +889,7 @@
 
 
         /* =========================
-           STORY
+           STORY TEXT
         ========================= */
 
         function showStory(text, next) {
@@ -697,6 +913,11 @@
                     document.getElementById("story");
 
 
+                if (!story) {
+                    return;
+                }
+
+
                 story.classList.add("fade-out");
 
 
@@ -717,10 +938,15 @@
 
 
         /* =========================
-           ROOM
+           BEDROOM
         ========================= */
 
         function showRoom() {
+
+            currentArea = "bedroom";
+
+            roomPosition = -40;
+
 
             document.body.innerHTML = `
 
@@ -734,12 +960,9 @@
 
                         <div class="back-wall"></div>
 
-
                         <div class="wall-light"></div>
 
-
                         <div class="light"></div>
-
 
                         <div class="floor"></div>
 
@@ -812,6 +1035,81 @@
 
 
         /* =========================
+           HALLWAY
+        ========================= */
+
+        function showHallway() {
+
+            currentArea = "hallway";
+
+            roomPosition = -40;
+
+
+            document.body.innerHTML = `
+
+                <div class="room-window">
+
+
+                    <div
+                        class="hallway"
+                        id="hallway">
+
+
+                        <div class="hallway-wall"></div>
+
+                        <div class="hallway-light"></div>
+
+                        <div class="hallway-floor"></div>
+
+
+                        <div
+                            class="hallway-door door-one"
+                            onclick="inspectHallDoor()">
+                        </div>
+
+
+                        <div
+                            class="hallway-door door-two"
+                            onclick="inspectHallDoor()">
+                        </div>
+
+
+                        <div
+                            class="hallway-door door-three"
+                            onclick="inspectHallDoor()">
+                        </div>
+
+
+                        <div
+                            class="hallway-picture"
+                            onclick="inspectHallPicture()">
+                        </div>
+
+
+                    </div>
+
+
+                    <div
+                        class="interaction-message"
+                        id="interactionMessage">
+                    </div>
+
+
+                    <div class="movement-hint">
+
+                        [ ← → ] LOOK AROUND
+
+                    </div>
+
+
+                </div>
+
+            `;
+
+        }
+
+
+        /* =========================
            CAMERA MOVEMENT
         ========================= */
 
@@ -820,11 +1118,19 @@
             function(event) {
 
 
-                const room =
+                let area =
                     document.getElementById("room");
 
 
-                if (!room) {
+                if (!area) {
+
+                    area =
+                        document.getElementById("hallway");
+
+                }
+
+
+                if (!area) {
 
                     return;
 
@@ -843,7 +1149,7 @@
                     }
 
 
-                    room.style.left =
+                    area.style.left =
                         roomPosition + "vw";
 
                 }
@@ -861,7 +1167,7 @@
                     }
 
 
-                    room.style.left =
+                    area.style.left =
                         roomPosition + "vw";
 
                 }
@@ -880,6 +1186,13 @@
                 document.getElementById(
                     "interactionMessage"
                 );
+
+
+            if (!message) {
+
+                return;
+
+            }
 
 
             message.textContent = text;
@@ -947,85 +1260,94 @@
 
 
         /* =========================
-           DOOR
+           BEDROOM DOOR
         ========================= */
-function inspectDoor() {
 
-    if (!inspectedObjects.door) {
+        function inspectDoor() {
 
-        showMessage(
-            "The door is locked."
-        );
+            if (
+                !inspectedObjects.door
+            ) {
 
-        inspectedObjects.door = true;
+                showMessage(
+                    "The door is locked."
+                );
 
-    }
 
-    else {
+                inspectedObjects.door = true;
 
-        let examinedCount = 0;
-
-        for (let object in inspectedObjects) {
-
-            if (inspectedObjects[object]) {
-                examinedCount++;
             }
+
+            else {
+
+                let examinedCount = 0;
+
+
+                for (
+                    let object in inspectedObjects
+                ) {
+
+                    if (
+                        inspectedObjects[object]
+                    ) {
+
+                        examinedCount++;
+
+                    }
+
+                }
+
+
+                if (
+                    examinedCount < 5
+                ) {
+
+                    showMessage(
+                        "The handle refuses to turn."
+                    );
+
+                }
+
+                else {
+
+                    showMessage(
+                        "The handle moves beneath your hand."
+                    );
+
+
+                    setTimeout(function() {
+
+                        openDoor();
+
+                    }, 1500);
+
+                }
+
+            }
+
+
+            checkInspections();
 
         }
 
 
-        if (examinedCount < 5) {
+        /* =========================
+           OPEN DOOR
+        ========================= */
 
-            showMessage(
-                "The handle refuses to turn."
+        function openDoor() {
+
+            showStory(
+                "The door opens.",
+                function() {
+
+                    showHallway();
+
+                }
             );
 
         }
 
-        else {
-
-            openDoor();
-
-        }
-
-    }
-
-
-    checkInspections();
-
-}
-function openDoor() {
-
-    document.body.innerHTML = `
-
-        <div class="game-screen" id="hallway">
-
-            <p>
-                The door opens.
-            </p>
-
-        </div>
-
-    `;
-
-
-    setTimeout(function() {
-
-        document.body.innerHTML = `
-
-            <div class="game-screen">
-
-                <p>
-                    The hallway is empty.
-                </p>
-
-            </div>
-
-        `;
-
-    }, 3000);
-
-}
 
         /* =========================
            BED
@@ -1127,7 +1449,7 @@ function openDoor() {
 
 
         /* =========================
-           PICTURE
+           BEDROOM PICTURE
         ========================= */
 
         function inspectPicture() {
@@ -1155,6 +1477,32 @@ function openDoor() {
 
 
             checkInspections();
+
+        }
+
+
+        /* =========================
+           HALLWAY DOORS
+        ========================= */
+
+        function inspectHallDoor() {
+
+            showMessage(
+                "There is no sound on the other side."
+            );
+
+        }
+
+
+        /* =========================
+           HALLWAY PICTURE
+        ========================= */
+
+        function inspectHallPicture() {
+
+            showMessage(
+                "The face in the painting is difficult to see."
+            );
 
         }
 
