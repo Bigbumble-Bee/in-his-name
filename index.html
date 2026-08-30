@@ -107,7 +107,7 @@
 
 
         /* =========================
-           LOADING
+           LOADING SCREEN
         ========================= */
 
         .loading-screen {
@@ -606,44 +606,21 @@
            HALLWAY DOORS
         ========================= */
 
-       .hallway-door {
-    position: absolute;
+        .hallway-door {
 
-    width: 13vw;
-    height: 42vh;
+            position: absolute;
 
-    bottom: 32vh;
+            width: 13vw;
+            height: 42vh;
 
-    background: #11100f;
+            bottom: 32vh;
 
-    border: 1px solid #24211d;
+            background: #11100f;
 
-    cursor: pointer;
-}
+            border: 1px solid #24211d;
 
-
-.hallway-door:hover {
-    border-color: #3a352d;
-}
-
-
-/* Door 2 is slightly open */
-
-.door-two {
-    left: 85vw;
-
-    transform: perspective(500px)
-               rotateY(-8deg);
-
-    transform-origin: left center;
-}
-
-
-/* Door 3 has no visible handle */
-
-.door-three {
-    left: 145vw;
-}
+            cursor: pointer;
+        }
 
 
         .hallway-door:hover {
@@ -652,19 +629,28 @@
         }
 
 
-       .door-one {
-    left: 25vw;
-}
+        .door-one {
+
+            left: 25vw;
+        }
 
 
-.door-two {
-    left: 85vw;
-}
+        .door-two {
+
+            left: 85vw;
+
+            transform:
+                perspective(500px)
+                rotateY(-8deg);
+
+            transform-origin: left center;
+        }
 
 
-.door-three {
-    left: 145vw;
-}
+        .door-three {
+
+            left: 145vw;
+        }
 
 
         /* =========================
@@ -690,6 +676,83 @@
 
 
         .hallway-picture:hover {
+
+            border-color: #3a352d;
+        }
+
+
+        /* =========================
+           SIDE ROOM
+        ========================= */
+
+        .side-room {
+
+            width: 180vw;
+            height: 100vh;
+
+            position: absolute;
+
+            top: 0;
+
+            left: -40vw;
+
+            background: #080808;
+
+            transition: left 0.7s ease;
+        }
+
+
+        .side-room-wall {
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 180vw;
+            height: 68vh;
+
+            background: #090909;
+
+            border-bottom: 1px solid #1c1b19;
+        }
+
+
+        .side-room-floor {
+
+            position: absolute;
+
+            bottom: 0;
+            left: 0;
+
+            width: 180vw;
+            height: 32vh;
+
+            background: #100f0e;
+
+            border-top: 1px solid #1c1b19;
+        }
+
+
+        .side-room-object {
+
+            position: absolute;
+
+            width: 12vw;
+            height: 18vh;
+
+            left: 90vw;
+            top: 30vh;
+
+            background: #11100f;
+
+            border: 1px solid #292621;
+
+            cursor: pointer;
+        }
+
+
+        .side-room-object:hover {
 
             border-color: #3a352d;
         }
@@ -763,7 +826,11 @@
 
         .fade-out {
 
-            animation: fadeOut 1s ease-in-out forwards;
+            animation:
+                fadeOut
+                1s
+                ease-in-out
+                forwards;
         }
 
 
@@ -787,7 +854,9 @@
 <body>
 
 
-    <!-- TITLE -->
+    <!-- =========================
+         TITLE
+    ========================= -->
 
     <div class="title-screen">
 
@@ -835,6 +904,9 @@
 
 
         let firstEventTriggered = false;
+
+
+        let hallPictureLookedAt = false;
 
 
         let roomPosition = -40;
@@ -909,7 +981,7 @@
 
 
         /* =========================
-           STORY TEXT
+           STORY
         ========================= */
 
         function showStory(text, next) {
@@ -934,7 +1006,9 @@
 
 
                 if (!story) {
+
                     return;
+
                 }
 
 
@@ -950,7 +1024,6 @@
                     }
 
                 }, 1000);
-
 
             }, 3000);
 
@@ -1084,25 +1157,80 @@
 
                         <div
                             class="hallway-door door-one"
-                            onclick="inspectHallDoor()">
+                            onclick="inspectHallDoor(event)">
                         </div>
 
 
                         <div
                             class="hallway-door door-two"
-                            onclick="inspectHallDoor()">
+                            onclick="inspectHallDoor(event)">
                         </div>
 
 
                         <div
                             class="hallway-door door-three"
-                            onclick="inspectHallDoor()">
+                            onclick="inspectHallDoor(event)">
                         </div>
 
 
                         <div
                             class="hallway-picture"
                             onclick="inspectHallPicture()">
+                        </div>
+
+
+                    </div>
+
+
+                    <div
+                        class="interaction-message"
+                        id="interactionMessage">
+                    </div>
+
+
+                    <div class="movement-hint">
+
+                        [ ← → ] LOOK AROUND
+
+                    </div>
+
+
+                </div>
+
+            `;
+
+        }
+
+
+        /* =========================
+           SIDE ROOM
+        ========================= */
+
+        function enterSideRoom() {
+
+            currentArea = "side-room";
+
+            roomPosition = -40;
+
+
+            document.body.innerHTML = `
+
+                <div class="room-window">
+
+
+                    <div
+                        class="side-room"
+                        id="sideRoom">
+
+
+                        <div class="side-room-wall"></div>
+
+                        <div class="side-room-floor"></div>
+
+
+                        <div
+                            class="side-room-object"
+                            onclick="inspectSideRoomObject()">
                         </div>
 
 
@@ -1146,6 +1274,14 @@
 
                     area =
                         document.getElementById("hallway");
+
+                }
+
+
+                if (!area) {
+
+                    area =
+                        document.getElementById("sideRoom");
 
                 }
 
@@ -1352,7 +1488,7 @@
 
 
         /* =========================
-           OPEN DOOR
+           OPEN BEDROOM DOOR
         ========================= */
 
         function openDoor() {
@@ -1436,7 +1572,7 @@
 
 
         /* =========================
-           CROSS
+           CRUCIFIX
         ========================= */
 
         function inspectCross() {
@@ -1505,67 +1641,91 @@
            HALLWAY DOORS
         ========================= */
 
-        function inspectHallDoor() {
+        function inspectHallDoor(event) {
 
-    const doors =
-        document.querySelectorAll(".hallway-door");
+            const doors =
+                document.querySelectorAll(
+                    ".hallway-door"
+                );
 
 
-    if (doors[0] === event.currentTarget) {
+            if (
+                doors[0] === event.currentTarget
+            ) {
 
-        showMessage(
-            "Locked."
-        );
+                showMessage(
+                    "Locked."
+                );
 
-    }
+            }
 
-    else if (doors[1] === event.currentTarget) {
+            else if (
+                doors[1] === event.currentTarget
+            ) {
 
-        showMessage(
-            "The door is already open."
-        );
+                showMessage(
+                    "The door is already open."
+                );
 
-    }
 
-    else {
+                setTimeout(function() {
 
-        showMessage(
-            "There is no handle."
-        );
+                    enterSideRoom();
 
-    }
+                }, 1500);
 
-}
+            }
+
+            else {
+
+                showMessage(
+                    "There is no handle."
+                );
+
+            }
+
+        }
 
 
         /* =========================
            HALLWAY PICTURE
         ========================= */
 
-       let hallPictureLookedAt = false;
+        function inspectHallPicture() {
+
+            if (!hallPictureLookedAt) {
+
+                showMessage(
+                    "The face in the painting is difficult to see."
+                );
 
 
-function inspectHallPicture() {
+                hallPictureLookedAt = true;
 
-    if (!hallPictureLookedAt) {
+            }
 
-        showMessage(
-            "The face in the painting is difficult to see."
-        );
+            else {
 
-        hallPictureLookedAt = true;
+                showMessage(
+                    "You could swear the eyes were looking at you."
+                );
 
-    }
+            }
 
-    else {
+        }
 
-        showMessage(
-            "You could swear the eyes were looking at you."
-        );
 
-    }
+        /* =========================
+           SIDE ROOM OBJECT
+        ========================= */
 
-}
+        function inspectSideRoomObject() {
+
+            showMessage(
+                "You don't remember putting that there."
+            );
+
+        }
 
 
     </script>
