@@ -11,19 +11,13 @@
             box-sizing: border-box;
         }
 
-
         body {
             margin: 0;
-
             background: #0b0b0b;
-
             color: #c9c4b8;
-
             font-family: Georgia, serif;
-
             width: 100vw;
             height: 100vh;
-
             overflow: hidden;
         }
 
@@ -33,75 +27,46 @@
         ========================= */
 
         .title-screen {
-
             width: 100vw;
             height: 100vh;
-
             display: flex;
-
             justify-content: center;
             align-items: center;
-
             text-align: center;
         }
 
-
         .title-content {
-
             display: flex;
-
             flex-direction: column;
-
             align-items: center;
         }
 
-
         h1 {
-
             font-size: 48px;
-
             font-weight: normal;
-
             letter-spacing: 10px;
-
             margin: 0;
         }
 
-
         .subtitle {
-
             margin-top: 20px;
-
             font-size: 14px;
-
             letter-spacing: 4px;
-
             color: #77736b;
         }
 
-
         .start {
-
             margin-top: 80px;
-
             font-size: 16px;
-
             letter-spacing: 3px;
-
             color: #aaa59a;
-
             background: none;
-
             border: none;
-
             font-family: Georgia, serif;
-
             cursor: pointer;
         }
 
-
         .start:hover {
-
             color: #ffffff;
         }
 
@@ -111,25 +76,17 @@
         ========================= */
 
         .loading-screen {
-
             width: 100vw;
             height: 100vh;
-
             display: flex;
-
             justify-content: center;
             align-items: center;
-
             text-align: center;
         }
 
-
         .loading-screen p {
-
             font-size: 14px;
-
             letter-spacing: 5px;
-
             color: #77736b;
         }
 
@@ -139,36 +96,24 @@
         ========================= */
 
         .game-screen {
-
             width: 100vw;
             height: 100vh;
-
             display: flex;
-
             justify-content: center;
             align-items: center;
-
             text-align: center;
         }
 
-
         .game-screen p {
-
             font-size: 18px;
-
             letter-spacing: 3px;
-
             color: #aaa59a;
-
             line-height: 2;
         }
 
-
         .black-screen {
-
             width: 100vw;
             height: 100vh;
-
             background: #000000;
         }
 
@@ -178,12 +123,9 @@
         ========================= */
 
         .room-window {
-
             width: 100vw;
             height: 100vh;
-
             position: relative;
-
             overflow: hidden;
         }
 
@@ -193,92 +135,57 @@
         ========================= */
 
         .room {
-
             width: 180vw;
             height: 100vh;
-
             position: absolute;
-
             top: 0;
-
             left: -40vw;
-
             background: #090909;
-
             transition: left 0.7s ease;
         }
 
-
         .back-wall {
-
             position: absolute;
-
             top: 0;
             left: 0;
-
             width: 180vw;
             height: 68vh;
-
             background: #090909;
-
             border-bottom: 1px solid #1c1b19;
         }
 
-
         .wall-light {
-
             position: absolute;
-
             width: 500px;
             height: 300px;
-
             top: 25vh;
             left: 90vw;
-
             transform: translateX(-50%);
-
             background: #8f8979;
-
             filter: blur(80px);
-
             opacity: 0.035;
         }
 
-
         .floor {
-
             position: absolute;
-
             bottom: 0;
             left: 0;
-
             width: 180vw;
             height: 32vh;
-
             background: #11100f;
-
             border-top: 1px solid #1c1b19;
         }
 
-
         .light {
-
             position: absolute;
-
             width: 220px;
             height: 220px;
-
             top: 45vh;
             left: 90vw;
-
             transform: translate(-50%, -50%);
-
             background: #b8b29f;
-
             border-radius: 50%;
-
             filter: blur(45px);
-
             opacity: 0.12;
         }
 
@@ -288,41 +195,27 @@
         ========================= */
 
         .door {
-
             position: absolute;
-
             width: 16vw;
             height: 45vh;
-
             left: 136vw;
             bottom: 32vh;
-
             background: #11100f;
-
             border: 1px solid #24211d;
-
             cursor: pointer;
         }
 
-
         .door:hover {
-
             border-color: #3a352d;
         }
 
-
         .door-knob {
-
             position: absolute;
-
             width: 8px;
             height: 8px;
-
             right: 12%;
             top: 52%;
-
             border-radius: 50%;
-
             background: #4a463d;
         }
 
@@ -332,60 +225,38 @@
         ========================= */
 
         .bed {
-
             position: absolute;
-
             width: 55vw;
             height: 20vh;
-
             left: 40vw;
             bottom: 22vh;
-
             background: #191816;
-
             border: 1px solid #2b2823;
-
-            box-shadow:
-                0 -8px 25px rgba(0, 0, 0, 0.4);
-
+            box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.4);
             cursor: pointer;
         }
 
-
         .bed:hover {
-
             border-color: #3a352d;
         }
 
-
         .pillow {
-
             position: absolute;
-
             width: 22%;
             height: 35%;
-
             left: 5%;
             top: 15%;
-
             background: #211f1c;
-
             border: 1px solid #302c26;
         }
 
-
         .blanket {
-
             position: absolute;
-
             width: 65%;
             height: 70%;
-
             right: 5%;
             top: 15%;
-
             background: #171513;
-
             border: 1px solid #211e1a;
         }
 
@@ -395,39 +266,26 @@
         ========================= */
 
         .nightstand {
-
             position: absolute;
-
             width: 10vw;
             height: 15vh;
-
             left: 16vw;
             bottom: 32vh;
-
             background: #121110;
-
             border: 1px solid #211f1c;
-
             cursor: pointer;
         }
 
-
         .nightstand:hover {
-
             border-color: #3a352d;
         }
 
-
         .drawer {
-
             position: absolute;
-
             width: 70%;
             height: 25%;
-
             left: 15%;
             top: 20%;
-
             border: 1px solid #27241f;
         }
 
@@ -437,54 +295,36 @@
         ========================= */
 
         .cross {
-
             position: absolute;
-
             width: 50px;
             height: 90px;
-
             left: 62vw;
             top: 18vh;
-
             cursor: pointer;
         }
 
-
         .cross::before {
-
             content: "";
-
             position: absolute;
-
             width: 8px;
             height: 90px;
-
             left: 21px;
             top: 0;
-
             background: #25221e;
         }
-
 
         .cross::after {
-
             content: "";
-
             position: absolute;
-
             width: 50px;
             height: 8px;
-
             left: 0;
             top: 28px;
-
             background: #25221e;
         }
-
 
         .cross:hover::before,
         .cross:hover::after {
-
             background: #3a352d;
         }
 
@@ -494,39 +334,26 @@
         ========================= */
 
         .picture {
-
             position: absolute;
-
             width: 12vw;
             height: 16vh;
-
             left: 16vw;
             top: 14vh;
-
             border: 3px solid #25221e;
-
             background: #11100f;
-
             cursor: pointer;
         }
 
-
         .picture:hover {
-
             border-color: #3a352d;
         }
 
-
         .picture-inner {
-
             position: absolute;
-
             width: 70%;
             height: 70%;
-
             left: 15%;
             top: 15%;
-
             background: #171614;
         }
 
@@ -536,68 +363,43 @@
         ========================= */
 
         .hallway {
-
             width: 180vw;
             height: 100vh;
-
             position: absolute;
-
             top: 0;
-
             left: -40vw;
-
             background: #080808;
-
             transition: left 0.7s ease;
         }
 
-
         .hallway-wall {
-
             position: absolute;
-
             top: 0;
             left: 0;
-
             width: 180vw;
             height: 68vh;
-
             background: #0a0909;
-
             border-bottom: 1px solid #1c1b19;
         }
 
-
         .hallway-floor {
-
             position: absolute;
-
             bottom: 0;
             left: 0;
-
             width: 180vw;
             height: 32vh;
-
             background: #100f0e;
-
             border-top: 1px solid #1c1b19;
         }
 
-
         .hallway-light {
-
             position: absolute;
-
             width: 250px;
             height: 400px;
-
             top: 15vh;
             left: 90vw;
-
             background: #aaa393;
-
             filter: blur(90px);
-
             opacity: 0.035;
         }
 
@@ -607,48 +409,30 @@
         ========================= */
 
         .hallway-door {
-
             position: absolute;
-
             width: 13vw;
             height: 42vh;
-
             bottom: 32vh;
-
             background: #11100f;
-
             border: 1px solid #24211d;
-
             cursor: pointer;
         }
 
-
         .hallway-door:hover {
-
             border-color: #3a352d;
         }
 
-
         .door-one {
-
             left: 25vw;
         }
 
-
         .door-two {
-
             left: 85vw;
-
-            transform:
-                perspective(500px)
-                rotateY(-8deg);
-
+            transform: perspective(500px) rotateY(-8deg);
             transform-origin: left center;
         }
 
-
         .door-three {
-
             left: 145vw;
         }
 
@@ -658,25 +442,17 @@
         ========================= */
 
         .hallway-picture {
-
             position: absolute;
-
             width: 11vw;
             height: 15vh;
-
             left: 55vw;
             top: 15vh;
-
             background: #11100f;
-
             border: 3px solid #25221e;
-
             cursor: pointer;
         }
 
-
         .hallway-picture:hover {
-
             border-color: #3a352d;
         }
 
@@ -686,74 +462,47 @@
         ========================= */
 
         .side-room {
-
             width: 180vw;
             height: 100vh;
-
             position: absolute;
-
             top: 0;
-
             left: -40vw;
-
             background: #080808;
-
             transition: left 0.7s ease;
         }
 
-
         .side-room-wall {
-
             position: absolute;
-
             top: 0;
             left: 0;
-
             width: 180vw;
             height: 68vh;
-
             background: #090909;
-
             border-bottom: 1px solid #1c1b19;
         }
 
-
         .side-room-floor {
-
             position: absolute;
-
             bottom: 0;
             left: 0;
-
             width: 180vw;
             height: 32vh;
-
             background: #100f0e;
-
             border-top: 1px solid #1c1b19;
         }
 
-
         .side-room-object {
-
             position: absolute;
-
             width: 12vw;
             height: 18vh;
-
             left: 90vw;
             top: 30vh;
-
             background: #11100f;
-
             border: 1px solid #292621;
-
             cursor: pointer;
         }
 
-
         .side-room-object:hover {
-
             border-color: #3a352d;
         }
 
@@ -763,34 +512,21 @@
         ========================= */
 
         .interaction-message {
-
             position: fixed;
-
             bottom: 10%;
             left: 50%;
-
             transform: translateX(-50%);
-
             color: #aaa59a;
-
             font-size: 16px;
-
             letter-spacing: 2px;
-
             opacity: 0;
-
             transition: opacity 0.5s ease;
-
             pointer-events: none;
-
             white-space: nowrap;
-
             z-index: 10;
         }
 
-
         .interaction-message.visible {
-
             opacity: 1;
         }
 
@@ -800,22 +536,14 @@
         ========================= */
 
         .movement-hint {
-
             position: fixed;
-
             bottom: 4%;
             left: 50%;
-
             transform: translateX(-50%);
-
             color: #5f5b53;
-
             font-size: 12px;
-
             letter-spacing: 2px;
-
             pointer-events: none;
-
             z-index: 10;
         }
 
@@ -825,14 +553,8 @@
         ========================= */
 
         .fade-out {
-
-            animation:
-                fadeOut
-                1s
-                ease-in-out
-                forwards;
+            animation: fadeOut 1s ease-in-out forwards;
         }
-
 
         @keyframes fadeOut {
 
@@ -854,9 +576,7 @@
 <body>
 
 
-    <!-- =========================
-         TITLE
-    ========================= -->
+    <!-- TITLE SCREEN -->
 
     <div class="title-screen">
 
@@ -891,13 +611,9 @@
         let inspectedObjects = {
 
             bed: false,
-
             nightstand: false,
-
             cross: false,
-
             picture: false,
-
             door: false
 
         };
@@ -905,12 +621,9 @@
 
         let firstEventTriggered = false;
 
-
         let hallPictureLookedAt = false;
 
-
         let roomPosition = -40;
-
 
         let currentArea = "bedroom";
 
@@ -1045,11 +758,9 @@
 
                 <div class="room-window">
 
-
                     <div
                         class="room"
                         id="room">
-
 
                         <div class="back-wall"></div>
 
@@ -1103,7 +814,6 @@
 
                         </div>
 
-
                     </div>
 
 
@@ -1118,7 +828,6 @@
                         [ ← → ] LOOK AROUND
 
                     </div>
-
 
                 </div>
 
@@ -1142,11 +851,9 @@
 
                 <div class="room-window">
 
-
                     <div
                         class="hallway"
                         id="hallway">
-
 
                         <div class="hallway-wall"></div>
 
@@ -1157,19 +864,19 @@
 
                         <div
                             class="hallway-door door-one"
-                            onclick="inspectHallDoor(event)">
+                            onclick="inspectHallDoor(1)">
                         </div>
 
 
                         <div
                             class="hallway-door door-two"
-                            onclick="inspectHallDoor(event)">
+                            onclick="inspectHallDoor(2)">
                         </div>
 
 
                         <div
                             class="hallway-door door-three"
-                            onclick="inspectHallDoor(event)">
+                            onclick="inspectHallDoor(3)">
                         </div>
 
 
@@ -1177,7 +884,6 @@
                             class="hallway-picture"
                             onclick="inspectHallPicture()">
                         </div>
-
 
                     </div>
 
@@ -1193,7 +899,6 @@
                         [ ← → ] LOOK AROUND
 
                     </div>
-
 
                 </div>
 
@@ -1217,11 +922,9 @@
 
                 <div class="room-window">
 
-
                     <div
                         class="side-room"
                         id="sideRoom">
-
 
                         <div class="side-room-wall"></div>
 
@@ -1232,7 +935,6 @@
                             class="side-room-object"
                             onclick="inspectSideRoomObject()">
                         </div>
-
 
                     </div>
 
@@ -1249,7 +951,6 @@
 
                     </div>
 
-
                 </div>
 
             `;
@@ -1264,7 +965,6 @@
         document.addEventListener(
             "keydown",
             function(event) {
-
 
                 let area =
                     document.getElementById("room");
@@ -1641,17 +1341,9 @@
            HALLWAY DOORS
         ========================= */
 
-        function inspectHallDoor(event) {
+        function inspectHallDoor(doorNumber) {
 
-            const doors =
-                document.querySelectorAll(
-                    ".hallway-door"
-                );
-
-
-            if (
-                doors[0] === event.currentTarget
-            ) {
+            if (doorNumber === 1) {
 
                 showMessage(
                     "Locked."
@@ -1659,9 +1351,8 @@
 
             }
 
-            else if (
-                doors[1] === event.currentTarget
-            ) {
+
+            else if (doorNumber === 2) {
 
                 showMessage(
                     "The door is already open."
@@ -1676,7 +1367,8 @@
 
             }
 
-            else {
+
+            else if (doorNumber === 3) {
 
                 showMessage(
                     "There is no handle."
