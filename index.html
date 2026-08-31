@@ -1761,28 +1761,27 @@ function inspectPicture() {
            HALLWAY PICTURE
         ========================= */
 
-        function inspectHallPicture() {
+function inspectHallPicture() {
 
-            if (!hallPictureLookedAt) {
+    if (!hallPictureLookedAt) {
 
-                showMessage(
-                    "The face in the painting is difficult to see."
-                );
+        showMessage(
+            "The face in the painting is difficult to see."
+        );
 
+        hallPictureLookedAt = true;
 
-                hallPictureLookedAt = true;
+    }
 
-            }
+    else {
 
-            else {
+        showMessage(
+            "You could swear the eyes were looking at you."
+        );
 
-                showMessage(
-                    "You could swear the eyes were looking at you."
-                );
+    }
 
-            }
-
-        }
+}
 
 
         /* =========================
