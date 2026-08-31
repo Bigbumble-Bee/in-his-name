@@ -1411,14 +1411,30 @@
            SIDE ROOM OBJECT
         ========================= */
 
-        function inspectSideRoomObject() {
+        let sideObjectExamined = false;
 
-            showMessage(
-                "You don't remember putting that there."
-            );
 
-        }
+function inspectSideRoomObject() {
 
+    if (!sideObjectExamined) {
+
+        showMessage(
+            "You don't remember putting that there."
+        );
+
+        sideObjectExamined = true;
+
+    }
+
+    else {
+
+        showMessage(
+            "There is a name written on it."
+        );
+
+    }
+
+}
 
     </script>
 
