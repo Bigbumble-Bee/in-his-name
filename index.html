@@ -549,103 +549,6 @@
 
 
         /* =========================
-           NOTES BUTTON
-        ========================= */
-
-        .notes-button {
-            position: fixed;
-            top: 4%;
-            right: 4%;
-            background: none;
-            border: none;
-            color: #5f5b53;
-            font-family: Georgia, serif;
-            font-size: 12px;
-            letter-spacing: 2px;
-            cursor: pointer;
-            z-index: 20;
-        }
-
-        .notes-button:hover {
-            color: #aaa59a;
-        }
-
-
-        /* =========================
-           NOTES PANEL
-        ========================= */
-
-        .notes-panel {
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 360px;
-            height: 100vh;
-            background: rgba(10, 10, 10, 0.97);
-            border-left: 1px solid #292621;
-            padding: 50px 35px;
-            z-index: 30;
-            transform: translateX(100%);
-            transition: transform 0.4s ease;
-            overflow-y: auto;
-        }
-
-        .notes-panel.open {
-            transform: translateX(0);
-        }
-
-        .notes-panel h2 {
-            margin: 0 0 30px 0;
-            font-size: 20px;
-            font-weight: normal;
-            letter-spacing: 5px;
-            color: #aaa59a;
-        }
-
-        .notes-panel p {
-            color: #77736b;
-            font-size: 14px;
-            letter-spacing: 1px;
-            line-height: 1.8;
-        }
-
-        .clue {
-            margin-bottom: 25px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #211f1c;
-        }
-
-        .clue-title {
-            color: #aaa59a;
-            font-size: 15px;
-            letter-spacing: 2px;
-            margin-bottom: 8px;
-        }
-
-        .clue-description {
-            color: #77736b;
-            font-size: 13px;
-            line-height: 1.7;
-        }
-
-        .close-notes {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            background: none;
-            border: none;
-            color: #5f5b53;
-            font-family: Georgia, serif;
-            font-size: 18px;
-            cursor: pointer;
-        }
-
-        .close-notes:hover {
-            color: #aaa59a;
-        }
-
-
-        /* =========================
            FADE
         ========================= */
 
@@ -716,199 +619,15 @@
         };
 
 
-        /*
-           CLUE SYSTEM
-
-           This array remembers important
-           discoveries made by the player.
-        */
-
-        const clues = [];
-
-
-        /*
-           These are the actual clues
-           the player can discover.
-
-           We can add many more later.
-        */
-
-        const clueInformation = {
-
-            old_photo: {
-
-                title: "Old Photograph",
-
-                description:
-                    "The photograph is too dark to make out clearly. Something about the faces feels familiar."
-
-            }
-
-        };
-
-
         let firstEventTriggered = false;
 
         let hallPictureLookedAt = false;
 
+        let sideObjectExamined = false;
+
         let roomPosition = -40;
 
         let currentArea = "bedroom";
-
-        let sideObjectExamined = false;
-
-
-        /* =========================
-           CLUE SYSTEM
-        ========================= */
-
-        function addClue(clue) {
-
-            /*
-               Check whether the clue has
-               already been discovered.
-            */
-
-            if (!clues.includes(clue)) {
-
-                clues.push(clue);
-
-                showMessage(
-                    "You found something important."
-                );
-
-                console.log(
-                    "Clues discovered:",
-                    clues
-                );
-
-            }
-
-        }
-
-
-        /* =========================
-           NOTES PANEL
-        ========================= */
-
-        function openNotes() {
-
-            const panel =
-                document.getElementById("notesPanel");
-
-            if (!panel) {
-
-                return;
-
-            }
-
-            panel.classList.add("open");
-
-            updateNotes();
-
-        }
-
-
-        function closeNotes() {
-
-            const panel =
-                document.getElementById("notesPanel");
-
-            if (!panel) {
-
-                return;
-
-            }
-
-            panel.classList.remove("open");
-
-        }
-
-
-        function updateNotes() {
-
-            const list =
-                document.getElementById("clueList");
-
-            if (!list) {
-
-                return;
-
-            }
-
-
-            /*
-               If no clues have been discovered,
-               show this message.
-            */
-
-            if (clues.length === 0) {
-
-                list.innerHTML = `
-
-                    <p>
-                        You haven't found anything
-                        worth writing down.
-                    </p>
-
-                `;
-
-                return;
-
-            }
-
-
-            list.innerHTML = "";
-
-
-            /*
-               Create a visual entry for
-               every discovered clue.
-            */
-
-            clues.forEach(function(clue) {
-
-                const information =
-                    clueInformation[clue];
-
-                if (!information) {
-
-                    return;
-
-                }
-
-
-                const clueElement =
-                    document.createElement("div");
-
-                clueElement.className =
-                    "clue";
-
-
-                clueElement.innerHTML = `
-
-                    <div class="clue-title">
-
-                        ${information.title}
-
-                    </div>
-
-                    <div class="clue-description">
-
-                        ${information.description}
-
-                    </div>
-
-                `;
-
-
-                list.appendChild(
-                    clueElement
-                );
-
-            });
-
-        }
 
 
         /* =========================
@@ -1100,36 +819,6 @@
                     </div>
 
 
-                    <button
-                        class="notes-button"
-                        onclick="openNotes()">
-
-                        [ NOTES ]
-
-                    </button>
-
-
-                    <div
-                        class="notes-panel"
-                        id="notesPanel">
-
-                        <button
-                            class="close-notes"
-                            onclick="closeNotes()">
-
-                            ×
-
-                        </button>
-
-
-                        <h2>NOTES</h2>
-
-
-                        <div id="clueList"></div>
-
-                    </div>
-
-
                     <div
                         class="interaction-message"
                         id="interactionMessage">
@@ -1201,36 +890,6 @@
                     </div>
 
 
-                    <button
-                        class="notes-button"
-                        onclick="openNotes()">
-
-                        [ NOTES ]
-
-                    </button>
-
-
-                    <div
-                        class="notes-panel"
-                        id="notesPanel">
-
-                        <button
-                            class="close-notes"
-                            onclick="closeNotes()">
-
-                            ×
-
-                        </button>
-
-
-                        <h2>NOTES</h2>
-
-
-                        <div id="clueList"></div>
-
-                    </div>
-
-
                     <div
                         class="interaction-message"
                         id="interactionMessage">
@@ -1278,36 +937,6 @@
                             class="side-room-object"
                             onclick="inspectSideRoomObject()">
                         </div>
-
-                    </div>
-
-
-                    <button
-                        class="notes-button"
-                        onclick="openNotes()">
-
-                        [ NOTES ]
-
-                    </button>
-
-
-                    <div
-                        class="notes-panel"
-                        id="notesPanel">
-
-                        <button
-                            class="close-notes"
-                            onclick="closeNotes()">
-
-                            ×
-
-                        </button>
-
-
-                        <h2>NOTES</h2>
-
-
-                        <div id="clueList"></div>
 
                     </div>
 
@@ -1681,39 +1310,43 @@
            BEDROOM PICTURE
         ========================= */
 
-function inspectPicture() {
+        function inspectPicture() {
 
-    if (!inspectedObjects.picture) {
+            if (
+                !inspectedObjects.picture
+            ) {
 
-        showMessage(
-            "The picture is too dark to make out."
-        );
+                showMessage(
+                    "The picture is too dark to make out."
+                );
 
-        inspectedObjects.picture = true;
 
-        addClue("old_photo");
+                inspectedObjects.picture = true;
 
-    }
+            }
 
-    else {
+            else {
 
-        showMessage(
-            "You know these people."
-        );
+                showMessage(
+                    "You know these people."
+                );
 
-        setTimeout(function() {
 
-            showMessage(
-                "You can't remember from where."
-            );
+                setTimeout(function() {
 
-        }, 2200);
+                    showMessage(
+                        "You can't remember from where."
+                    );
 
-    }
+                }, 2200);
 
-    checkInspections();
+            }
 
-}
+
+            checkInspections();
+
+        }
+
 
         /* =========================
            HALLWAY DOORS
@@ -1759,29 +1392,84 @@ function inspectPicture() {
 
         /* =========================
            HALLWAY PICTURE
+           FIRST CLUE CONNECTION
         ========================= */
 
-function inspectHallPicture() {
+        function inspectHallPicture() {
 
-    if (!hallPictureLookedAt) {
+            if (!hallPictureLookedAt) {
 
-        showMessage(
-            "The face in the painting is difficult to see."
-        );
+                hallPictureLookedAt = true;
 
-        hallPictureLookedAt = true;
 
-    }
+                /*
+                   The game checks whether
+                   Dontay has already seen
+                   the bedroom photograph.
+                */
 
-    else {
+                if (inspectedObjects.picture) {
 
-        showMessage(
-            "You could swear the eyes were looking at you."
-        );
+                    showMessage(
+                        "You stop."
+                    );
 
-    }
 
-}
+                    setTimeout(function() {
+
+                        showMessage(
+                            "That face..."
+                        );
+
+                    }, 1800);
+
+
+                    setTimeout(function() {
+
+                        showMessage(
+                            "You've seen it before."
+                        );
+
+                    }, 3600);
+
+                }
+
+                else {
+
+                    showMessage(
+                        "The face in the painting is difficult to see."
+                    );
+
+                }
+
+            }
+
+            else {
+
+                /*
+                   If the photograph was discovered,
+                   Dontay remembers the connection.
+                */
+
+                if (inspectedObjects.picture) {
+
+                    showMessage(
+                        "You can't remember where you've seen him."
+                    );
+
+                }
+
+                else {
+
+                    showMessage(
+                        "You could swear the eyes were looking at you."
+                    );
+
+                }
+
+            }
+
+        }
 
 
         /* =========================
@@ -1809,6 +1497,7 @@ function inspectHallPicture() {
             }
 
         }
+
 
     </script>
 
