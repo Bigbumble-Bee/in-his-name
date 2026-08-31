@@ -549,6 +549,97 @@
 
 
         /* =========================
+           NOTES BUTTON
+        ========================= */
+
+        .notes-button {
+            position: fixed;
+            top: 5%;
+            right: 5%;
+            color: #77736b;
+            font-size: 12px;
+            letter-spacing: 3px;
+            background: none;
+            border: none;
+            font-family: Georgia, serif;
+            cursor: pointer;
+            z-index: 20;
+        }
+
+        .notes-button:hover {
+            color: #c9c4b8;
+        }
+
+
+        /* =========================
+           NOTES WINDOW
+        ========================= */
+
+        .notes-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.75);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 30;
+        }
+
+        .notes-book {
+            width: 60vw;
+            max-width: 700px;
+            min-height: 55vh;
+            background: #151412;
+            border: 1px solid #37332c;
+            padding: 45px;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+            text-align: left;
+        }
+
+        .notes-title {
+            text-align: center;
+            font-size: 22px;
+            letter-spacing: 6px;
+            font-weight: normal;
+            margin-bottom: 35px;
+        }
+
+        .note-entry {
+            margin-bottom: 28px;
+        }
+
+        .note-entry-title {
+            font-size: 15px;
+            letter-spacing: 3px;
+            color: #c9c4b8;
+            margin-bottom: 8px;
+        }
+
+        .note-entry-text {
+            font-size: 14px;
+            line-height: 1.8;
+            letter-spacing: 1px;
+            color: #88837a;
+        }
+
+        .notes-close {
+            display: block;
+            margin: 35px auto 0 auto;
+            background: none;
+            border: none;
+            color: #77736b;
+            font-family: Georgia, serif;
+            font-size: 12px;
+            letter-spacing: 3px;
+            cursor: pointer;
+        }
+
+        .notes-close:hover {
+            color: #ffffff;
+        }
+
+
+        /* =========================
            FADE
         ========================= */
 
@@ -628,6 +719,141 @@
         let roomPosition = -40;
 
         let currentArea = "bedroom";
+
+
+        /* =========================
+           NOTES
+        ========================= */
+
+        let notes = [];
+
+
+        function addNote(title, text) {
+
+            let alreadyExists = notes.some(function(note) {
+
+                return note.title === title;
+
+            });
+
+
+            if (!alreadyExists) {
+
+                notes.push({
+
+                    title: title,
+                    text: text
+
+                });
+
+            }
+
+        }
+
+
+        function openNotes() {
+
+            let noteHTML = "";
+
+
+            if (notes.length === 0) {
+
+                noteHTML = `
+
+                    <div class="note-entry">
+
+                        <div class="note-entry-text">
+
+                            You haven't written anything down yet.
+
+                        </div>
+
+                    </div>
+
+                `;
+
+            }
+
+
+            else {
+
+                notes.forEach(function(note) {
+
+                    noteHTML += `
+
+                        <div class="note-entry">
+
+                            <div class="note-entry-title">
+
+                                ${note.title}
+
+                            </div>
+
+                            <div class="note-entry-text">
+
+                                ${note.text}
+
+                            </div>
+
+                        </div>
+
+                    `;
+
+                });
+
+            }
+
+
+            const overlay = document.createElement("div");
+
+            overlay.className = "notes-overlay";
+
+            overlay.id = "notesOverlay";
+
+
+            overlay.innerHTML = `
+
+                <div class="notes-book">
+
+                    <div class="notes-title">
+
+                        NOTES
+
+                    </div>
+
+                    ${noteHTML}
+
+                    <button
+                        class="notes-close"
+                        onclick="closeNotes()">
+
+                        [ CLOSE ]
+
+                    </button>
+
+                </div>
+
+            `;
+
+
+            document.body.appendChild(overlay);
+
+        }
+
+
+        function closeNotes() {
+
+            const overlay =
+                document.getElementById("notesOverlay");
+
+
+            if (overlay) {
+
+                overlay.remove();
+
+            }
+
+        }
 
 
         /* =========================
@@ -819,6 +1045,15 @@
                     </div>
 
 
+                    <button
+                        class="notes-button"
+                        onclick="openNotes()">
+
+                        [ NOTES ]
+
+                    </button>
+
+
                     <div
                         class="interaction-message"
                         id="interactionMessage">
@@ -890,6 +1125,15 @@
                     </div>
 
 
+                    <button
+                        class="notes-button"
+                        onclick="openNotes()">
+
+                        [ NOTES ]
+
+                    </button>
+
+
                     <div
                         class="interaction-message"
                         id="interactionMessage">
@@ -939,6 +1183,15 @@
                         </div>
 
                     </div>
+
+
+                    <button
+                        class="notes-button"
+                        onclick="openNotes()">
+
+                        [ NOTES ]
+
+                    </button>
 
 
                     <div
@@ -1224,6 +1477,12 @@
 
                 inspectedObjects.bed = true;
 
+
+                addNote(
+                    "BED",
+                    "The sheets are cold. There is no warmth left in them."
+                );
+
             }
 
             else {
@@ -1256,6 +1515,12 @@
 
 
                 inspectedObjects.nightstand = true;
+
+
+                addNote(
+                    "NIGHTSTAND",
+                    "Nothing on the nightstand. I expected to find something."
+                );
 
             }
 
@@ -1290,6 +1555,12 @@
 
                 inspectedObjects.cross = true;
 
+
+                addNote(
+                    "CROSS",
+                    "A wooden cross hangs above the bed."
+                );
+
             }
 
             else {
@@ -1323,6 +1594,12 @@
 
                 inspectedObjects.picture = true;
 
+
+                addNote(
+                    "PHOTOGRAPH",
+                    "An old photograph. There are several people in it. One face feels strangely familiar."
+                );
+
             }
 
             else {
@@ -1339,6 +1616,12 @@
                     );
 
                 }, 2200);
+
+
+                addNote(
+                    "PHOTOGRAPH",
+                    "An old photograph. One of the boys in it feels familiar. I can't remember where I've seen him."
+                );
 
             }
 
@@ -1392,7 +1675,7 @@
 
         /* =========================
            HALLWAY PICTURE
-           FIRST CLUE CONNECTION
+           CLUE CONNECTION
         ========================= */
 
         function inspectHallPicture() {
@@ -1401,12 +1684,6 @@
 
                 hallPictureLookedAt = true;
 
-
-                /*
-                   The game checks whether
-                   Dontay has already seen
-                   the bedroom photograph.
-                */
 
                 if (inspectedObjects.picture) {
 
@@ -1432,6 +1709,12 @@
 
                     }, 3600);
 
+
+                    addNote(
+                        "THE PAINTING",
+                        "The face in the hallway painting looks familiar. It reminds me of someone in the photograph."
+                    );
+
                 }
 
                 else {
@@ -1440,16 +1723,17 @@
                         "The face in the painting is difficult to see."
                     );
 
+
+                    addNote(
+                        "THE PAINTING",
+                        "There is a man in the hallway painting. His face is difficult to see."
+                    );
+
                 }
 
             }
 
             else {
-
-                /*
-                   If the photograph was discovered,
-                   Dontay remembers the connection.
-                */
 
                 if (inspectedObjects.picture) {
 
@@ -1485,6 +1769,12 @@
                 );
 
                 sideObjectExamined = true;
+
+
+                addNote(
+                    "UNKNOWN OBJECT",
+                    "I don't remember putting this here."
+                );
 
             }
 
