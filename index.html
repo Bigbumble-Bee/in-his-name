@@ -1681,45 +1681,39 @@
            BEDROOM PICTURE
         ========================= */
 
-        function inspectPicture() {
+function inspectPicture() {
 
-            if (
-                !inspectedObjects.picture
-            ) {
+    if (!inspectedObjects.picture) {
 
-                showMessage(
-                    "The picture is too dark to make out."
-                );
+        showMessage(
+            "The picture is too dark to make out."
+        );
 
+        inspectedObjects.picture = true;
 
-                inspectedObjects.picture = true;
+        addClue("old_photo");
 
+    }
 
-                /*
-                   THIS IS OUR FIRST CLUE.
+    else {
 
-                   The game now permanently
-                   remembers that the player
-                   discovered the photograph.
-                */
+        showMessage(
+            "You know these people."
+        );
 
-                addClue("old_photo");
+        setTimeout(function() {
 
-            }
+            showMessage(
+                "You can't remember from where."
+            );
 
-            else {
+        }, 2200);
 
-                showMessage(
-                    "You think you recognize the faces."
-                );
+    }
 
-            }
+    checkInspections();
 
-
-            checkInspections();
-
-        }
-
+}
 
         /* =========================
            HALLWAY DOORS
