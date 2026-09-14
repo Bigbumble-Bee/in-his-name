@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head><script nonce="pwojpigxQoFXmYohBuUbWA" src="https://chatgpt.com/__DLD__e6144a3da704c5efc34e5ae5cc466d431e8f2f9f4efe74c697654bf5b6f1c5d5/resources/setup.js"></script><script nonce="8MZTHq5dD+19mUD3O1Tbyg" src="https://chatgpt.com/__DLD__e6144a3da704c5efc34e5ae5cc466d431e8f2f9f4efe74c697654bf5b6f1c5d5/resources/frontend.min.js" server="https://localhost:49910" id="__dld-frontend__" async defer></script>
 
     <title>In His Name</title>
 
@@ -13,1711 +11,1256 @@
             box-sizing: border-box;
         }
 
-        html,
         body {
             margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
+            background: #0b0b0b;
+            color: #c9c4b8;
+            font-family: Georgia, serif;
+            width: 100vw;
+            height: 100vh;
             overflow: hidden;
         }
 
-        body {
-            background: #080808;
-            color: #c9c4b8;
-            font-family: Georgia, serif;
-        }
 
-        button {
-            font-family: Georgia, serif;
-        }
+        /* =========================
+           TITLE SCREEN
+        ========================= */
 
-
-        /* =========================================================
-           GENERAL
-        ========================================================= */
-
-        .screen {
-            position: absolute;
-            inset: 0;
+        .title-screen {
             width: 100vw;
             height: 100vh;
-        }
-
-        .hidden {
-            display: none !important;
-        }
-
-
-        /* =========================================================
-           TITLE SCREEN
-        ========================================================= */
-
-        #title-screen {
-            background: #080808;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
         }
 
-        #title-screen h1 {
-            margin: 0;
-            font-size: 4rem;
-            letter-spacing: 0.25em;
+        .title-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 48px;
             font-weight: normal;
-            color: #d1ccc1;
+            letter-spacing: 10px;
+            margin: 0;
         }
 
-        #title-screen p {
-            margin-top: 18px;
-            font-size: 0.95rem;
-            letter-spacing: 0.35em;
-            color: #777269;
+        .subtitle {
+            margin-top: 20px;
+            font-size: 14px;
+            letter-spacing: 4px;
+            color: #77736b;
         }
 
-        #start-button {
-            margin-top: 70px;
+        .start {
+            margin-top: 80px;
+            font-size: 16px;
+            letter-spacing: 3px;
+            color: #aaa59a;
             background: none;
             border: none;
-            color: #716c64;
-            font-size: 0.9rem;
-            letter-spacing: 0.15em;
+            font-family: Georgia, serif;
             cursor: pointer;
         }
 
-        #start-button:hover {
-            color: #aaa49a;
+        .start:hover {
+            color: #ffffff;
         }
 
 
-        /* =========================================================
-           LOADING
-        ========================================================= */
+        /* =========================
+           LOADING SCREEN
+        ========================= */
 
-        #loading-screen {
-            background: #000;
+        .loading-screen {
+            width: 100vw;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #777;
-            letter-spacing: 0.18em;
-            font-size: 0.8rem;
-        }
-
-
-        /* =========================================================
-           STORY TEXT
-        ========================================================= */
-
-        #story-screen {
-            background: #000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 40px;
-        }
-
-        #story-text {
-            max-width: 650px;
             text-align: center;
-            line-height: 2;
-            font-size: 1.05rem;
-            color: #bdb8ae;
+        }
+
+        .loading-screen p {
+            font-size: 14px;
+            letter-spacing: 5px;
+            color: #77736b;
         }
 
 
-        /* =========================================================
-           GAME WORLD
-        ========================================================= */
+        /* =========================
+           STORY
+        ========================= */
 
-        #game-screen {
-            background: #080808;
+        .game-screen {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .game-screen p {
+            font-size: 18px;
+            letter-spacing: 3px;
+            color: #aaa59a;
+            line-height: 2;
+        }
+
+        .black-screen {
+            width: 100vw;
+            height: 100vh;
+            background: #000000;
+        }
+
+
+        /* =========================
+           ROOM WINDOW
+        ========================= */
+
+        .room-window {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
             overflow: hidden;
         }
 
-        #world {
+
+        /* =========================
+           BEDROOM
+        ========================= */
+
+        .room {
+            width: 180vw;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: -40vw;
+            background: #090909;
+            transition: left 0.7s ease;
+        }
+
+        .back-wall {
             position: absolute;
             top: 0;
             left: 0;
             width: 180vw;
-            height: 100vh;
-            transition: left 0.45s ease;
+            height: 68vh;
+            background: #090909;
+            border-bottom: 1px solid #1c1b19;
         }
 
-        .room {
+        .wall-light {
             position: absolute;
-            top: 0;
-            width: 60vw;
-            height: 100vh;
-            overflow: hidden;
-            background: #101010;
+            width: 500px;
+            height: 300px;
+            top: 25vh;
+            left: 90vw;
+            transform: translateX(-50%);
+            background: #8f8979;
+            filter: blur(80px);
+            opacity: 0.035;
         }
 
-        .room-floor {
+        .floor {
             position: absolute;
-            left: 0;
-            right: 0;
             bottom: 0;
-            height: 25vh;
-            background: #171513;
-            border-top: 1px solid #24211e;
-        }
-
-        .room-wall {
-            position: absolute;
-            inset: 0;
-            bottom: 25vh;
-            background:
-                linear-gradient(
-                    to bottom,
-                    #111 0%,
-                    #151412 75%,
-                    #111 100%
-                );
-        }
-
-
-        /* =========================================================
-           BEDROOM
-        ========================================================= */
-
-        #bedroom {
             left: 0;
+            width: 180vw;
+            height: 32vh;
+            background: #11100f;
+            border-top: 1px solid #1c1b19;
         }
+
+        .light {
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            top: 45vh;
+            left: 90vw;
+            transform: translate(-50%, -50%);
+            background: #b8b29f;
+            border-radius: 50%;
+            filter: blur(45px);
+            opacity: 0.12;
+        }
+
+
+        /* =========================
+           BEDROOM DOOR
+        ========================= */
+
+        .door {
+            position: absolute;
+            width: 16vw;
+            height: 45vh;
+            left: 136vw;
+            bottom: 32vh;
+            background: #11100f;
+            border: 1px solid #24211d;
+            cursor: pointer;
+        }
+
+        .door:hover {
+            border-color: #3a352d;
+        }
+
+        .door-knob {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            right: 12%;
+            top: 52%;
+            border-radius: 50%;
+            background: #4a463d;
+        }
+
+
+        /* =========================
+           BED
+        ========================= */
 
         .bed {
             position: absolute;
-            left: 8vw;
-            bottom: 18vh;
-            width: 25vw;
-            height: 22vh;
-            background: #1b1a18;
-            border: 1px solid #292725;
+            width: 55vw;
+            height: 20vh;
+            left: 40vw;
+            bottom: 22vh;
+            background: #191816;
+            border: 1px solid #2b2823;
+            box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.4);
             cursor: pointer;
         }
 
-        .bed-mattress {
-            position: absolute;
-            left: 2%;
-            top: 7%;
-            width: 96%;
-            height: 58%;
-            background: #272522;
-            border: 1px solid #33302b;
+        .bed:hover {
+            border-color: #3a352d;
         }
 
-        .bed-pillow {
+        .pillow {
             position: absolute;
-            left: 7%;
-            top: 14%;
-            width: 27%;
-            height: 30%;
-            background: #302e2a;
-            border: 1px solid #393630;
+            width: 22%;
+            height: 35%;
+            left: 5%;
+            top: 15%;
+            background: #211f1c;
+            border: 1px solid #302c26;
         }
 
-        .bed-frame {
+        .blanket {
             position: absolute;
-            left: 4%;
-            right: 4%;
-            bottom: -10%;
-            height: 13%;
-            background: #141311;
+            width: 65%;
+            height: 70%;
+            right: 5%;
+            top: 15%;
+            background: #171513;
+            border: 1px solid #211e1a;
         }
+
+
+        /* =========================
+           NIGHTSTAND
+        ========================= */
 
         .nightstand {
             position: absolute;
-            left: 36vw;
-            bottom: 18vh;
-            width: 7vw;
+            width: 10vw;
             height: 15vh;
-            background: #1a1816;
-            border: 1px solid #292724;
+            left: 16vw;
+            bottom: 32vh;
+            background: #121110;
+            border: 1px solid #211f1c;
             cursor: pointer;
         }
 
-        .nightstand-top {
-            position: absolute;
-            top: -5px;
-            left: -3px;
-            right: -3px;
-            height: 7px;
-            background: #27241f;
+        .nightstand:hover {
+            border-color: #3a352d;
         }
+
+        .drawer {
+            position: absolute;
+            width: 70%;
+            height: 25%;
+            left: 15%;
+            top: 20%;
+            border: 1px solid #27241f;
+        }
+
+
+        /* =========================
+           CRUCIFIX
+        ========================= */
 
         .cross {
             position: absolute;
-            left: 48vw;
-            top: 23vh;
-            width: 70px;
-            height: 105px;
+            width: 50px;
+            height: 90px;
+            left: 62vw;
+            top: 18vh;
             cursor: pointer;
         }
 
         .cross::before {
             content: "";
             position: absolute;
-            left: 29px;
+            width: 8px;
+            height: 90px;
+            left: 21px;
             top: 0;
-            width: 12px;
-            height: 100%;
-            background: #302b25;
+            background: #25221e;
         }
 
         .cross::after {
             content: "";
             position: absolute;
-            left: 0;
-            top: 30px;
-            width: 70px;
-            height: 12px;
-            background: #302b25;
-        }
-
-        .bedroom-picture {
-            position: absolute;
-            left: 18vw;
-            top: 13vh;
-            width: 8vw;
-            height: 11vh;
-            background: #282621;
-            border: 7px solid #171614;
-            cursor: pointer;
-        }
-
-        .bedroom-picture::after {
-            content: "";
-            position: absolute;
-            inset: 10px;
-            background: #181817;
-        }
-
-        .bedroom-door {
-            position: absolute;
-            right: 5vw;
-            bottom: 25vh;
-            width: 9vw;
-            height: 58vh;
-            background: #171513;
-            border: 1px solid #2d2925;
-            cursor: pointer;
-        }
-
-        .bedroom-door-handle {
-            position: absolute;
-            right: 14px;
-            top: 51%;
-            width: 8px;
+            width: 50px;
             height: 8px;
-            border-radius: 50%;
-            background: #635b4f;
+            left: 0;
+            top: 28px;
+            background: #25221e;
+        }
+
+        .cross:hover::before,
+        .cross:hover::after {
+            background: #3a352d;
         }
 
 
-        /* =========================================================
-           HALLWAY
-        ========================================================= */
+        /* =========================
+           BEDROOM PICTURE
+        ========================= */
 
-        #hallway {
-            left: 60vw;
+        .picture {
+            position: absolute;
+            width: 12vw;
+            height: 16vh;
+            left: 16vw;
+            top: 14vh;
+            border: 3px solid #25221e;
+            background: #11100f;
+            cursor: pointer;
+        }
+
+        .picture:hover {
+            border-color: #3a352d;
+        }
+
+        .picture-inner {
+            position: absolute;
+            width: 70%;
+            height: 70%;
+            left: 15%;
+            top: 15%;
+            background: #171614;
+        }
+
+
+        /* =========================
+           HALLWAY
+        ========================= */
+
+        .hallway {
+            width: 180vw;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: -40vw;
+            background: #080808;
+            transition: left 0.7s ease;
         }
 
         .hallway-wall {
             position: absolute;
-            inset: 0;
-            background:
-                linear-gradient(
-                    to right,
-                    #0c0c0c,
-                    #141311 40%,
-                    #111 100%
-                );
-        }
-
-        .hall-door {
-            position: absolute;
-            bottom: 25vh;
-            width: 10vw;
-            height: 57vh;
-            background: #171513;
-            border: 1px solid #292622;
-        }
-
-        .hall-door.one {
-            left: 7vw;
-            cursor: pointer;
-        }
-
-        .hall-door.two {
-            left: 25vw;
-            cursor: pointer;
-        }
-
-        .hall-door.three {
-            left: 44vw;
-        }
-
-        .hall-door-handle {
-            position: absolute;
-            right: 12px;
-            top: 50%;
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: #595248;
-        }
-
-        .hall-picture {
-            position: absolute;
-            left: 17vw;
-            top: 12vh;
-            width: 8vw;
-            height: 12vh;
-            background: #25231f;
-            border: 6px solid #171614;
-            cursor: pointer;
-        }
-
-        .hall-picture::after {
-            content: "";
-            position: absolute;
-            inset: 12px;
-            background:
-                linear-gradient(
-                    140deg,
-                    #292723,
-                    #121212
-                );
-        }
-
-
-        /* =========================================================
-           STUDY
-        ========================================================= */
-
-        #study {
-            left: 120vw;
-        }
-
-        .study-wall {
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(
-                    ellipse at 53% 43%,
-                    #27231c 0%,
-                    #151412 30%,
-                    #0e0e0d 75%
-                );
-        }
-
-        .study-floor {
-            position: absolute;
+            top: 0;
             left: 0;
-            right: 0;
+            width: 180vw;
+            height: 68vh;
+            background: #0a0909;
+            border-bottom: 1px solid #1c1b19;
+        }
+
+        .hallway-floor {
+            position: absolute;
             bottom: 0;
-            height: 25vh;
-            background:
-                repeating-linear-gradient(
-                    90deg,
-                    #151311 0px,
-                    #181613 90px,
-                    #12110f 180px
-                );
-            border-top: 1px solid #27231e;
+            left: 0;
+            width: 180vw;
+            height: 32vh;
+            background: #100f0e;
+            border-top: 1px solid #1c1b19;
+        }
+
+        .hallway-light {
+            position: absolute;
+            width: 250px;
+            height: 400px;
+            top: 15vh;
+            left: 90vw;
+            background: #aaa393;
+            filter: blur(90px);
+            opacity: 0.035;
         }
 
 
-        /* BOOKSHELF */
+        /* =========================
+           HALLWAY DOORS
+        ========================= */
 
-        .bookshelf {
+        .hallway-door {
             position: absolute;
-            left: 2vw;
-            bottom: 25vh;
-            width: 15vw;
-            height: 62vh;
-            background: #171412;
-            border: 1px solid #2c2722;
-        }
-
-        .shelf {
-            position: absolute;
-            left: 3%;
-            right: 3%;
-            height: 2%;
-            background: #332c24;
-        }
-
-        .shelf.s1 { top: 17%; }
-        .shelf.s2 { top: 34%; }
-        .shelf.s3 { top: 51%; }
-        .shelf.s4 { top: 68%; }
-        .shelf.s5 { top: 85%; }
-
-        .book {
-            position: absolute;
-            bottom: 2%;
-            width: 7%;
-            border: 1px solid #2d2822;
+            width: 13vw;
+            height: 42vh;
+            bottom: 32vh;
+            background: #11100f;
+            border: 1px solid #24211d;
             cursor: pointer;
-            opacity: 0.88;
         }
 
-        .book:hover {
-            opacity: 1;
+        .hallway-door:hover {
+            border-color: #3a352d;
         }
 
-        .book.b1 { left: 7%; height: 14%; }
-        .book.b2 { left: 15%; height: 15%; }
-        .book.b3 { left: 23%; height: 13%; }
-        .book.b4 { left: 31%; height: 16%; }
-        .book.b5 { left: 39%; height: 14%; }
-        .book.b6 { left: 47%; height: 15%; }
-        .book.b7 { left: 55%; height: 13%; }
-        .book.b8 { left: 63%; height: 16%; }
-        .book.b9 { left: 71%; height: 14%; }
-        .book.b10 { left: 79%; height: 15%; }
-        .book.b11 { left: 87%; height: 13%; }
-
-        .book-row-two {
-            bottom: 36%;
+        .door-one {
+            left: 25vw;
         }
 
-        .book-row-three {
-            bottom: 53%;
+        .door-two {
+            left: 85vw;
+            transform: perspective(500px) rotateY(-8deg);
+            transform-origin: left center;
         }
 
-        .book-row-four {
-            bottom: 70%;
-        }
-
-        .book-row-five {
-            bottom: 87%;
+        .door-three {
+            left: 145vw;
         }
 
 
-        /* ARMCHAIR */
+        /* =========================
+           HALLWAY PICTURE
+        ========================= */
 
-        .armchair {
+        .hallway-picture {
             position: absolute;
-            left: 18vw;
-            bottom: 25vh;
             width: 11vw;
-            height: 27vh;
-            background: #1d1a17;
-            border: 1px solid #302b26;
+            height: 15vh;
+            left: 55vw;
+            top: 15vh;
+            background: #11100f;
+            border: 3px solid #25221e;
             cursor: pointer;
         }
 
-        .armchair::before {
-            content: "";
+        .hallway-picture:hover {
+            border-color: #3a352d;
+        }
+
+
+        /* =====================================================
+           STUDY / BIBLE ROOM
+        ===================================================== */
+
+        .side-room {
+            width: 180vw;
+            height: 100vh;
             position: absolute;
-            left: 12%;
-            right: 12%;
-            top: 9%;
-            height: 55%;
-            background: #27231f;
-            border: 1px solid #342f29;
+            top: 0;
+            left: -40vw;
+            background: #080808;
+            transition: left 0.7s ease;
         }
 
-        .armchair::after {
-            content: "";
-            position: absolute;
-            left: 5%;
-            right: 5%;
-            bottom: -8%;
-            height: 10%;
-            background: #141311;
-        }
-
-
-        /* SIDE TABLE */
-
-        .side-table {
-            position: absolute;
-            left: 30vw;
-            bottom: 25vh;
-            width: 6vw;
-            height: 16vh;
-            background: #1a1815;
-            border: 1px solid #292621;
-            cursor: pointer;
-        }
-
-
-        /* DESK */
-
-        .study-desk {
-            position: absolute;
-            left: 34vw;
-            bottom: 25vh;
-            width: 17vw;
-            height: 28vh;
-            background: #1b1815;
-            border: 1px solid #302a24;
-        }
-
-        .desk-top {
-            position: absolute;
-            left: -3%;
-            top: -6%;
-            width: 106%;
-            height: 9%;
-            background: #29231d;
-        }
-
-        .desk-leg {
-            position: absolute;
-            bottom: -35%;
-            width: 8%;
-            height: 37%;
-            background: #141210;
-        }
-
-        .desk-leg.left {
-            left: 7%;
-        }
-
-        .desk-leg.right {
-            right: 7%;
-        }
-
-
-        /* DRAWERS */
-
-        .desk-drawer {
-            position: absolute;
-            left: 8%;
-            width: 84%;
-            height: 17%;
-            background: #151311;
-            border: 1px solid #28231e;
-            cursor: pointer;
-        }
-
-        .desk-drawer:hover {
-            background: #1d1a16;
-        }
-
-        .desk-drawer.d1 {
-            top: 19%;
-        }
-
-        .desk-drawer.d2 {
-            top: 41%;
-        }
-
-        .desk-drawer.d3 {
-            top: 63%;
-        }
-
-        .drawer-handle {
-            position: absolute;
-            left: 43%;
-            top: 45%;
-            width: 15%;
-            height: 6%;
-            background: #4a4237;
-        }
-
-
-        /* DESK ITEMS */
-
-        .desk-bible {
-            position: absolute;
-            left: 4vw;
-            top: -7vh;
-            width: 5vw;
-            height: 6vh;
-            background: #27231d;
-            border: 1px solid #3b342a;
-            transform: rotate(-3deg);
-            cursor: pointer;
-        }
-
-        .desk-journal {
-            position: absolute;
-            left: 10vw;
-            top: -6vh;
-            width: 5.5vw;
-            height: 7vh;
-            background: #332b23;
-            border: 1px solid #4a3d30;
-            transform: rotate(4deg);
-            cursor: pointer;
-            z-index: 5;
-        }
-
-        .desk-journal::after {
-            content: "";
-            position: absolute;
-            left: 15%;
-            top: 15%;
-            width: 70%;
-            height: 1px;
-            background: #5a4c3d;
-            box-shadow:
-                0 8px #5a4c3d,
-                0 16px #5a4c3d;
-            opacity: 0.45;
-        }
-
-        .desk-paper {
-            position: absolute;
-            left: 7vw;
-            top: -5vh;
-            width: 5vw;
-            height: 6vh;
-            background: #c1b9a8;
-            transform: rotate(-8deg);
-            cursor: pointer;
-            z-index: 4;
-        }
-
-        .desk-lamp {
-            position: absolute;
-            right: -2vw;
-            top: -16vh;
-            width: 4vw;
-            height: 17vh;
-            cursor: pointer;
-        }
-
-        .lamp-shade {
+        .side-room-wall {
             position: absolute;
             top: 0;
             left: 0;
+            width: 180vw;
+            height: 68vh;
+            background: #090909;
+            border-bottom: 1px solid #1c1b19;
+        }
+
+        .side-room-floor {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 180vw;
+            height: 32vh;
+            background: #100f0e;
+            border-top: 1px solid #1c1b19;
+        }
+
+        /* desk */
+
+        .study-desk {
+            position: absolute;
+            width: 34vw;
+            height: 17vh;
+            left: 73vw;
+            bottom: 24vh;
+            background: #151311;
+            border: 1px solid #2a2721;
+            cursor: pointer;
+        }
+
+        .study-desk:hover {
+            border-color: #3a352d;
+        }
+
+        .desk-leg-one,
+        .desk-leg-two {
+            position: absolute;
+            width: 8px;
+            height: 12vh;
+            bottom: -12vh;
+            background: #121110;
+        }
+
+        .desk-leg-one {
+            left: 12%;
+        }
+
+        .desk-leg-two {
+            right: 12%;
+        }
+
+        /* desk lamp */
+
+        .desk-lamp {
+            position: absolute;
             width: 4vw;
-            height: 6vh;
-            background: #3a342b;
-            clip-path: polygon(15% 0, 85% 0, 100% 100%, 0 100%);
+            height: 8vh;
+            left: 88vw;
+            bottom: 41vh;
+            cursor: pointer;
+        }
+
+        .lamp-base {
+            position: absolute;
+            width: 35px;
+            height: 6px;
+            bottom: 0;
+            left: 10px;
+            background: #353128;
         }
 
         .lamp-stem {
             position: absolute;
-            left: 48%;
-            top: 35%;
-            width: 4%;
-            height: 55%;
-            background: #494238;
+            width: 5px;
+            height: 45px;
+            left: 25px;
+            bottom: 5px;
+            background: #302d26;
         }
 
+        .lamp-shade {
+            position: absolute;
+            width: 45px;
+            height: 24px;
+            left: 5px;
+            top: 0;
+            border-radius: 50% 50% 10% 10%;
+            background: #27241f;
+        }
 
-        /* FILING CABINET */
+        /* bookshelves */
+
+        .bookshelf {
+            position: absolute;
+            width: 20vw;
+            height: 52vh;
+            left: 15vw;
+            top: 11vh;
+            background: #11100f;
+            border: 1px solid #25221e;
+        }
+
+        .shelf-line {
+            position: absolute;
+            width: 90%;
+            height: 1px;
+            left: 5%;
+            background: #302c25;
+        }
+
+        .shelf-one {
+            top: 25%;
+        }
+
+        .shelf-two {
+            top: 50%;
+        }
+
+        .shelf-three {
+            top: 75%;
+        }
+
+        .book {
+            position: absolute;
+            width: 20px;
+            bottom: 0;
+            background: #24211d;
+            border: 1px solid #353128;
+            cursor: pointer;
+        }
+
+        .book:hover {
+            border-color: #4a4439;
+        }
+
+        .book-one {
+            height: 90px;
+            left: 25px;
+            bottom: 8px;
+        }
+
+        .book-two {
+            height: 75px;
+            left: 50px;
+            bottom: 8px;
+        }
+
+        .book-three {
+            height: 105px;
+            left: 78px;
+            bottom: 8px;
+        }
+
+        .book-four {
+            height: 82px;
+            left: 108px;
+            bottom: 8px;
+        }
+
+        .book-five {
+            height: 94px;
+            left: 140px;
+            bottom: 8px;
+        }
+
+        .special-book {
+            position: absolute;
+            width: 30px;
+            height: 105px;
+            right: 18px;
+            bottom: 8px;
+            background: #1c1a17;
+            border: 1px solid #39342c;
+            cursor: pointer;
+        }
+
+        .special-book:hover {
+            border-color: #575045;
+        }
+
+        /* Bible */
+
+        .study-bible {
+            position: absolute;
+            width: 9vw;
+            height: 5vh;
+            left: 79vw;
+            bottom: 41vh;
+            background: #1a1815;
+            border: 1px solid #332f28;
+            transform: rotate(-3deg);
+            cursor: pointer;
+        }
+
+        .study-bible:hover {
+            border-color: #4a4439;
+        }
+
+        /* journal */
+
+        .journal {
+            position: absolute;
+            width: 8vw;
+            height: 11vh;
+            left: 98vw;
+            bottom: 39vh;
+            background: #191714;
+            border: 1px solid #373129;
+            transform: rotate(4deg);
+            cursor: pointer;
+        }
+
+        .journal:hover {
+            border-color: #514a3e;
+        }
+
+        /* drawers */
+
+        .desk-drawer {
+            position: absolute;
+            width: 7vw;
+            height: 3vh;
+            left: 8vw;
+            background: #11100f;
+            border: 1px solid #292621;
+            cursor: pointer;
+        }
+
+        .desk-drawer:hover {
+            border-color: #484237;
+        }
+
+        .drawer-top {
+            top: 20%;
+        }
+
+        .drawer-middle {
+            top: 42%;
+        }
+
+        .drawer-bottom {
+            top: 64%;
+        }
+
+        /* filing cabinet */
 
         .filing-cabinet {
             position: absolute;
-            right: 5vw;
-            bottom: 25vh;
-            width: 9vw;
-            height: 43vh;
-            background: #191816;
-            border: 1px solid #302d28;
+            width: 11vw;
+            height: 30vh;
+            left: 125vw;
+            bottom: 32vh;
+            background: #11100f;
+            border: 1px solid #28251f;
             cursor: pointer;
+        }
+
+        .filing-cabinet:hover {
+            border-color: #3d382f;
         }
 
         .file-drawer {
             position: absolute;
-            left: 7%;
-            width: 86%;
+            width: 80%;
             height: 18%;
-            background: #131210;
+            left: 10%;
             border: 1px solid #292621;
         }
 
-        .file-drawer.fd1 { top: 8%; }
-        .file-drawer.fd2 { top: 30%; }
-        .file-drawer.fd3 { top: 52%; }
-        .file-drawer.fd4 { top: 74%; }
-
-        .file-handle {
-            position: absolute;
-            left: 39%;
-            top: 45%;
-            width: 22%;
-            height: 5%;
-            background: #4a443a;
+        .file-one {
+            top: 10%;
         }
 
+        .file-two {
+            top: 35%;
+        }
 
-        /* CLOCK */
+        .file-three {
+            top: 60%;
+        }
 
-        .study-clock {
+        .file-four {
+            top: 85%;
+            transform: translateY(-100%);
+        }
+
+        /* armchair */
+
+        .armchair {
             position: absolute;
-            right: 20vw;
-            top: 13vh;
-            width: 7vw;
-            height: 7vw;
-            border-radius: 50%;
-            background: #1c1a17;
-            border: 3px solid #37312a;
+            width: 16vw;
+            height: 22vh;
+            left: 45vw;
+            bottom: 27vh;
+            background: #141311;
+            border: 1px solid #292621;
             cursor: pointer;
         }
 
-        .clock-center {
+        .armchair:hover {
+            border-color: #3b362e;
+        }
+
+        .chair-back {
             position: absolute;
-            left: 47%;
-            top: 47%;
-            width: 6%;
-            height: 6%;
+            width: 75%;
+            height: 75%;
+            left: 12.5%;
+            top: 8%;
+            background: #181613;
+            border: 1px solid #27241f;
+        }
+
+        .chair-seat {
+            position: absolute;
+            width: 85%;
+            height: 25%;
+            left: 7.5%;
+            bottom: 10%;
+            background: #121110;
+            border: 1px solid #27241f;
+        }
+
+        /* clock */
+
+        .study-clock {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            left: 108vw;
+            top: 14vh;
             border-radius: 50%;
-            background: #777066;
+            border: 3px solid #292621;
+            background: #0f0e0d;
+            cursor: pointer;
         }
 
         .clock-hand-one {
             position: absolute;
-            left: 49%;
-            top: 18%;
-            width: 2%;
-            height: 32%;
-            background: #615a50;
-            transform-origin: bottom;
-            transform: rotate(0deg);
+            width: 2px;
+            height: 23px;
+            left: 33px;
+            top: 12px;
+            background: #625c50;
         }
 
         .clock-hand-two {
             position: absolute;
-            left: 49%;
-            top: 35%;
-            width: 2%;
-            height: 25%;
-            background: #615a50;
-            transform-origin: bottom;
-            transform: rotate(95deg);
+            width: 22px;
+            height: 2px;
+            left: 33px;
+            top: 34px;
+            transform-origin: left center;
+            transform: rotate(180deg);
+            background: #625c50;
         }
 
-
-        /* WASTEBASKET */
+        /* wastebasket */
 
         .wastebasket {
             position: absolute;
-            left: 53vw;
-            bottom: 25vh;
-            width: 4vw;
-            height: 8vh;
-            background: #181613;
-            border: 1px solid #29251f;
+            width: 7vw;
+            height: 9vh;
+            left: 113vw;
+            bottom: 22vh;
+            background: #11100f;
+            border: 1px solid #25221e;
+            cursor: pointer;
+            transform: perspective(200px) rotateX(-8deg);
+        }
+
+        .wastebasket:hover {
+            border-color: #3c372e;
+        }
+
+        /* tiny note */
+
+        .desk-paper {
+            position: absolute;
+            width: 8vw;
+            height: 7vh;
+            left: 105vw;
+            bottom: 41vh;
+            background: #1d1b17;
+            border: 1px solid #3b362e;
+            transform: rotate(-2deg);
             cursor: pointer;
         }
 
-
-        /* =========================================================
-           UI
-        ========================================================= */
-
-        #message-box {
-            position: absolute;
-            left: 50%;
-            bottom: 7vh;
-            transform: translateX(-50%);
-            width: min(700px, 80vw);
-            min-height: 65px;
-            padding: 18px 25px;
-            background: rgba(5, 5, 5, 0.93);
-            border: 1px solid #28251f;
-            color: #bdb8ae;
-            text-align: center;
-            line-height: 1.6;
-            z-index: 50;
-        }
-
-        #message-box button {
-            margin-top: 12px;
-            background: none;
-            border: none;
-            color: #777168;
-            cursor: pointer;
-            letter-spacing: 0.12em;
-        }
-
-        #message-box button:hover {
-            color: #b7b0a4;
+        .desk-paper:hover {
+            border-color: #555045;
         }
 
 
-        /* =========================================================
-           NOTES
-        ========================================================= */
+        /* =====================================================
+           STUDY V2 — JOURNAL EXAMINATION
+        ===================================================== */
 
-        #notes-button {
-            position: absolute;
-            top: 25px;
-            right: 30px;
-            z-index: 60;
-            background: none;
-            border: none;
-            color: #676159;
-            letter-spacing: 0.15em;
-            cursor: pointer;
-        }
-
-        #notes-button:hover {
-            color: #aaa39a;
-        }
-
-        #notes-overlay {
-            position: absolute;
+        .journal-overlay {
+            position: fixed;
             inset: 0;
-            z-index: 100;
-            background: rgba(5, 5, 5, 0.96);
-            padding: 8vh 15vw;
-            overflow-y: auto;
-        }
-
-        #notes-overlay h2 {
-            font-weight: normal;
-            letter-spacing: 0.2em;
-            color: #c4beb3;
-        }
-
-        #notes-list {
-            margin-top: 40px;
-            max-width: 700px;
-        }
-
-        .note-entry {
-            padding: 17px 0;
-            border-bottom: 1px solid #24221f;
-            color: #99938a;
-            line-height: 1.6;
-        }
-
-        #close-notes {
-            margin-top: 35px;
-            background: none;
-            border: none;
-            color: #716b62;
-            cursor: pointer;
-        }
-
-
-        /* =========================================================
-           EVIDENCE EXAMINATION
-        ========================================================= */
-
-        #evidence-overlay {
-            position: absolute;
-            inset: 0;
-            z-index: 200;
-            background: rgba(3, 3, 3, 0.97);
+            background: rgba(0, 0, 0, 0.82);
             display: flex;
             justify-content: center;
             align-items: center;
-        }
-
-        #evidence-interface {
-            position: relative;
-            width: 90vw;
-            height: 88vh;
-        }
-
-        #evidence-title {
-            position: absolute;
-            top: 0;
-            left: 0;
-            color: #777168;
-            letter-spacing: 0.2em;
-            font-size: 0.8rem;
-        }
-
-        #evidence-status {
-            position: absolute;
-            top: 0;
-            right: 0;
-            color: #625d55;
-            font-size: 0.75rem;
-        }
-
-
-        /* JOURNAL */
-
-        #journal-view {
-            position: absolute;
-            left: 50%;
-            top: 48%;
-            transform: translate(-50%, -50%);
-            width: min(850px, 80vw);
-            height: min(570px, 66vh);
-            display: flex;
-            perspective: 1200px;
-        }
-
-        .journal-page {
-            position: relative;
-            width: 50%;
-            height: 100%;
-            background:
-                linear-gradient(
-                    90deg,
-                    #aaa18f 0%,
-                    #c1b8a5 8%,
-                    #c7bdab 100%
-                );
-            color: #3a352d;
-            padding: 55px 50px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.55);
-            overflow: hidden;
-        }
-
-        .journal-page.right {
-            background:
-                linear-gradient(
-                    270deg,
-                    #aaa18f 0%,
-                    #c1b8a5 8%,
-                    #c7bdab 100%
-                );
-        }
-
-        .journal-page::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            opacity: 0.15;
-            background:
-                repeating-linear-gradient(
-                    0deg,
-                    transparent 0,
-                    transparent 27px,
-                    #675f51 28px
-                );
-            pointer-events: none;
-        }
-
-        .journal-spine {
-            position: absolute;
-            left: 50%;
-            top: 0;
-            width: 12px;
-            height: 100%;
-            transform: translateX(-50%);
-            background: #847a68;
-            opacity: 0.7;
-            z-index: 3;
-        }
-
-        .journal-writing {
-            position: relative;
-            z-index: 2;
-            font-size: 1rem;
-            line-height: 1.8;
-            white-space: pre-line;
-        }
-
-        .journal-date {
-            font-size: 0.8rem;
-            margin-bottom: 35px;
-            color: #61594e;
-        }
-
-        .journal-page-number {
-            position: absolute;
-            bottom: 20px;
-            left: 0;
-            right: 0;
-            text-align: center;
-            font-size: 0.7rem;
-            color: #716858;
-        }
-
-        .journal-photo {
-            position: absolute;
-            left: 50%;
-            top: 55%;
-            transform: translate(-50%, -50%) rotate(-3deg);
-            width: 210px;
-            height: 145px;
-            background: #292826;
-            border: 8px solid #d2c8b4;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.35);
-            cursor: pointer;
-            z-index: 5;
-        }
-
-        .journal-photo-inner {
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(
-                    ellipse at 50% 40%,
-                    #57534b,
-                    #272623 55%,
-                    #161616
-                );
-        }
-
-        .photo-silhouette-one,
-        .photo-silhouette-two {
-            position: absolute;
-            bottom: 10px;
-            width: 45px;
-            height: 75px;
-            background: #171716;
-            border-radius: 50% 50% 15% 15%;
-        }
-
-        .photo-silhouette-one {
-            left: 38px;
-        }
-
-        .photo-silhouette-two {
-            right: 38px;
-        }
-
-
-        /* CASE FILE */
-
-        #case-file-view {
-            position: absolute;
-            left: 50%;
-            top: 48%;
-            transform: translate(-50%, -50%);
-            width: min(850px, 82vw);
-            height: min(600px, 70vh);
-        }
-
-        .case-folder {
-            position: absolute;
-            inset: 0;
-            background: #777263;
-            border: 1px solid #514d42;
-            box-shadow: 0 20px 45px rgba(0,0,0,0.5);
-        }
-
-        .case-tab {
-            position: absolute;
-            top: -28px;
-            left: 35px;
-            width: 180px;
-            height: 30px;
-            background: #777263;
-            border: 1px solid #514d42;
-            border-bottom: none;
-        }
-
-        .case-paper {
-            position: absolute;
-            left: 6%;
-            top: 7%;
-            width: 88%;
-            height: 86%;
-            background: #c6bead;
-            color: #3a362f;
-            padding: 40px 50px;
-            overflow: hidden;
-        }
-
-        .case-paper h3 {
-            margin-top: 0;
-            font-weight: normal;
-            letter-spacing: 0.15em;
-        }
-
-        .case-paper p {
-            line-height: 1.7;
-        }
-
-        .case-photo {
-            float: right;
-            width: 180px;
-            height: 125px;
-            margin: 0 0 20px 30px;
-            background: #282724;
-            border: 7px solid #e0d6c1;
-            position: relative;
-        }
-
-        .case-photo::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background:
-                linear-gradient(
-                    140deg,
-                    #4c4942,
-                    #171716
-                );
-        }
-
-
-        /* EVIDENCE CONTROLS */
-
-        #evidence-controls {
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 20px;
-        }
-
-        .evidence-control {
-            background: none;
-            border: none;
-            color: #716b62;
-            cursor: pointer;
-            letter-spacing: 0.12em;
-            padding: 10px 14px;
-        }
-
-        .evidence-control:hover {
-            color: #b4aea3;
-        }
-
-        .evidence-control:disabled {
-            color: #35322e;
-            cursor: default;
-        }
-
-
-        /* =========================================================
-           PHOTOGRAPH VIEWER
-        ========================================================= */
-
-        #photo-view {
-            position: absolute;
-            left: 50%;
-            top: 48%;
-            transform: translate(-50%, -50%);
-            width: min(680px, 75vw);
-            height: min(520px, 65vh);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        #large-photo {
-            position: relative;
-            width: min(580px, 65vw);
-            height: min(400px, 52vh);
-            background: #252522;
-            border: 18px solid #d1c7b3;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.65);
-        }
-
-        #large-photo-scene {
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(
-                    ellipse at 50% 45%,
-                    #555149,
-                    #292824 52%,
-                    #151515
-                );
-        }
-
-        #large-photo-scene::before {
-            content: "";
-            position: absolute;
-            left: 27%;
-            bottom: 12%;
-            width: 80px;
-            height: 170px;
-            background: #161616;
-            border-radius: 50% 50% 10% 10%;
-        }
-
-        #large-photo-scene::after {
-            content: "";
-            position: absolute;
-            right: 25%;
-            bottom: 12%;
-            width: 80px;
-            height: 170px;
-            background: #1a1918;
-            border-radius: 50% 50% 10% 10%;
-        }
-
-
-        /* =========================================================
-           CONTROLS / CAMERA
-        ========================================================= */
-
-        #movement-hint {
-            position: absolute;
-            bottom: 18px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: #45413b;
-            font-size: 0.7rem;
-            letter-spacing: 0.12em;
             z-index: 40;
         }
 
+        .journal-examination {
+            width: 72vw;
+            max-width: 900px;
+            min-height: 58vh;
+            background: #141311;
+            border: 1px solid #37332c;
+            box-shadow: 0 0 60px rgba(0, 0, 0, 0.9);
+            padding: 35px;
+            position: relative;
+        }
+
+        .journal-examination-title {
+            text-align: center;
+            font-size: 13px;
+            letter-spacing: 5px;
+            color: #77736b;
+            margin-bottom: 25px;
+        }
+
+        .journal-object {
+            width: 22vw;
+            max-width: 250px;
+            height: 31vh;
+            margin: 15px auto 25px auto;
+            background: #1b1916;
+            border: 1px solid #3b362e;
+            box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .journal-object:hover {
+            border-color: #555045;
+        }
+
+        .journal-object span {
+            font-size: 15px;
+            letter-spacing: 4px;
+            color: #8a857b;
+        }
+
+        .journal-status {
+            text-align: center;
+            min-height: 28px;
+            color: #8a857b;
+            font-size: 13px;
+            letter-spacing: 2px;
+        }
+
+        .journal-controls {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 28px;
+            flex-wrap: wrap;
+        }
+
+        .journal-control {
+            background: none;
+            border: none;
+            color: #77736b;
+            font-family: Georgia, serif;
+            font-size: 12px;
+            letter-spacing: 3px;
+            cursor: pointer;
+        }
+
+        .journal-control:hover {
+            color: #ffffff;
+        }
+
+        .journal-page-view {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 8px;
+            min-height: 38vh;
+        }
+
+        .journal-page {
+            width: 31vw;
+            max-width: 360px;
+            min-height: 38vh;
+            background: #c2bbaa;
+            color: #292722;
+            padding: 38px;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+            text-align: left;
+        }
+
+        .journal-page.empty-page {
+            background: #b5aea0;
+        }
+
+        .journal-page-number {
+            font-size: 11px;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+            color: #625d53;
+        }
+
+        .journal-handwriting {
+            font-size: 16px;
+            line-height: 2.05;
+            letter-spacing: 1px;
+        }
+
+        .journal-handwriting .unreadable {
+            color: #777165;
+        }
+
+        .journal-photo-object {
+            width: 210px;
+            height: 150px;
+            margin: 28px auto 10px auto;
+            background: #6e695f;
+            border: 7px solid #d0c8b8;
+            box-shadow: 0 0 18px rgba(0, 0, 0, 0.45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .journal-photo-object span {
+            color: #302e29;
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+
+        .journal-photo-object:hover {
+            transform: translateY(-1px);
+        }
+
+        .physical-photo-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 50;
+        }
+
+        .physical-photo {
+            width: 430px;
+            max-width: 70vw;
+            height: 300px;
+            max-height: 55vh;
+            background: #777268;
+            border: 12px solid #c8c0b1;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.85);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .physical-photo span {
+            color: #2d2b27;
+            font-size: 14px;
+            letter-spacing: 3px;
+            line-height: 1.8;
+            padding: 30px;
+        }
+
+        /* Expanded bookshelf */
+
+        .study-book {
+            position: absolute;
+            width: 20px;
+            background: #24211d;
+            border: 1px solid #353128;
+            cursor: pointer;
+        }
+
+        .study-book:hover {
+            border-color: #4a4439;
+        }
+
+        .study-book.shelf-a1 { height: 70px; left: 22px; bottom: 9px; }
+        .study-book.shelf-a2 { height: 88px; left: 47px; bottom: 9px; }
+        .study-book.shelf-a3 { height: 62px; left: 73px; bottom: 9px; }
+        .study-book.shelf-a4 { height: 96px; left: 99px; bottom: 9px; }
+        .study-book.shelf-a5 { height: 76px; left: 126px; bottom: 9px; }
+
+        .study-book.shelf-b1 { height: 84px; left: 24px; bottom: 9px; }
+        .study-book.shelf-b2 { height: 67px; left: 51px; bottom: 9px; }
+        .study-book.shelf-b3 { height: 101px; left: 77px; bottom: 9px; }
+        .study-book.shelf-b4 { height: 73px; left: 106px; bottom: 9px; }
+        .study-book.shelf-b5 { height: 91px; left: 133px; bottom: 9px; }
+
+
+
+        /* =========================
+           INTERACTION MESSAGE
+        ========================= */
+
+        .interaction-message {
+            position: fixed;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #aaa59a;
+            font-size: 16px;
+            letter-spacing: 2px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+            white-space: nowrap;
+            z-index: 10;
+        }
+
+        .interaction-message.visible {
+            opacity: 1;
+        }
+
+
+        /* =========================
+           MOVEMENT HINT
+        ========================= */
+
+        .movement-hint {
+            position: fixed;
+            bottom: 4%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #5f5b53;
+            font-size: 12px;
+            letter-spacing: 2px;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+
+        /* =========================
+           NOTES BUTTON
+        ========================= */
+
+        .notes-button {
+            position: fixed;
+            top: 5%;
+            right: 5%;
+            color: #77736b;
+            font-size: 12px;
+            letter-spacing: 3px;
+            background: none;
+            border: none;
+            font-family: Georgia, serif;
+            cursor: pointer;
+            z-index: 20;
+        }
+
+        .notes-button:hover {
+            color: #c9c4b8;
+        }
+
+
+        /* =========================
+           NOTES WINDOW
+        ========================= */
+
+        .notes-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.75);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 30;
+        }
+
+        .notes-book {
+            width: 60vw;
+            max-width: 700px;
+            max-height: 80vh;
+            overflow-y: auto;
+            min-height: 55vh;
+            background: #151412;
+            border: 1px solid #37332c;
+            padding: 45px;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+            text-align: left;
+        }
+
+        .notes-title {
+            text-align: center;
+            font-size: 22px;
+            letter-spacing: 6px;
+            font-weight: normal;
+            margin-bottom: 35px;
+        }
+
+        .note-entry {
+            margin-bottom: 28px;
+        }
+
+        .note-entry-title {
+            font-size: 15px;
+            letter-spacing: 3px;
+            color: #c9c4b8;
+            margin-bottom: 8px;
+        }
+
+        .note-entry-text {
+            font-size: 14px;
+            line-height: 1.8;
+            letter-spacing: 1px;
+            color: #88837a;
+        }
+
+        .notes-close {
+            display: block;
+            margin: 35px auto 0 auto;
+            background: none;
+            border: none;
+            color: #77736b;
+            font-family: Georgia, serif;
+            font-size: 12px;
+            letter-spacing: 3px;
+            cursor: pointer;
+        }
+
+        .notes-close:hover {
+            color: #ffffff;
+        }
+
+
+        /* =========================
+           FADE
+        ========================= */
+
+        .fade-out {
+            animation: fadeOut 1s ease-in-out forwards;
+        }
+
+        @keyframes fadeOut {
+
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+            }
+
+        }
+
     </style>
+
 </head>
 
 
 <body>
 
 
-    <!-- =========================================================
-         TITLE
-    ========================================================= -->
+    <!-- TITLE SCREEN -->
 
-    <div id="title-screen" class="screen">
+    <div class="title-screen">
 
-        <h1>IN HIS NAME</h1>
+        <div class="title-content">
 
-        <p>A STORY OF FAITH</p>
+            <h1>IN HIS NAME</h1>
 
-        <button id="start-button">
-            CLICK TO BEGIN
-        </button>
-
-    </div>
-
-
-    <!-- =========================================================
-         LOADING
-    ========================================================= -->
-
-    <div id="loading-screen" class="screen hidden">
-        LOADING...
-    </div>
-
-
-    <!-- =========================================================
-         STORY
-    ========================================================= -->
-
-    <div id="story-screen" class="screen hidden">
-        <div id="story-text"></div>
-    </div>
-
-
-    <!-- =========================================================
-         GAME
-    ========================================================= -->
-
-    <div id="game-screen" class="screen hidden">
-
-        <div id="world">
-
-
-            <!-- =====================================================
-                 BEDROOM
-            ===================================================== -->
-
-            <div id="bedroom" class="room">
-
-                <div class="room-wall"></div>
-                <div class="room-floor"></div>
-
-
-                <div
-                    class="bed"
-                    onclick="inspectBedroomObject('bed')"
-                >
-                    <div class="bed-mattress"></div>
-                    <div class="bed-pillow"></div>
-                    <div class="bed-frame"></div>
-                </div>
-
-
-                <div
-                    class="nightstand"
-                    onclick="inspectBedroomObject('nightstand')"
-                >
-                    <div class="nightstand-top"></div>
-                </div>
-
-
-                <div
-                    class="cross"
-                    onclick="inspectBedroomObject('cross')"
-                ></div>
-
-
-                <div
-                    class="bedroom-picture"
-                    onclick="inspectBedroomObject('picture')"
-                ></div>
-
-
-                <div
-                    class="bedroom-door"
-                    onclick="inspectBedroomObject('door')"
-                >
-                    <div class="bedroom-door-handle"></div>
-                </div>
-
+            <div class="subtitle">
+                A STORY OF FAITH
             </div>
 
+            <button
+                class="start"
+                onclick="beginGame()">
 
-            <!-- =====================================================
-                 HALLWAY
-            ===================================================== -->
+                [ CLICK TO BEGIN ]
 
-            <div id="hallway" class="room">
-
-                <div class="hallway-wall"></div>
-                <div class="room-floor"></div>
-
-
-                <div
-                    class="hall-picture"
-                    onclick="inspectHallwayPicture()"
-                ></div>
-
-
-                <div
-                    class="hall-door one"
-                    onclick="inspectHallDoor(1)"
-                >
-                    <div class="hall-door-handle"></div>
-                </div>
-
-
-                <div
-                    class="hall-door two"
-                    onclick="enterStudy()"
-                >
-                    <div class="hall-door-handle"></div>
-                </div>
-
-
-                <div class="hall-door three"></div>
-
-            </div>
-
-
-            <!-- =====================================================
-                 STUDY
-            ===================================================== -->
-
-            <div id="study" class="room">
-
-                <div class="study-wall"></div>
-                <div class="study-floor"></div>
-
-
-                <!-- BOOKSHELF -->
-
-                <div class="bookshelf">
-
-                    <div class="book b1" onclick="inspectBook(1)"></div>
-                    <div class="book b2" onclick="inspectBook(2)"></div>
-                    <div class="book b3" onclick="inspectBook(3)"></div>
-                    <div class="book b4" onclick="inspectBook(4)"></div>
-                    <div class="book b5" onclick="inspectBook(5)"></div>
-                    <div class="book b6" onclick="inspectBook(6)"></div>
-                    <div class="book b7" onclick="inspectBook(7)"></div>
-                    <div class="book b8" onclick="inspectBook(8)"></div>
-                    <div class="book b9" onclick="inspectBook(9)"></div>
-                    <div class="book b10" onclick="inspectBook(10)"></div>
-                    <div class="book b11" onclick="inspectBook(11)"></div>
-
-                    <div class="shelf s1"></div>
-                    <div class="shelf s2"></div>
-                    <div class="shelf s3"></div>
-                    <div class="shelf s4"></div>
-                    <div class="shelf s5"></div>
-
-                </div>
-
-
-                <!-- ARMCHAIR -->
-
-                <div
-                    class="armchair"
-                    onclick="inspectStudyObject('chair')"
-                ></div>
-
-
-                <!-- SIDE TABLE -->
-
-                <div
-                    class="side-table"
-                    onclick="inspectStudyObject('sideTable')"
-                ></div>
-
-
-                <!-- DESK -->
-
-                <div class="study-desk">
-
-                    <div class="desk-top"></div>
-
-                    <div
-                        class="desk-drawer d1"
-                        onclick="inspectDrawer(1, event)"
-                    >
-                        <div class="drawer-handle"></div>
-                    </div>
-
-                    <div
-                        class="desk-drawer d2"
-                        onclick="inspectDrawer(2, event)"
-                    >
-                        <div class="drawer-handle"></div>
-                    </div>
-
-                    <div
-                        class="desk-drawer d3"
-                        onclick="inspectDrawer(3, event)"
-                    >
-                        <div class="drawer-handle"></div>
-                    </div>
-
-                    <div class="desk-leg left"></div>
-                    <div class="desk-leg right"></div>
-
-
-                    <div
-                        class="desk-bible"
-                        onclick="inspectStudyObject('bible', event)"
-                    ></div>
-
-
-                    <div
-                        class="desk-journal"
-                        onclick="openJournal(event)"
-                    ></div>
-
-
-                    <div
-                        class="desk-paper"
-                        onclick="inspectStudyObject('paper', event)"
-                    ></div>
-
-
-                    <div
-                        class="desk-lamp"
-                        onclick="inspectStudyObject('lamp', event)"
-                    >
-                        <div class="lamp-shade"></div>
-                        <div class="lamp-stem"></div>
-                    </div>
-
-                </div>
-
-
-                <!-- FILING CABINET -->
-
-                <div
-                    class="filing-cabinet"
-                    onclick="inspectFilingCabinet()"
-                >
-
-                    <div class="file-drawer fd1">
-                        <div class="file-handle"></div>
-                    </div>
-
-                    <div class="file-drawer fd2">
-                        <div class="file-handle"></div>
-                    </div>
-
-                    <div class="file-drawer fd3">
-                        <div class="file-handle"></div>
-                    </div>
-
-                    <div class="file-drawer fd4">
-                        <div class="file-handle"></div>
-                    </div>
-
-                </div>
-
-
-                <!-- CLOCK -->
-
-                <div
-                    class="study-clock"
-                    onclick="inspectStudyObject('clock')"
-                >
-                    <div class="clock-hand-one"></div>
-                    <div class="clock-hand-two"></div>
-                    <div class="clock-center"></div>
-                </div>
-
-
-                <!-- WASTEBASKET -->
-
-                <div
-                    class="wastebasket"
-                    onclick="inspectStudyObject('wastebasket')"
-                ></div>
-
-            </div>
-
-        </div>
-
-
-        <!-- UI -->
-
-        <button
-            id="notes-button"
-            onclick="openNotes()"
-        >
-            [ NOTES ]
-        </button>
-
-
-        <div id="message-box" class="hidden">
-            <div id="message-text"></div>
-
-            <button onclick="closeMessage()">
-                [ CLOSE ]
             </button>
-        </div>
-
-
-        <div id="movement-hint">
-            ← → MOVE
-        </div>
-
-    </div>
-
-
-    <!-- =========================================================
-         NOTES OVERLAY
-    ========================================================= -->
-
-    <div id="notes-overlay" class="hidden">
-
-        <h2>NOTES</h2>
-
-        <div id="notes-list"></div>
-
-        <button id="close-notes" onclick="closeNotes()">
-            [ CLOSE NOTES ]
-        </button>
-
-    </div>
-
-
-    <!-- =========================================================
-         EVIDENCE OVERLAY
-    ========================================================= -->
-
-    <div id="evidence-overlay" class="hidden">
-
-        <div id="evidence-interface">
-
-            <div id="evidence-title">
-                EVIDENCE
-            </div>
-
-            <div id="evidence-status"></div>
-
-
-            <!-- JOURNAL -->
-
-            <div id="journal-view" class="hidden">
-
-                <div class="journal-page">
-
-                    <div
-                        id="journal-left-content"
-                        class="journal-writing"
-                    ></div>
-
-                    <div
-                        id="journal-left-number"
-                        class="journal-page-number"
-                    ></div>
-
-                </div>
-
-
-                <div class="journal-spine"></div>
-
-
-                <div class="journal-page right">
-
-                    <div
-                        id="journal-right-content"
-                        class="journal-writing"
-                    ></div>
-
-                    <div
-                        id="journal-right-number"
-                        class="journal-page-number"
-                    ></div>
-
-                </div>
-
-            </div>
-
-
-            <!-- CASE FILE -->
-
-            <div id="case-file-view" class="hidden">
-
-                <div class="case-folder">
-
-                    <div class="case-tab"></div>
-
-                    <div class="case-paper">
-
-                        <div class="case-photo"></div>
-
-                        <h3 id="case-file-heading">
-                            CASE FILE
-                        </h3>
-
-                        <p id="case-file-content"></p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- PHOTO -->
-
-            <div id="photo-view" class="hidden">
-
-                <div id="large-photo">
-
-                    <div id="large-photo-scene"></div>
-
-                </div>
-
-            </div>
-
-
-            <!-- CONTROLS -->
-
-            <div id="evidence-controls">
-
-                <button
-                    id="previous-page"
-                    class="evidence-control"
-                    onclick="previousJournalPage()"
-                >
-                    [ ← PREVIOUS ]
-                </button>
-
-                <button
-                    id="next-page"
-                    class="evidence-control"
-                    onclick="nextJournalPage()"
-                >
-                    [ NEXT → ]
-                </button>
-
-                <button
-                    id="evidence-photo-button"
-                    class="evidence-control hidden"
-                    onclick="openEvidencePhoto()"
-                >
-                    [ EXAMINE PHOTO ]
-                </button>
-
-                <button
-                    id="put-down-evidence"
-                    class="evidence-control"
-                    onclick="closeEvidence()"
-                >
-                    [ PUT DOWN ]
-                </button>
-
-            </div>
 
         </div>
 
@@ -1726,512 +1269,775 @@
 
     <script>
 
-        /* =========================================================
+
+        /* =========================
            GAME STATE
-        ========================================================= */
+        ========================= */
 
-        const state = {
+        let inspectedObjects = {
 
-            room: "bedroom",
-
-            cameraPosition: 0,
-
-            bedroomInspected: {
-                bed: false,
-                nightstand: false,
-                cross: false,
-                picture: false,
-                door: false
-            },
-
-            notes: [],
-
-            study: {
-
-                journalFound: false,
-                journalOpened: false,
-
-                journalPage: 0,
-
-                photoFound: false,
-
-                cabinetOpened: false,
-
-                drawers: {
-                    one: false,
-                    two: false,
-                    three: false
-                },
-
-                clockChanged: false
-            },
-
-            evidence: {
-                open: false,
-                type: null
-            }
+            bed: false,
+            nightstand: false,
+            cross: false,
+            picture: false,
+            door: false
 
         };
 
 
-        /* =========================================================
-           ELEMENTS
-        ========================================================= */
+        let firstEventTriggered = false;
 
-        const titleScreen =
-            document.getElementById("title-screen");
+        let hallPictureLookedAt = false;
 
-        const loadingScreen =
-            document.getElementById("loading-screen");
+        let sideObjectExamined = false;
 
-        const storyScreen =
-            document.getElementById("story-screen");
+        let roomPosition = -40;
 
-        const storyText =
-            document.getElementById("story-text");
-
-        const gameScreen =
-            document.getElementById("game-screen");
-
-        const world =
-            document.getElementById("world");
-
-        const messageBox =
-            document.getElementById("message-box");
-
-        const messageText =
-            document.getElementById("message-text");
-
-        const notesOverlay =
-            document.getElementById("notes-overlay");
-
-        const notesList =
-            document.getElementById("notes-list");
-
-        const evidenceOverlay =
-            document.getElementById("evidence-overlay");
-
-        const evidenceTitle =
-            document.getElementById("evidence-title");
-
-        const evidenceStatus =
-            document.getElementById("evidence-status");
-
-        const journalView =
-            document.getElementById("journal-view");
-
-        const caseFileView =
-            document.getElementById("case-file-view");
-
-        const photoView =
-            document.getElementById("photo-view");
+        let currentArea = "bedroom";
 
 
-        /* =========================================================
-           START
-        ========================================================= */
+        /* =========================
+           STUDY STATE
+        ========================= */
 
-        document
-            .getElementById("start-button")
-            .addEventListener("click", startGame);
+        let studyState = {
 
+            bible: false,
+            ordinaryBook: false,
+            specialBook: false,
+            journal: false,
+            journalPage: false,
+            journalPhoto: false,
+            drawerTop: false,
+            drawerMiddle: false,
+            drawerBottom: false,
+            cabinet: false,
+            familyFolder: false,
+            clock: false,
+            clockChanged: false,
+            chair: false,
+            paper: false,
+            wastebasket: false,
+            lamp: false
 
-        function startGame() {
-
-            titleScreen.classList.add("hidden");
-
-            loadingScreen.classList.remove("hidden");
-
-            setTimeout(() => {
-
-                loadingScreen.classList.add("hidden");
-
-                storyScreen.classList.remove("hidden");
-
-                playIntro();
-
-            }, 1500);
-
-        }
-
-
-        /* =========================================================
-           INTRO
-        ========================================================= */
-
-        function playIntro() {
-
-            const lines = [
-
-                "You awaken.",
-
-                "It is still dark.",
-
-                "You cannot remember falling asleep.",
-
-                "Something is breathing nearby."
-
-            ];
-
-            let index = 0;
-
-            function nextLine() {
-
-                if (index >= lines.length) {
-
-                    setTimeout(() => {
-
-                        storyScreen.classList.add("hidden");
-
-                        gameScreen.classList.remove("hidden");
-
-                    }, 900);
-
-                    return;
-                }
-
-                storyText.textContent = lines[index];
-
-                index++;
-
-                setTimeout(nextLine, 1900);
-            }
-
-            nextLine();
-
-        }
+        };
 
 
-        /* =========================================================
-           MESSAGES
-        ========================================================= */
-
-        function showMessage(text) {
-
-            messageText.textContent = text;
-
-            messageBox.classList.remove("hidden");
-
-        }
-
-
-        function closeMessage() {
-
-            messageBox.classList.add("hidden");
-
-        }
-
-
-        /* =========================================================
+        /* =========================
            NOTES
-        ========================================================= */
+        ========================= */
 
-        function addNote(text) {
+        let notes = [];
 
-            if (state.notes.includes(text)) {
-                return;
+
+        function addNote(title, text) {
+
+            let alreadyExists = notes.some(function(note) {
+
+                return note.title === title;
+
+            });
+
+
+            if (!alreadyExists) {
+
+                notes.push({
+
+                    title: title,
+                    text: text
+
+                });
+
             }
-
-            state.notes.push(text);
 
         }
 
 
         function openNotes() {
 
-            if (state.evidence.open) {
-                return;
+            let noteHTML = "";
+
+
+            if (notes.length === 0) {
+
+                noteHTML = `
+
+                    <div class="note-entry">
+
+                        <div class="note-entry-text">
+
+                            You haven't written anything down yet.
+
+                        </div>
+
+                    </div>
+
+                `;
+
             }
 
-            renderNotes();
 
-            notesOverlay.classList.remove("hidden");
+            else {
+
+                notes.forEach(function(note) {
+
+                    noteHTML += `
+
+                        <div class="note-entry">
+
+                            <div class="note-entry-title">
+
+                                ${note.title}
+
+                            </div>
+
+                            <div class="note-entry-text">
+
+                                ${note.text}
+
+                            </div>
+
+                        </div>
+
+                    `;
+
+                });
+
+            }
+
+
+            const overlay = document.createElement("div");
+
+            overlay.className = "notes-overlay";
+
+            overlay.id = "notesOverlay";
+
+
+            overlay.innerHTML = `
+
+                <div class="notes-book">
+
+                    <div class="notes-title">
+
+                        NOTES
+
+                    </div>
+
+                    ${noteHTML}
+
+                    <button
+                        class="notes-close"
+                        onclick="closeNotes()">
+
+                        [ CLOSE ]
+
+                    </button>
+
+                </div>
+
+            `;
+
+
+            document.body.appendChild(overlay);
 
         }
 
 
         function closeNotes() {
 
-            notesOverlay.classList.add("hidden");
+            const overlay =
+                document.getElementById("notesOverlay");
+
+
+            if (overlay) {
+
+                overlay.remove();
+
+            }
 
         }
 
 
-        function renderNotes() {
+        /* =========================
+           BEGIN GAME
+        ========================= */
 
-            notesList.innerHTML = "";
+        function beginGame() {
 
-            if (state.notes.length === 0) {
+            document.body.innerHTML = `
 
-                notesList.innerHTML =
-                    '<div class="note-entry">Nothing yet.</div>';
+                <div class="loading-screen">
 
-                return;
-            }
+                    <p>LOADING...</p>
 
-            state.notes.forEach(note => {
+                </div>
 
-                const entry =
-                    document.createElement("div");
+            `;
 
-                entry.className = "note-entry";
 
-                entry.textContent = note;
+            setTimeout(function() {
 
-                notesList.appendChild(entry);
+                showStory(
+                    "You awaken.",
+                    function() {
 
-            });
+                        showStory(
+                            "It is still dark.",
+                            function() {
+
+                                showStory(
+                                    "You cannot remember falling asleep.",
+                                    function() {
+
+                                        showStory(
+                                            "Something is breathing nearby.",
+                                            function() {
+
+                                                document.body.innerHTML = `
+
+                                                    <div class="black-screen"></div>
+
+                                                `;
+
+
+                                                setTimeout(function() {
+
+                                                    showRoom();
+
+                                                }, 2000);
+
+                                            }
+                                        );
+
+                                    }
+                                );
+
+                            }
+                        );
+
+                    }
+                );
+
+            }, 5000);
 
         }
 
 
-        /* =========================================================
-           BEDROOM
-        ========================================================= */
+        /* =========================
+           STORY
+        ========================= */
 
-        function inspectBedroomObject(object) {
+        function showStory(text, next) {
 
-            if (object === "bed") {
+            document.body.innerHTML = `
 
-                state.bedroomInspected.bed = true;
+                <div
+                    class="game-screen"
+                    id="story">
 
-                showMessage(
-                    "The sheets are cold."
-                );
+                    <p>${text}</p>
 
-                addNote(
-                    "The sheets are cold. You don't remember leaving the bed."
-                );
+                </div>
 
-            }
+            `;
 
 
-            if (object === "nightstand") {
+            setTimeout(function() {
 
-                state.bedroomInspected.nightstand = true;
-
-                showMessage(
-                    "Nothing."
-                );
-
-                addNote(
-                    "The nightstand is empty."
-                );
-
-            }
+                const story =
+                    document.getElementById("story");
 
 
-            if (object === "cross") {
-
-                state.bedroomInspected.cross = true;
-
-                showMessage(
-                    "A wooden cross."
-                );
-
-                addNote(
-                    "A wooden cross hangs on the wall."
-                );
-
-            }
-
-
-            if (object === "picture") {
-
-                state.bedroomInspected.picture = true;
-
-                if (
-                    state.bedroomInspected.picture &&
-                    state.bedroomInspected.bed
-                ) {
-
-                    showMessage(
-                        "A dark old photograph. The face is familiar."
-                    );
-
-                } else {
-
-                    showMessage(
-                        "An old photograph."
-                    );
-
-                }
-
-                addNote(
-                    "There is an old photograph in the bedroom. The face feels familiar."
-                );
-
-            }
-
-
-            if (object === "door") {
-
-                const allInspected =
-                    Object.values(state.bedroomInspected)
-                        .every(Boolean);
-
-                if (!allInspected) {
-
-                    showMessage(
-                        "Locked."
-                    );
+                if (!story) {
 
                     return;
 
                 }
 
-                showMessage(
-                    "The handle turns."
-                );
 
-                setTimeout(() => {
+                story.classList.add("fade-out");
 
-                    closeMessage();
 
-                    moveToRoom("hallway");
+                setTimeout(function() {
 
-                }, 900);
+                    if (next) {
 
-            }
+                        next();
+
+                    }
+
+                }, 1000);
+
+            }, 3000);
 
         }
 
 
-        /* =========================================================
+        /* =========================
+           BEDROOM
+        ========================= */
+
+        function showRoom() {
+
+            currentArea = "bedroom";
+
+            roomPosition = -40;
+
+
+            document.body.innerHTML = `
+
+                <div class="room-window">
+
+                    <div
+                        class="room"
+                        id="room">
+
+                        <div class="back-wall"></div>
+
+                        <div class="wall-light"></div>
+
+                        <div class="light"></div>
+
+                        <div class="floor"></div>
+
+
+                        <div
+                            class="picture"
+                            onclick="inspectPicture()">
+
+                            <div class="picture-inner"></div>
+
+                        </div>
+
+
+                        <div
+                            class="cross"
+                            onclick="inspectCross()">
+                        </div>
+
+
+                        <div
+                            class="nightstand"
+                            onclick="inspectNightstand()">
+
+                            <div class="drawer"></div>
+
+                        </div>
+
+
+                        <div
+                            class="door"
+                            onclick="inspectDoor()">
+
+                            <div class="door-knob"></div>
+
+                        </div>
+
+
+                        <div
+                            class="bed"
+                            onclick="inspectBed()">
+
+                            <div class="pillow"></div>
+
+                            <div class="blanket"></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="notes-button"
+                        onclick="openNotes()">
+
+                        [ NOTES ]
+
+                    </button>
+
+
+                    <div
+                        class="interaction-message"
+                        id="interactionMessage">
+                    </div>
+
+
+                    <div class="movement-hint">
+
+                        [ ← → ] LOOK AROUND
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+
+
+        /* =========================
            HALLWAY
-        ========================================================= */
+        ========================= */
 
-        function inspectHallDoor(number) {
+        function showHallway() {
 
-            if (number === 1) {
+            currentArea = "hallway";
 
-                showMessage(
-                    "Locked."
-                );
-
-            }
-
-        }
+            roomPosition = -40;
 
 
-        function inspectHallwayPicture() {
+            document.body.innerHTML = `
 
-            if (state.bedroomInspected.picture) {
+                <div class="room-window">
 
-                showMessage(
-                    "That face..."
-                );
+                    <div
+                        class="hallway"
+                        id="hallway">
 
-                setTimeout(() => {
+                        <div class="hallway-wall"></div>
 
-                    showMessage(
-                        "You've seen it before."
-                    );
+                        <div class="hallway-light"></div>
 
-                }, 1800);
-
-                addNote(
-                    "The face in the hallway picture feels familiar."
-                );
-
-            } else {
-
-                showMessage(
-                    "You can barely make out a man in the picture."
-                );
-
-            }
-
-        }
+                        <div class="hallway-floor"></div>
 
 
-        /* =========================================================
-           MOVEMENT
-        ========================================================= */
+                        <div
+                            class="hallway-door door-one"
+                            onclick="inspectHallDoor(1)">
+                        </div>
 
-        function moveToRoom(room) {
 
-            if (room === "bedroom") {
+                        <div
+                            class="hallway-door door-two"
+                            onclick="inspectHallDoor(2)">
+                        </div>
 
-                state.room = "bedroom";
 
-                state.cameraPosition = 0;
+                        <div
+                            class="hallway-door door-three"
+                            onclick="inspectHallDoor(3)">
+                        </div>
 
-                world.style.left = "0vw";
 
-            }
+                        <div
+                            class="hallway-picture"
+                            onclick="inspectHallPicture()">
+                        </div>
 
-            if (room === "hallway") {
+                    </div>
 
-                state.room = "hallway";
 
-                state.cameraPosition = 1;
+                    <button
+                        class="notes-button"
+                        onclick="openNotes()">
 
-                world.style.left = "-60vw";
+                        [ NOTES ]
 
-            }
+                    </button>
 
-            if (room === "study") {
 
-                state.room = "study";
+                    <div
+                        class="interaction-message"
+                        id="interactionMessage">
+                    </div>
 
-                state.cameraPosition = 2;
 
-                world.style.left = "-120vw";
+                    <div class="movement-hint">
 
-            }
+                        [ ← → ] LOOK AROUND
+
+                    </div>
+
+                </div>
+
+            `;
 
         }
 
 
-        function enterStudy() {
+        /* =====================================================
+           STUDY ROOM
+        ===================================================== */
 
-            moveToRoom("study");
+        function enterSideRoom() {
 
-            showMessage(
-                "A study."
-            );
+            currentArea = "side-room";
+
+            roomPosition = -40;
+
+
+            document.body.innerHTML = `
+
+                <div class="room-window">
+
+                    <div
+                        class="side-room"
+                        id="sideRoom">
+
+                        <div class="side-room-wall"></div>
+
+                        <div class="side-room-floor"></div>
+
+
+                        <!-- BOOKSHELF -->
+
+                        <div class="bookshelf">
+
+                            <div class="shelf-line shelf-one"></div>
+                            <div class="shelf-line shelf-two"></div>
+                            <div class="shelf-line shelf-three"></div>
+
+
+                            <div
+                                class="book book-one"
+                                onclick="inspectStudyBook(1)">
+                            </div>
+
+
+                            <div
+                                class="book book-two"
+                                onclick="inspectStudyBook(2)">
+                            </div>
+
+
+                            <div
+                                class="book book-three"
+                                onclick="inspectStudyBook(3)">
+                            </div>
+
+
+                            <div
+                                class="book book-four"
+                                onclick="inspectStudyBook(4)">
+                            </div>
+
+
+                            <div
+                                class="book book-five"
+                                onclick="inspectStudyBook(5)">
+                            </div>
+
+
+                            <div
+                                class="special-book"
+                                onclick="inspectSpecialBook(); event.stopPropagation()">
+                            </div>
+
+                        </div>
+
+
+                        <!-- ARMCHAIR -->
+
+                        <div
+                            class="armchair"
+                            onclick="inspectChair()">
+
+                            <div class="chair-back"></div>
+
+                            <div class="chair-seat"></div>
+
+                        </div>
+
+
+                        <!-- DESK -->
+
+                        <div
+                            class="study-desk"
+                            onclick="inspectDesk()">
+
+                            <div class="desk-leg-one"></div>
+                            <div class="desk-leg-two"></div>
+
+
+                            <div
+                                class="desk-drawer drawer-top"
+                                onclick="inspectDeskDrawer(1); event.stopPropagation()">
+                            </div>
+
+
+                            <div
+                                class="desk-drawer drawer-middle"
+                                onclick="inspectDeskDrawer(2); event.stopPropagation()">
+                            </div>
+
+
+                            <div
+                                class="desk-drawer drawer-bottom"
+                                onclick="inspectDeskDrawer(3); event.stopPropagation()">
+                            </div>
+
+                        </div>
+
+
+                        <!-- BIBLE -->
+
+                        <div
+                            class="study-bible"
+                            onclick="inspectBible()">
+                        </div>
+
+
+                        <!-- JOURNAL -->
+
+                        <div
+                            class="journal"
+                            onclick="inspectJournal()">
+                        </div>
+
+
+                        <!-- PAPER -->
+
+                        <div
+                            class="desk-paper"
+                            onclick="inspectPaper()">
+                        </div>
+
+
+                        <!-- LAMP -->
+
+                        <div
+                            class="desk-lamp"
+                            onclick="inspectLamp()">
+
+                            <div class="lamp-base"></div>
+                            <div class="lamp-stem"></div>
+                            <div class="lamp-shade"></div>
+
+                        </div>
+
+
+                        <!-- CLOCK -->
+
+                        <div
+                            class="study-clock"
+                            id="studyClock"
+                            onclick="inspectClock()">
+
+                            <div class="clock-hand-one"></div>
+                            <div class="clock-hand-two"></div>
+
+                        </div>
+
+
+                        <!-- FILING CABINET -->
+
+                        <div
+                            class="filing-cabinet"
+                            onclick="inspectCabinet()">
+
+                            <div class="file-drawer file-one"></div>
+                            <div class="file-drawer file-two"></div>
+                            <div class="file-drawer file-three"></div>
+                            <div class="file-drawer file-four"></div>
+
+                        </div>
+
+
+                        <!-- WASTEBASKET -->
+
+                        <div
+                            class="wastebasket"
+                            onclick="inspectWastebasket()">
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="notes-button"
+                        onclick="openNotes()">
+
+                        [ NOTES ]
+
+                    </button>
+
+
+                    <div
+                        class="interaction-message"
+                        id="interactionMessage">
+                    </div>
+
+
+                    <div class="movement-hint">
+
+                        [ ← → ] LOOK AROUND
+
+                    </div>
+
+                </div>
+
+            `;
 
         }
 
+
+        /* =========================
+           CAMERA MOVEMENT
+        ========================= */
 
         document.addEventListener(
             "keydown",
             function(event) {
 
-                if (
-                    state.evidence.open ||
-                    !notesOverlay.classList.contains("hidden")
-                ) {
-                    return;
+                let area =
+                    document.getElementById("room");
+
+
+                if (!area) {
+
+                    area =
+                        document.getElementById("hallway");
+
                 }
 
-                if (event.key === "ArrowRight") {
 
-                    if (state.room === "bedroom") {
+                if (!area) {
 
-                        moveToRoom("hallway");
+                    area =
+                        document.getElementById("sideRoom");
 
-                    } else if (state.room === "hallway") {
+                }
 
-                        moveToRoom("study");
 
-                    }
+                if (!area) {
+
+                    return;
 
                 }
 
 
                 if (event.key === "ArrowLeft") {
 
-                    if (state.room === "study") {
+                    roomPosition += 15;
 
-                        moveToRoom("hallway");
 
-                    } else if (state.room === "hallway") {
+                    if (roomPosition > 0) {
 
-                        moveToRoom("bedroom");
+                        roomPosition = 0;
 
                     }
+
+
+                    area.style.left =
+                        roomPosition + "vw";
+
+                }
+
+
+                if (event.key === "ArrowRight") {
+
+                    roomPosition -= 15;
+
+
+                    if (roomPosition < -80) {
+
+                        roomPosition = -80;
+
+                    }
+
+
+                    area.style.left =
+                        roomPosition + "vw";
 
                 }
 
@@ -2239,177 +2045,385 @@
         );
 
 
-        /* =========================================================
-           STUDY — ORDINARY OBJECTS
-        ========================================================= */
+        /* =========================
+           MESSAGE
+        ========================= */
 
-        function inspectStudyObject(object) {
+        function showMessage(text) {
 
-            if (object === "chair") {
-
-                showMessage(
-                    "The chair looks recently used."
+            const message =
+                document.getElementById(
+                    "interactionMessage"
                 );
+
+
+            if (!message) {
 
                 return;
-            }
-
-
-            if (object === "sideTable") {
-
-                showMessage(
-                    "A layer of dust covers the table."
-                );
-
-                return;
-            }
-
-
-            if (object === "bible") {
-
-                showMessage(
-                    "A worn Bible. Someone has underlined several passages."
-                );
-
-                addNote(
-                    "The Bible is worn from use. Someone underlined passages throughout it."
-                );
-
-                return;
-            }
-
-
-            if (object === "paper") {
-
-                showMessage(
-                    "A handwritten reminder: 2:30 — pick him up."
-                );
-
-                addNote(
-                    "A piece of paper on the desk reads: \"2:30 — pick him up.\" There is no name."
-                );
-
-                return;
-            }
-
-
-            if (object === "lamp") {
-
-                showMessage(
-                    "The lamp doesn't work."
-                );
-
-                return;
-            }
-
-
-            if (object === "clock") {
-
-                if (!state.study.clockChanged) {
-
-                    showMessage(
-                        "The clock has stopped at 3:17."
-                    );
-
-                    addNote(
-                        "The study clock is stopped at 3:17."
-                    );
-
-                } else {
-
-                    showMessage(
-                        "3:18."
-                    );
-
-                }
-
-                return;
-            }
-
-
-            if (object === "wastebasket") {
-
-                showMessage(
-                    "Torn pieces of paper."
-                );
-
-                addNote(
-                    "There are torn-up papers in the wastebasket."
-                );
 
             }
 
-        }
+
+            message.textContent = text;
 
 
-        /* =========================================================
-           BOOKS
-        ========================================================= */
-
-        const books = {
-
-            1:
-                "The Cost of Discipleship. The pages are worn.",
-
-            2:
-                "Mere Christianity. Someone folded a corner.",
-
-            3:
-                "A commentary on Romans. Several passages are underlined.",
-
-            4:
-                "A book of Psalms. There is a pressed flower between the pages.",
-
-            5:
-                "An old Tennessee history book.",
-
-            6:
-                "A dictionary. The spine is nearly broken.",
-
-            7:
-                "A book of poetry. You don't recognize the handwriting in the margins.",
-
-            8:
-                "A gardening book. Nothing seems unusual.",
-
-            9:
-                "An astronomy book. The pages smell like dust.",
-
-            10:
-                "An old paperback novel. You don't remember owning it.",
-
-            11:
-                "A prayer book. Someone has written something inside the cover."
-
-        };
-
-
-        function inspectBook(number) {
-
-            showMessage(
-                books[number] || "An old book."
+            message.classList.add(
+                "visible"
             );
 
-            if (number === 3) {
+
+            setTimeout(function() {
+
+                message.classList.remove(
+                    "visible"
+                );
+
+            }, 3000);
+
+        }
+
+
+        /* =========================
+           INSPECTION PROGRESS
+        ========================= */
+
+        function checkInspections() {
+
+            let count = 0;
+
+
+            for (
+                let object in inspectedObjects
+            ) {
+
+                if (
+                    inspectedObjects[object]
+                ) {
+
+                    count++;
+
+                }
+
+            }
+
+
+            if (
+                count === 5 &&
+                !firstEventTriggered
+            ) {
+
+                firstEventTriggered = true;
+
+
+                setTimeout(function() {
+
+                    showMessage(
+                        "You feel as though you are being watched."
+                    );
+
+                }, 1000);
+
+            }
+
+        }
+
+
+        /* =========================
+           BEDROOM DOOR
+        ========================= */
+
+        function inspectDoor() {
+
+            if (
+                !inspectedObjects.door
+            ) {
+
+                showMessage(
+                    "The door is locked."
+                );
+
+
+                inspectedObjects.door = true;
+
+            }
+
+            else {
+
+                let examinedCount = 0;
+
+
+                for (
+                    let object in inspectedObjects
+                ) {
+
+                    if (
+                        inspectedObjects[object]
+                    ) {
+
+                        examinedCount++;
+
+                    }
+
+                }
+
+
+                if (
+                    examinedCount < 5
+                ) {
+
+                    showMessage(
+                        "The handle refuses to turn."
+                    );
+
+                }
+
+                else {
+
+                    showMessage(
+                        "The handle moves beneath your hand."
+                    );
+
+
+                    setTimeout(function() {
+
+                        openDoor();
+
+                    }, 1500);
+
+                }
+
+            }
+
+
+            checkInspections();
+
+        }
+
+
+        /* =========================
+           OPEN BEDROOM DOOR
+        ========================= */
+
+        function openDoor() {
+
+            showStory(
+                "The door opens.",
+                function() {
+
+                    showHallway();
+
+                }
+            );
+
+        }
+
+
+        /* =========================
+           BED
+        ========================= */
+
+        function inspectBed() {
+
+            if (
+                !inspectedObjects.bed
+            ) {
+
+                showMessage(
+                    "The sheets are cold."
+                );
+
+
+                inspectedObjects.bed = true;
+
 
                 addNote(
-                    "The study contains a heavily annotated commentary on Romans."
+                    "BED",
+                    "The sheets are cold. There is no warmth left in them."
                 );
 
             }
 
-            if (number === 7) {
+            else {
 
-                addNote(
-                    "There are handwritten notes in the margins of a poetry book."
+                showMessage(
+                    "The warmth has already left them."
                 );
 
             }
 
-            if (number === 11) {
+
+            checkInspections();
+
+        }
+
+
+        /* =========================
+           NIGHTSTAND
+        ========================= */
+
+        function inspectNightstand() {
+
+            if (
+                !inspectedObjects.nightstand
+            ) {
+
+                showMessage(
+                    "There is nothing on it."
+                );
+
+
+                inspectedObjects.nightstand = true;
+
 
                 addNote(
-                    "A prayer book contains handwriting inside the cover."
+                    "NIGHTSTAND",
+                    "Nothing on the nightstand. I expected to find something."
+                );
+
+            }
+
+            else {
+
+                showMessage(
+                    "You find nothing new."
+                );
+
+            }
+
+
+            checkInspections();
+
+        }
+
+
+        /* =========================
+           CRUCIFIX
+        ========================= */
+
+        function inspectCross() {
+
+            if (
+                !inspectedObjects.cross
+            ) {
+
+                showMessage(
+                    "A wooden cross hangs above the bed."
+                );
+
+
+                inspectedObjects.cross = true;
+
+
+                addNote(
+                    "CROSS",
+                    "A wooden cross hangs above the bed."
+                );
+
+            }
+
+            else {
+
+                showMessage(
+                    "You have always found comfort in it."
+                );
+
+            }
+
+
+            checkInspections();
+
+        }
+
+
+        /* =========================
+           BEDROOM PICTURE
+        ========================= */
+
+        function inspectPicture() {
+
+            if (
+                !inspectedObjects.picture
+            ) {
+
+                showMessage(
+                    "The picture is too dark to make out."
+                );
+
+
+                inspectedObjects.picture = true;
+
+
+                addNote(
+                    "PHOTOGRAPH",
+                    "An old photograph. There are several people in it. One face feels strangely familiar."
+                );
+
+            }
+
+            else {
+
+                showMessage(
+                    "You know these people."
+                );
+
+
+                setTimeout(function() {
+
+                    showMessage(
+                        "You can't remember from where."
+                    );
+
+                }, 2200);
+
+
+                addNote(
+                    "PHOTOGRAPH",
+                    "An old photograph. One of the boys in it feels familiar. I can't remember where I've seen him."
+                );
+
+            }
+
+
+            checkInspections();
+
+        }
+
+
+        /* =========================
+           HALLWAY DOORS
+        ========================= */
+
+        function inspectHallDoor(doorNumber) {
+
+            if (doorNumber === 1) {
+
+                showMessage(
+                    "Locked."
+                );
+
+            }
+
+
+            else if (doorNumber === 2) {
+
+                showMessage(
+                    "The door is already open."
+                );
+
+
+                setTimeout(function() {
+
+                    enterSideRoom();
+
+                }, 1500);
+
+            }
+
+
+            else if (doorNumber === 3) {
+
+                showMessage(
+                    "There is no handle."
                 );
 
             }
@@ -2417,100 +2431,772 @@
         }
 
 
-        /* =========================================================
-           SPECIAL BOOK / HIDDEN CLUE
-        ========================================================= */
+        /* =========================
+           HALLWAY PICTURE
+        ========================= */
 
-        /*
-            The shelf will eventually contain a visually distinct
-            special book. For now the evidence system is ready for it.
+        function inspectHallPicture() {
 
-            The name fragment is deliberately:
+            if (!hallPictureLookedAt) {
 
-                jul-
-
-            and NOT:
-
-                Juli—
-
-            The player should not immediately know it is Julian.
-        */
+                hallPictureLookedAt = true;
 
 
-        /* =========================================================
-           DESK DRAWERS
-        ========================================================= */
-
-        function inspectDrawer(number, event) {
-
-            if (event) {
-                event.stopPropagation();
-            }
-
-
-            if (number === 1) {
-
-                if (!state.study.drawers.one) {
-
-                    state.study.drawers.one = true;
+                if (inspectedObjects.picture) {
 
                     showMessage(
-                        "Pens. Batteries. Receipts."
+                        "You stop."
                     );
 
-                } else {
 
-                    showMessage(
-                        "Nothing else."
-                    );
+                    setTimeout(function() {
 
-                }
+                        showMessage(
+                            "That face..."
+                        );
 
-                return;
-            }
+                    }, 1800);
 
 
-            if (number === 2) {
+                    setTimeout(function() {
 
-                if (!state.study.drawers.two) {
+                        showMessage(
+                            "You've seen it before."
+                        );
 
-                    state.study.drawers.two = true;
+                    }, 3600);
 
-                    showMessage(
-                        "Old letters. The handwriting is familiar."
-                    );
 
                     addNote(
-                        "Old letters are kept in the desk. The handwriting looks familiar, but you can't place it."
-                    );
-
-                } else {
-
-                    showMessage(
-                        "The same old letters."
+                        "THE PAINTING",
+                        "The face in the hallway painting looks familiar. It reminds me of someone in the photograph."
                     );
 
                 }
 
+                else {
+
+                    showMessage(
+                        "The face in the painting is difficult to see."
+                    );
+
+
+                    addNote(
+                        "THE PAINTING",
+                        "There is a man in the hallway painting. His face is difficult to see."
+                    );
+
+                }
+
+            }
+
+            else {
+
+                if (inspectedObjects.picture) {
+
+                    showMessage(
+                        "You can't remember where you've seen him."
+                    );
+
+                }
+
+                else {
+
+                    showMessage(
+                        "You could swear the eyes were looking at you."
+                    );
+
+                }
+
+            }
+
+        }
+
+
+        /* =====================================================
+           STUDY INTERACTIONS
+        ===================================================== */
+
+        function inspectDesk() {
+
+            showMessage(
+                "A heavy wooden desk. Someone spent a lot of time here."
+            );
+
+
+            addNote(
+                "THE STUDY",
+                "An old study. The desk looks as though it has been used for years."
+            );
+
+        }
+
+
+        /* =========================
+           BOOKS
+        ========================= */
+
+        function inspectStudyBook(number) {
+
+            if (!studyState.ordinaryBook) {
+
+                studyState.ordinaryBook = true;
+
+
+                showMessage(
+                    "Religious books. Most of them have been read."
+                );
+
+
+                addNote(
+                    "BOOKS",
+                    "Most of the books in the study are about faith, scripture, or church history."
+                );
+
+            }
+
+            else {
+
+                if (number === 1) {
+
+                    showMessage(
+                        "The spine is worn from years of use."
+                    );
+
+                }
+
+                else if (number === 2) {
+
+                    showMessage(
+                        "You don't remember ever reading this."
+                    );
+
+                }
+
+                else if (number === 3) {
+
+                    showMessage(
+                        "There is dust along the top."
+                    );
+
+                }
+
+                else if (number === 4) {
+
+                    showMessage(
+                        "A receipt is being used as a bookmark."
+                    );
+
+                }
+
+                else {
+
+                    showMessage(
+                        "Nothing unusual."
+                    );
+
+                }
+
+            }
+
+        }
+
+
+        /* =========================
+           SPECIAL BOOK
+        ========================= */
+
+        function inspectSpecialBook() {
+
+            if (!studyState.specialBook) {
+
+                studyState.specialBook = true;
+
+
+                showMessage(
+                    "Something is tucked between the pages."
+                );
+
+
+                setTimeout(function() {
+
+                    showMessage(
+                        "A folded piece of paper."
+                    );
+
+                }, 1800);
+
+
+                setTimeout(function() {
+
+                    showMessage(
+                        "\"Don't bring him here again.\""
+                    );
+
+                }, 3600);
+
+
+                addNote(
+                    "FOLDED NOTE",
+                    "A note was hidden inside a book: \"Don't bring him here again.\" Beneath it, a name has been smeared. Only \"jul-\" can be made out."
+                );
+
+            }
+
+            else {
+
+                showMessage(
+                    "The page is empty now."
+                );
+
+            }
+
+        }
+
+
+        /* =========================
+           BIBLE
+        ========================= */
+
+        function inspectBible() {
+
+            if (!studyState.bible) {
+
+                studyState.bible = true;
+
+
+                showMessage(
+                    "The pages are worn from use."
+                );
+
+
+                setTimeout(function() {
+
+                    showMessage(
+                        "Someone underlined something."
+                    );
+
+                }, 2000);
+
+
+                setTimeout(function() {
+
+                    showMessage(
+                        "You don't remember doing it."
+                    );
+
+                }, 4000);
+
+
+                addNote(
+                    "BIBLE",
+                    "An old Bible. Several passages have been underlined. One of the marks looks strangely familiar."
+                );
+
+            }
+
+            else {
+
+                showMessage(
+                    "The same passage is still underlined."
+                );
+
+            }
+
+        }
+
+
+        /* =====================================================
+           JOURNAL — STUDY V2
+        ===================================================== */
+
+        let journalHeld = false;
+        let journalPageIndex = 0;
+
+        const journalPages = [
+            {
+                left: `
+                    <div class="journal-page-number">JUNE 19</div>
+                    <div class="journal-handwriting">
+                        He said he wasn't afraid of me.<br><br>
+                        I believed him.
+                    </div>
+                `,
+                right: `
+                    <div class="journal-page-number">PAGE 17</div>
+                    <div class="journal-handwriting">
+                        <span class="unreadable">jul-</span><br><br>
+                        <span class="unreadable">The rest of the line has been worn away.</span>
+                    </div>
+                `
+            },
+            {
+                left: `
+                    <div class="journal-page-number">JUNE 20</div>
+                    <div class="journal-handwriting">
+                        I shouldn't have—
+                    </div>
+                `,
+                right: `
+                    <div class="journal-page-number">PAGE 18</div>
+                    <div class="journal-handwriting">
+                        Nothing else is written here.
+                    </div>
+                `
+            },
+            {
+                left: `
+                    <div class="journal-page-number">LOOSE PHOTOGRAPH</div>
+                    <div class="journal-handwriting">
+                        Something was tucked between these pages.
+                    </div>
+                `,
+                right: `
+                    <div
+                        class="journal-photo-object"
+                        onclick="openJournalPhoto(); event.stopPropagation();">
+                        <span>PHOTOGRAPH<br>[ EXAMINE ]</span>
+                    </div>
+                `
+            }
+        ];
+
+
+        function inspectJournal() {
+
+            studyState.journal = true;
+
+            openJournalExamination();
+
+        }
+
+
+        function openJournalExamination() {
+
+            closeJournalOverlay();
+
+
+            const overlay = document.createElement("div");
+
+            overlay.className = "journal-overlay";
+            overlay.id = "journalOverlay";
+
+
+            overlay.innerHTML = `
+
+                <div class="journal-examination">
+
+                    <div class="journal-examination-title">
+                        JOURNAL
+                    </div>
+
+
+                    <div id="journalExaminationContent">
+
+                        <div
+                            class="journal-object"
+                            onclick="pickUpJournal()">
+
+                            <span>
+                                OLD JOURNAL
+                            </span>
+
+                        </div>
+
+
+                        <div class="journal-status">
+                            You recognize the handwriting.
+                        </div>
+
+
+                        <div class="journal-controls">
+
+                            <button
+                                class="journal-control"
+                                onclick="pickUpJournal()">
+
+                                [ PICK UP ]
+
+                            </button>
+
+
+                            <button
+                                class="journal-control"
+                                onclick="closeJournalOverlay()">
+
+                                [ PUT DOWN ]
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            `;
+
+
+            document.body.appendChild(overlay);
+
+
+            addNote(
+                "OLD JOURNAL",
+                "An old journal. The handwriting looks like mine. I don't remember owning it."
+            );
+
+        }
+
+
+        function pickUpJournal() {
+
+            journalHeld = true;
+            journalPageIndex = 0;
+
+            renderHeldJournal();
+
+        }
+
+
+        function putDownJournal() {
+
+            journalHeld = false;
+
+            closeJournalOverlay();
+
+            showMessage(
+                "You put the journal down."
+            );
+
+        }
+
+
+        function renderHeldJournal() {
+
+            const content =
+                document.getElementById(
+                    "journalExaminationContent"
+                );
+
+
+            if (!content) {
+
                 return;
+
             }
 
 
-            if (number === 3) {
+            content.innerHTML = `
 
-                if (!state.study.drawers.three) {
+                <div class="journal-status">
+                    The journal is in your hands.
+                </div>
 
-                    state.study.drawers.three = true;
+
+                <div class="journal-page-view">
+
+                    ${journalPages[journalPageIndex].left}
+
+                    ${journalPages[journalPageIndex].right}
+
+                </div>
+
+
+                <div class="journal-controls">
+
+                    <button
+                        class="journal-control"
+                        onclick="previousJournalPage()">
+
+                        [ PREVIOUS ]
+
+                    </button>
+
+
+                    <button
+                        class="journal-control"
+                        onclick="nextJournalPage()">
+
+                        [ TURN PAGE ]
+
+                    </button>
+
+
+                    <button
+                        class="journal-control"
+                        onclick="putDownJournal()">
+
+                        [ PUT DOWN ]
+
+                    </button>
+
+                </div>
+
+            `;
+
+
+            if (!studyState.journalPage) {
+
+                studyState.journalPage = true;
+
+
+                addNote(
+                    "JOURNAL ENTRY",
+                    'June 19. "He said he wasn\'t afraid of me. I believed him." The next line begins with "jul-" but the rest is unreadable.'
+                );
+
+            }
+
+        }
+
+
+        function previousJournalPage() {
+
+            if (journalPageIndex > 0) {
+
+                journalPageIndex--;
+
+                renderHeldJournal();
+
+            }
+
+            else {
+
+                showMessage(
+                    "There are no earlier pages."
+                );
+
+            }
+
+        }
+
+
+        function nextJournalPage() {
+
+            if (
+                journalPageIndex <
+                journalPages.length - 1
+            ) {
+
+                journalPageIndex++;
+
+                renderHeldJournal();
+
+
+                if (
+                    journalPageIndex === 2 &&
+                    !studyState.journalPhoto
+                ) {
+
+                    revealJournalPhoto();
+
+                }
+
+            }
+
+            else {
+
+                showMessage(
+                    "The journal ends here."
+                );
+
+            }
+
+        }
+
+
+        function closeJournalOverlay() {
+
+            const overlay =
+                document.getElementById(
+                    "journalOverlay"
+                );
+
+
+            if (overlay) {
+
+                overlay.remove();
+
+            }
+
+        }
+
+
+        /* =========================
+           JOURNAL PHOTOGRAPH
+        ========================= */
+
+
+        function revealJournalPhoto() {
+
+            if (!studyState.journalPhoto) {
+
+                studyState.journalPhoto = true;
+
+
+                showMessage(
+                    "Something slips from the journal."
+                );
+
+
+                setTimeout(function() {
+
+                    showMessage(
+                        "A photograph."
+                    );
+
+                }, 1800);
+
+
+                addNote(
+                    "SECOND PHOTOGRAPH",
+                    "A photograph fell from the journal. I am in it. There is another boy beside me. I don't know who he is."
+                );
+
+            }
+
+        }
+
+
+        function openJournalPhoto() {
+
+            const overlay = document.createElement("div");
+
+            overlay.className = "physical-photo-overlay";
+            overlay.id = "photoOverlay";
+
+
+            overlay.innerHTML = `
+
+                <div class="physical-photo">
+
+                    <span>
+                        YOU RECOGNIZE YOURSELF.<br><br>
+                        YOU DON'T RECOGNIZE THE BOY BESIDE YOU.
+                    </span>
+
+                </div>
+
+            `;
+
+
+            overlay.onclick = function() {
+
+                overlay.remove();
+
+            };
+
+
+            document.body.appendChild(overlay);
+
+        }
+
+
+
+        /* =========================
+           DESK DRAWERS
+        ========================= */
+
+        function inspectDeskDrawer(drawerNumber) {
+
+            if (drawerNumber === 1) {
+
+                if (!studyState.drawerTop) {
+
+                    studyState.drawerTop = true;
+
+
+                    showMessage(
+                        "Pens. Batteries. Old receipts."
+                    );
+
+
+                    addNote(
+                        "DESK DRAWER",
+                        "The top drawer contains ordinary things. Pens, batteries, receipts."
+                    );
+
+                }
+
+                else {
+
+                    showMessage(
+                        "Nothing new."
+                    );
+
+                }
+
+            }
+
+
+            else if (drawerNumber === 2) {
+
+                if (!studyState.drawerMiddle) {
+
+                    studyState.drawerMiddle = true;
+
+
+                    showMessage(
+                        "Old letters."
+                    );
+
+
+                    setTimeout(function() {
+
+                        showMessage(
+                            "You know this handwriting."
+                        );
+
+                    }, 1800);
+
+
+                    addNote(
+                        "OLD LETTERS",
+                        "There are old letters in the desk. I recognize the handwriting, but I don't remember whose it is."
+                    );
+
+                }
+
+                else {
+
+                    showMessage(
+                        "The letters say nothing you can understand."
+                    );
+
+                }
+
+            }
+
+
+            else if (drawerNumber === 3) {
+
+                if (!studyState.drawerBottom) {
+
+                    studyState.drawerBottom = true;
+
 
                     showMessage(
                         "Locked."
                     );
 
+
+                    setTimeout(function() {
+
+                        showMessage(
+                            "Something is inside."
+                        );
+
+                    }, 1800);
+
+
                     addNote(
+                        "LOCKED DESK DRAWER",
                         "The bottom desk drawer is locked. Something is inside."
                     );
 
-                } else {
+                }
+
+                else {
 
                     showMessage(
                         "Still locked."
@@ -2523,44 +3209,167 @@
         }
 
 
-        /* =========================================================
+        /* =========================
            FILING CABINET
-        ========================================================= */
+        ========================= */
 
-        function inspectFilingCabinet() {
+        function inspectCabinet() {
 
-            if (!state.study.cabinetOpened) {
+            if (!studyState.cabinet) {
 
-                state.study.cabinetOpened = true;
+                studyState.cabinet = true;
+
 
                 showMessage(
                     "Old family records."
                 );
 
-                addNote(
-                    "The filing cabinet contains old family records."
-                );
 
-                setTimeout(() => {
+                setTimeout(function() {
 
                     showMessage(
                         "One folder is marked D / J."
                     );
 
+                }, 2200);
+
+
+                addNote(
+                    "FAMILY RECORDS",
+                    "The filing cabinet contains old family documents. One folder is marked \"D / J.\""
+                );
+
+            }
+
+            else {
+
+                if (!studyState.familyFolder) {
+
+                    studyState.familyFolder = true;
+
+
+                    showMessage(
+                        "The folder is empty."
+                    );
+
+
+                    setTimeout(function() {
+
+                        showMessage(
+                            "No."
+                        );
+
+                    }, 1800);
+
+
+                    setTimeout(function() {
+
+                        showMessage(
+                            "Something is underneath it."
+                        );
+
+                    }, 3600);
+
+
                     addNote(
-                        "A folder in the filing cabinet is marked \"D / J.\""
+                        "EMPTY FOLDER",
+                        "The D / J folder is empty. A small piece of paper was underneath it: \"He knows.\""
+                    );
+
+                }
+
+                else {
+
+                    showMessage(
+                        "\"He knows.\""
+                    );
+
+                }
+
+            }
+
+        }
+
+
+        /* =========================
+           CLOCK
+        ========================= */
+
+        function inspectClock() {
+
+            if (!studyState.clock) {
+
+                studyState.clock = true;
+
+
+                showMessage(
+                    "The clock has stopped."
+                );
+
+
+                setTimeout(function() {
+
+                    showMessage(
+                        "3:17."
                     );
 
                 }, 1800);
 
-            } else {
+
+                addNote(
+                    "CLOCK",
+                    "The study clock has stopped at 3:17."
+                );
+
+            }
+
+            else if (
+                studyState.journal &&
+                !studyState.clockChanged
+            ) {
+
+                studyState.clockChanged = true;
+
+
+                const clock =
+                    document.getElementById(
+                        "studyClock"
+                    );
+
+
+                if (clock) {
+
+                    clock.style.transform =
+                        "translateX(1px)";
+
+                }
+
 
                 showMessage(
-                    "The folder marked D / J is empty."
+                    "3:18."
                 );
+
+
+                setTimeout(function() {
+
+                    showMessage(
+                        "You didn't hear it move."
+                    );
+
+                }, 2000);
+
 
                 addNote(
-                    "The D / J folder is empty. Someone has written \"He knows.\" underneath it."
+                    "THE CLOCK",
+                    "The study clock was stopped at 3:17. After reading the journal, it now says 3:18."
+                );
+
+            }
+
+            else {
+
+                showMessage(
+                    "3:18."
                 );
 
             }
@@ -2568,269 +3377,119 @@
         }
 
 
-        /* =========================================================
-           JOURNAL
-        ========================================================= */
+        /* =========================
+           CHAIR
+        ========================= */
 
-        const journalPages = [
+        function inspectChair() {
 
-            {
-                left:
-                    "There is nothing written here.",
+            if (!studyState.chair) {
 
-                right:
-                    "The first few pages have been torn out.",
+                studyState.chair = true;
 
-                leftNumber:
-                    "—",
 
-                rightNumber:
-                    "—"
-            },
+                showMessage(
+                    "The chair smells faintly of dust."
+                );
 
-
-            {
-                left:
-                    "June 19\n\nHe said he wasn't afraid of me.\n\nI believed him.",
-
-                right:
-                    "I don't know why I keep writing this down.\n\nI told myself it would make sense later.\n\njul-\n\n[The rest has been scratched away.]",
-
-                leftNumber:
-                    "14",
-
-                rightNumber:
-                    "15"
-            },
-
-
-            {
-                left:
-                    "I shouldn't have—\n\n[The rest of the page has been torn away.]",
-
-                right:
-                    "There are several lines written so heavily that the paper has nearly torn.\n\nYou can't make them out.",
-
-                leftNumber:
-                    "16",
-
-                rightNumber:
-                    "17"
-            },
-
-
-            {
-                left:
-                    "A photograph has been kept between these pages.",
-
-                right:
-                    "The photograph is stuck to the page.\n\nSomeone has written something on the back.",
-
-                leftNumber:
-                    "18",
-
-                rightNumber:
-                    "19",
-
-                photo: true
-            }
-
-        ];
-
-
-        function openJournal(event) {
-
-            if (event) {
-                event.stopPropagation();
-            }
-
-            closeMessage();
-
-            state.study.journalFound = true;
-            state.study.journalOpened = true;
-            state.study.journalPage = 0;
-
-            addNote(
-                "You found an old journal. The handwriting looks like yours."
-            );
-
-            addNote(
-                "One entry contains the fragment \"jul-\". The rest is unreadable."
-            );
-
-            openEvidence("journal");
-
-        }
-
-
-        function openEvidence(type) {
-
-            state.evidence.open = true;
-            state.evidence.type = type;
-
-            evidenceOverlay.classList.remove("hidden");
-
-            journalView.classList.add("hidden");
-            caseFileView.classList.add("hidden");
-            photoView.classList.add("hidden");
-
-            document
-                .getElementById("evidence-photo-button")
-                .classList.add("hidden");
-
-
-            if (type === "journal") {
-
-                evidenceTitle.textContent =
-                    "JOURNAL";
-
-                journalView.classList.remove("hidden");
-
-                renderJournal();
-
-            }
-
-
-            if (type === "case-file") {
-
-                evidenceTitle.textContent =
-                    "CASE FILE";
-
-                caseFileView.classList.remove("hidden");
-
-                renderCaseFile();
-
-            }
-
-
-            if (type === "photo") {
-
-                evidenceTitle.textContent =
-                    "PHOTOGRAPH";
-
-                photoView.classList.remove("hidden");
-
-                document
-                    .getElementById("previous-page")
-                    .classList.add("hidden");
-
-                document
-                    .getElementById("next-page")
-                    .classList.add("hidden");
-
-            }
-
-        }
-
-
-        /* =========================================================
-           JOURNAL RENDERING
-        ========================================================= */
-
-        function renderJournal() {
-
-            const page =
-                journalPages[state.study.journalPage];
-
-            document
-                .getElementById("journal-left-content")
-                .textContent = page.left;
-
-            document
-                .getElementById("journal-right-content")
-                .textContent = page.right;
-
-            document
-                .getElementById("journal-left-number")
-                .textContent = page.leftNumber;
-
-            document
-                .getElementById("journal-right-number")
-                .textContent = page.rightNumber;
-
-
-            evidenceStatus.textContent =
-                "PAGES " +
-                (state.study.journalPage * 2 + 1) +
-                "–" +
-                (state.study.journalPage * 2 + 2);
-
-
-            const previous =
-                document.getElementById("previous-page");
-
-            const next =
-                document.getElementById("next-page");
-
-            previous.disabled =
-                state.study.journalPage === 0;
-
-            next.disabled =
-                state.study.journalPage ===
-                journalPages.length - 1;
-
-
-            if (page.photo) {
-
-                document
-                    .getElementById("evidence-photo-button")
-                    .classList.remove("hidden");
-
-            } else {
-
-                document
-                    .getElementById("evidence-photo-button")
-                    .classList.add("hidden");
-
-            }
-
-        }
-
-
-        function nextJournalPage() {
-
-            if (
-                state.evidence.type !== "journal"
-            ) {
-                return;
-            }
-
-            if (
-                state.study.journalPage >=
-                journalPages.length - 1
-            ) {
-                return;
-            }
-
-            state.study.journalPage++;
-
-            renderJournal();
-
-
-            if (state.study.journalPage === 1) {
 
                 addNote(
-                    "The journal contains an entry dated June 19."
+                    "ARMCHAIR",
+                    "An old armchair sits in the corner. It looks recently used."
                 );
 
             }
 
+            else {
 
-            if (state.study.journalPage === 2) {
+                showMessage(
+                    "Someone was sitting here recently."
+                );
+
+            }
+
+        }
+
+
+        /* =========================
+           PAPER
+        ========================= */
+
+        function inspectPaper() {
+
+            if (!studyState.paper) {
+
+                studyState.paper = true;
+
+
+                showMessage(
+                    "A handwritten reminder."
+                );
+
+
+                setTimeout(function() {
+
+                    showMessage(
+                        "\"2:30 — pick him up.\""
+                    );
+
+                }, 1800);
+
 
                 addNote(
-                    "A journal page begins: \"I shouldn't have—\" before being torn away."
+                    "HANDWRITTEN REMINDER",
+                    "A note on the desk reads: \"2:30 — pick him up.\" There is no name."
                 );
 
             }
 
+            else {
 
-            if (state.study.journalPage === 3) {
+                showMessage(
+                    "\"2:30 — pick him up.\""
+                );
 
-                state.study.photoFound = true;
+            }
+
+        }
+
+
+        /* =========================
+           WASTEBASKET
+        ========================= */
+
+        function inspectWastebasket() {
+
+            if (!studyState.wastebasket) {
+
+                studyState.wastebasket = true;
+
+
+                showMessage(
+                    "Old papers."
+                );
+
+
+                setTimeout(function() {
+
+                    showMessage(
+                        "Most of them have been torn up."
+                    );
+
+                }, 1800);
+
 
                 addNote(
-                    "A photograph is hidden inside the journal."
+                    "TORN PAPERS",
+                    "Someone tore up several old pages and threw them away."
+                );
+
+            }
+
+            else {
+
+                showMessage(
+                    "There is nothing intact enough to read."
                 );
 
             }
@@ -2838,208 +3497,42 @@
         }
 
 
-        function previousJournalPage() {
+        /* =========================
+           LAMP
+        ========================= */
 
-            if (
-                state.evidence.type !== "journal"
-            ) {
-                return;
-            }
+        function inspectLamp() {
 
-            if (state.study.journalPage <= 0) {
-                return;
-            }
+            if (!studyState.lamp) {
 
-            state.study.journalPage--;
-
-            renderJournal();
-
-        }
+                studyState.lamp = true;
 
 
-        /* =========================================================
-           JOURNAL PHOTO
-        ========================================================= */
-
-        function openEvidencePhoto() {
-
-            if (
-                state.evidence.type !== "journal"
-            ) {
-                return;
-            }
-
-            state.evidence.type = "photo";
-
-            journalView.classList.add("hidden");
-
-            photoView.classList.remove("hidden");
-
-            evidenceTitle.textContent =
-                "PHOTOGRAPH";
-
-            evidenceStatus.textContent =
-                "FOUND INSIDE JOURNAL";
-
-            document
-                .getElementById("previous-page")
-                .classList.add("hidden");
-
-            document
-                .getElementById("next-page")
-                .classList.add("hidden");
-
-            document
-                .getElementById("evidence-photo-button")
-                .classList.add("hidden");
-
-            addNote(
-                "The photograph shows Dontay with another boy. You don't recognize him."
-            );
-
-        }
+                showMessage(
+                    "The lamp doesn't turn on."
+                );
 
 
-        /* =========================================================
-           CASE FILE SYSTEM
-        ========================================================= */
-
-        function openCaseFile() {
-
-            closeMessage();
-
-            openEvidence("case-file");
-
-        }
-
-
-        function renderCaseFile() {
-
-            evidenceStatus.textContent =
-                "FILE D / J";
-
-            document
-                .getElementById("case-file-heading")
-                .textContent =
-                "D / J";
-
-            document
-                .getElementById("case-file-content")
-                .textContent =
-                "The folder contains several old documents. " +
-                "Most are ordinary records. One photograph has been attached to the file. " +
-                "The names on the paperwork have faded with age.";
-
-            document
-                .getElementById("previous-page")
-                .classList.add("hidden");
-
-            document
-                .getElementById("next-page")
-                .classList.add("hidden");
-
-            document
-                .getElementById("evidence-photo-button")
-                .classList.remove("hidden");
-
-        }
-
-
-        /* =========================================================
-           CLOSE / PUT DOWN EVIDENCE
-        ========================================================= */
-
-        function closeEvidence() {
-
-            state.evidence.open = false;
-            state.evidence.type = null;
-
-            state.study.journalOpened = false;
-
-            evidenceOverlay.classList.add("hidden");
-
-            journalView.classList.add("hidden");
-            caseFileView.classList.add("hidden");
-            photoView.classList.add("hidden");
-
-            document
-                .getElementById("previous-page")
-                .classList.remove("hidden");
-
-            document
-                .getElementById("next-page")
-                .classList.remove("hidden");
-
-        }
-
-
-        /* =========================================================
-           KEYBOARD EVIDENCE CONTROLS
-        ========================================================= */
-
-        document.addEventListener(
-            "keydown",
-            function(event) {
-
-                if (!state.evidence.open) {
-                    return;
-                }
-
-
-                if (
-                    state.evidence.type === "journal"
-                ) {
-
-                    if (event.key === "ArrowRight") {
-
-                        nextJournalPage();
-
-                    }
-
-                    if (event.key === "ArrowLeft") {
-
-                        previousJournalPage();
-
-                    }
-
-                }
-
-
-                if (event.key === "Escape") {
-
-                    closeEvidence();
-
-                }
+                addNote(
+                    "DESK LAMP",
+                    "The desk lamp doesn't work."
+                );
 
             }
-        );
 
+            else {
 
-        /* =========================================================
-           FUTURE CASE-FILE HOOK
-        =========================================================
+                showMessage(
+                    "Still dead."
+                );
 
-           The case-file system is deliberately separate from the
-           journal system.
+            }
 
-           Later, when the player physically discovers the case file,
-           we can simply call:
+        }
 
-               openCaseFile();
-
-           That will open the actual evidence interface instead of
-           showing a normal message.
-
-        ========================================================= */
-
-
-        /* =========================================================
-           INITIAL STATE
-        ========================================================= */
-
-        moveToRoom("bedroom");
 
     </script>
 
 </body>
+
 </html>
