@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<head><script nonce="pwojpigxQoFXmYohBuUbWA" src="https://chatgpt.com/__DLD__e6144a3da704c5efc34e5ae5cc466d431e8f2f9f4efe74c697654bf5b6f1c5d5/resources/setup.js"></script><script nonce="8MZTHq5dD+19mUD3O1Tbyg" src="https://chatgpt.com/__DLD__e6144a3da704c5efc34e5ae5cc466d431e8f2f9f4efe74c697654bf5b6f1c5d5/resources/frontend.min.js" server="https://localhost:49910" id="__dld-frontend__" async defer></script>
+<head><script nonce="W7cHBdk860feDZzahms38g" src="https://chatgpt.com/__DLD__e6144a3da704c5efc34e5ae5cc466d431e8f2f9f4efe74c697654bf5b6f1c5d5/resources/setup.js"></script><script nonce="e9dcJDsmcU3P/LDrW8Ychw" src="https://chatgpt.com/__DLD__e6144a3da704c5efc34e5ae5cc466d431e8f2f9f4efe74c697654bf5b6f1c5d5/resources/frontend.min.js" server="https://localhost:49910" id="__dld-frontend__" async defer></script>
 
     <title>In His Name</title>
 
@@ -1080,6 +1080,116 @@
 
 
 
+        /* =====================================================
+           CASE FILE — STUDY V2
+        ===================================================== */
+
+        .casefile-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.84);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 45;
+        }
+
+        .casefile-folder {
+            width: 70vw;
+            max-width: 850px;
+            max-height: 82vh;
+            overflow-y: auto;
+            background: #151412;
+            border: 1px solid #37332c;
+            box-shadow: 0 0 60px rgba(0, 0, 0, 0.9);
+            padding: 38px;
+        }
+
+        .casefile-title {
+            text-align: center;
+            font-size: 20px;
+            letter-spacing: 6px;
+            font-weight: normal;
+            margin-bottom: 8px;
+        }
+
+        .casefile-subtitle {
+            text-align: center;
+            color: #77736b;
+            font-size: 11px;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+        }
+
+        .casefile-document {
+            background: #bcb5a6;
+            color: #292722;
+            padding: 30px;
+            margin-bottom: 18px;
+            border: 1px solid #625d53;
+            cursor: pointer;
+        }
+
+        .casefile-document:hover {
+            border-color: #827a6b;
+        }
+
+        .casefile-document-title {
+            font-size: 13px;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        .casefile-document-text {
+            font-size: 14px;
+            line-height: 1.8;
+            letter-spacing: 1px;
+        }
+
+        .casefile-document-note {
+            margin-top: 14px;
+            color: #625d53;
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+
+        .casefile-close {
+            display: block;
+            margin: 30px auto 0 auto;
+            background: none;
+            border: none;
+            color: #77736b;
+            font-family: Georgia, serif;
+            font-size: 12px;
+            letter-spacing: 3px;
+            cursor: pointer;
+        }
+
+        .casefile-close:hover {
+            color: #ffffff;
+        }
+
+        .casefile-document-view {
+            background: #bcb5a6;
+            color: #292722;
+            padding: 45px;
+            min-height: 38vh;
+            border: 1px solid #625d53;
+        }
+
+        .casefile-document-view-title {
+            font-size: 16px;
+            letter-spacing: 4px;
+            margin-bottom: 28px;
+        }
+
+        .casefile-document-view-text {
+            font-size: 15px;
+            line-height: 2;
+            letter-spacing: 1px;
+        }
+
+
         /* =========================
            INTERACTION MESSAGE
         ========================= */
@@ -1318,7 +1428,9 @@
             chair: false,
             paper: false,
             wastebasket: false,
-            lamp: false
+            lamp: false,
+            caseFile: false,
+            caseDocument: null
 
         };
 
@@ -3241,54 +3353,289 @@
 
             }
 
+            else if (!studyState.familyFolder) {
+
+                studyState.familyFolder = true;
+
+
+                showMessage(
+                    "The folder is empty."
+                );
+
+
+                setTimeout(function() {
+
+                    showMessage(
+                        "No."
+                    );
+
+                }, 1800);
+
+
+                setTimeout(function() {
+
+                    showMessage(
+                        "Something is underneath it."
+                    );
+
+                }, 3600);
+
+
+                addNote(
+                    "EMPTY FOLDER",
+                    "The D / J folder is empty. A small piece of paper was underneath it: \"He knows.\""
+                );
+
+            }
+
+            else if (!studyState.caseFile) {
+
+                studyState.caseFile = true;
+
+
+                showMessage(
+                    "There is something behind the folder."
+                );
+
+
+                setTimeout(function() {
+
+                    showMessage(
+                        "A case file."
+                    );
+
+                }, 1800);
+
+
+                setTimeout(function() {
+
+                    openCaseFile();
+
+                }, 3300);
+
+
+                addNote(
+                    "CASE FILE",
+                    "Something was hidden behind the empty D / J folder. It is an old case file."
+                );
+
+            }
+
             else {
 
-                if (!studyState.familyFolder) {
-
-                    studyState.familyFolder = true;
-
-
-                    showMessage(
-                        "The folder is empty."
-                    );
-
-
-                    setTimeout(function() {
-
-                        showMessage(
-                            "No."
-                        );
-
-                    }, 1800);
-
-
-                    setTimeout(function() {
-
-                        showMessage(
-                            "Something is underneath it."
-                        );
-
-                    }, 3600);
-
-
-                    addNote(
-                        "EMPTY FOLDER",
-                        "The D / J folder is empty. A small piece of paper was underneath it: \"He knows.\""
-                    );
-
-                }
-
-                else {
-
-                    showMessage(
-                        "\"He knows.\""
-                    );
-
-                }
+                openCaseFile();
 
             }
 
         }
+
+
+        /* =====================================================
+           CASE FILE — DOCUMENT EXAMINATION
+        ===================================================== */
+
+        const caseDocuments = [
+            {
+                title: "FAMILY RECORD",
+                text: "The document is old enough that the paper has yellowed. Most of it concerns ordinary family information. One section has been removed.",
+                note: "A section has been cut away."
+            },
+            {
+                title: "HANDWRITTEN NOTE",
+                text: "The handwriting is familiar. You cannot place it. Only the beginning of a name remains visible: \"jul-\"",
+                note: "The rest has been deliberately obscured."
+            },
+            {
+                title: "PHOTOGRAPH",
+                text: "A small photograph is attached to the file. You recognize yourself. The other boy is still unfamiliar.",
+                note: "The same face from the journal photograph."
+            },
+            {
+                title: "UNSIGNED STATEMENT",
+                text: "Several lines have been crossed out. The remaining words are difficult to understand. Someone did not want this kept intact.",
+                note: "The page has been folded several times."
+            }
+        ];
+
+
+        function openCaseFile() {
+
+            closeCaseFile();
+
+
+            const overlay = document.createElement("div");
+
+            overlay.className = "casefile-overlay";
+            overlay.id = "caseFileOverlay";
+
+
+            overlay.innerHTML = `
+
+                <div class="casefile-folder">
+
+                    <div class="casefile-title">
+                        CASE FILE
+                    </div>
+
+                    <div class="casefile-subtitle">
+                        D / J
+                    </div>
+
+
+                    <div id="caseFileContent">
+
+                        ${renderCaseFileList()}
+
+                    </div>
+
+
+                    <button
+                        class="casefile-close"
+                        onclick="closeCaseFile()">
+
+                        [ CLOSE ]
+
+                    </button>
+
+                </div>
+
+            `;
+
+
+            document.body.appendChild(overlay);
+
+        }
+
+
+        function renderCaseFileList() {
+
+            let output = "";
+
+
+            caseDocuments.forEach(function(documentItem, index) {
+
+                output += `
+
+                    <div
+                        class="casefile-document"
+                        onclick="examineCaseDocument(${index})">
+
+                        <div class="casefile-document-title">
+                            ${documentItem.title}
+                        </div>
+
+                        <div class="casefile-document-text">
+                            ${documentItem.text}
+                        </div>
+
+                        <div class="casefile-document-note">
+                            [ EXAMINE ]
+                        </div>
+
+                    </div>
+
+                `;
+
+            });
+
+
+            return output;
+
+        }
+
+
+        function examineCaseDocument(index) {
+
+            const documentItem =
+                caseDocuments[index];
+
+
+            const content =
+                document.getElementById(
+                    "caseFileContent"
+                );
+
+
+            if (!content) {
+
+                return;
+
+            }
+
+
+            studyState.caseDocument = index;
+
+
+            content.innerHTML = `
+
+                <div class="casefile-document-view">
+
+                    <div class="casefile-document-view-title">
+                        ${documentItem.title}
+                    </div>
+
+                    <div class="casefile-document-view-text">
+                        ${documentItem.text}
+                        <br><br>
+                        <span style="color:#625d53;">
+                            ${documentItem.note}
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div class="journal-controls">
+
+                    <button
+                        class="journal-control"
+                        onclick="openCaseFile()">
+
+                        [ BACK TO FILE ]
+
+                    </button>
+
+
+                    <button
+                        class="journal-control"
+                        onclick="closeCaseFile()">
+
+                        [ CLOSE ]
+
+                    </button>
+
+                </div>
+
+            `;
+
+
+            addNote(
+                "CASE DOCUMENT",
+                "You examined a document from the D / J case file: " +
+                documentItem.title +
+                "."
+            );
+
+        }
+
+
+        function closeCaseFile() {
+
+            const overlay =
+                document.getElementById(
+                    "caseFileOverlay"
+                );
+
+
+            if (overlay) {
+
+                overlay.remove();
+
+            }
+
+        }
+
+
 
 
         /* =========================
